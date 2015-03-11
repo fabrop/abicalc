@@ -1,4 +1,4 @@
-nach Priortaet:
+nach Prioritaet:
 
 - Interface Aufteilung
 - Noten fuer einzelne Faecher

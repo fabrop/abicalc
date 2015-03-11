@@ -1,0 +1,3 @@
+04.03.2015 - 
+06.03.2015 -
+11.03.2015 - Installieren Git client und Eclipse, Interface Design (Einzelne Bildschirme), To-Do Liste nach Prioritaeten sortiert
