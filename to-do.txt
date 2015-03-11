@@ -1,0 +1,10 @@
+nach Priortät:
+
+- Interface Aufteilung
+- Noten für einzelne Fächer
+- Einzelne Klausuren + Mündliche Noten
+- Abiturprüfungen
+- Kurswahlen
+- GUI
+- (Bundesländer)
+- (Portierung)
