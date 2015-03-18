@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JSeparator;
 import javax.swing.border.LineBorder;
 import javax.swing.BoxLayout;
+import javax.swing.JTabbedPane;
 
 public class Abicalc extends JFrame {
 
@@ -71,6 +72,11 @@ public class Abicalc extends JFrame {
 		JPanel panel_main = new JPanel();
 		panel_main.setBounds(10, 65, 764, 431);
 		contentPane.add(panel_main);
+		panel_main.setLayout(null);
+		
+		JTabbedPane tabbedPane_Halbjahre = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane_Halbjahre.setBounds(10, 10, 744, 410);
+		panel_main.add(tabbedPane_Halbjahre);
 		
 		JPanel panel_unten = new JPanel();
 		panel_unten.setBackground(Color.DARK_GRAY);
