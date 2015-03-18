@@ -1,3 +1,5 @@
 04.03.2015 - 
 06.03.2015 -
 11.03.2015 - Installieren Git client und Eclipse, Interface Design (Einzelne Bildschirme) Ueberlegungen, To-Do Liste nach Prioritaeten sortiert
+13.03.2015 - Photoshop Layout Design, Eclipse Fehlerbehebung
+18.03.2015 - 
