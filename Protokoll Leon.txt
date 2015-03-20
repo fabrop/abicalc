@@ -2,3 +2,5 @@
 6.3.2015 -Entscheinen fuer eien Plattform -> javaeditor mit Moeglichkeit zur App/Applet, recherche zu Github
 11.3.2015 -Nachschreiben der Arbeit
 13.3.2015 -Einrichten von eclipse und GitHub
+18.3.2015 -Erstellen der Note und Fach.java und weitere Konzeptentwicklung
+20.3.2015 -Erstellen von Linked Lists fuer Faecher und Noten
