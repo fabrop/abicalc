@@ -78,6 +78,21 @@ public class Abicalc extends JFrame {
 		tabbedPane_Halbjahre.setBounds(10, 10, 744, 410);
 		panel_main.add(tabbedPane_Halbjahre);
 		
+		JPanel panel_HJ1 = new JPanel();
+		tabbedPane_Halbjahre.addTab("Halbjahr 11.1", null, panel_HJ1, null);
+		
+		JPanel panel_HJ2 = new JPanel();
+		tabbedPane_Halbjahre.addTab("Halbjahr 11.2", null, panel_HJ2, null);
+		
+		JPanel panel_HJ3 = new JPanel();
+		tabbedPane_Halbjahre.addTab("Halbjahr 12.1", null, panel_HJ3, null);
+		
+		JPanel panel_HJ4 = new JPanel();
+		tabbedPane_Halbjahre.addTab("Halbjahr 12.2", null, panel_HJ4, null);
+		
+		JPanel panel_Pruefungen = new JPanel();
+		tabbedPane_Halbjahre.addTab("Pr\u00FCfungen", null, panel_Pruefungen, null);
+		
 		JPanel panel_unten = new JPanel();
 		panel_unten.setBackground(Color.DARK_GRAY);
 		panel_unten.setBounds(10, 507, 764, 44);
