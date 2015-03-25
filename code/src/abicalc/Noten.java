@@ -18,7 +18,8 @@ public class Noten {
 		i = ((Klausur1.gewichtung * Klausur1.punkte) 
 		+ (Klausur2.gewichtung * Klausur2.punkte) 
 		+ (Muendlich1.gewichtung * Muendlich1.punkte) 
-		+ (Muendlich1.gewichtung * Muendlich1.punkte)) / 6;
+		+ (Muendlich2.gewichtung * Muendlich2.punkte))
+		/ (Klausur1.gewichtung + Klausur2.gewichtung + Muendlich1.gewichtung + Muendlich2.gewichtung);
 		return i;
 	}
 }
