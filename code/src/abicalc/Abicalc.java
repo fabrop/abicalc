@@ -23,19 +23,9 @@ public class Abicalc extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Abicalc frame = new Abicalc();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
+	static JLabel lbl_Punkte;
 	/**
 	 * Create the frame.
 	 */
@@ -105,10 +95,34 @@ public class Abicalc extends JFrame {
 		lblNotenschnitt.setBounds(29, 11, 166, 22);
 		panel_unten.add(lblNotenschnitt);
 		
-		JLabel label_Punkte = new JLabel("00");
-		label_Punkte.setForeground(Color.WHITE);
-		label_Punkte.setFont(new Font("Tahoma", Font.PLAIN, 28));
-		label_Punkte.setBounds(198, 11, 47, 22);
-		panel_unten.add(label_Punkte);
+		lbl_Punkte = new JLabel("00");
+		lbl_Punkte.setForeground(Color.WHITE);
+		lbl_Punkte.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		lbl_Punkte.setBounds(198, 11, 47, 22);
+		panel_unten.add(lbl_Punkte);
+	}
+	
+	public static void setGesamtSchnitt(double d){
+		lbl_Punkte.setText(""+d);
+	}
+	
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Abicalc frame = new Abicalc();
+					frame.setVisible(true);
+					
+					
+					setGesamtSchnitt(Halbjahresschnitt());
+					
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
 	}
 }
