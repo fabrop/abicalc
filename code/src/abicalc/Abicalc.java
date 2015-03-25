@@ -20,17 +20,14 @@ public class Abicalc extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
+	static JLabel lbl_Punkte;
+	
+	/*
+	 * Anfang UI
 	 */
 	
-
-	static JLabel lbl_Punkte;
-	/**
-	 * Create the frame.
-	 */
 	public Abicalc() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		//Hauptfenster
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
@@ -38,33 +35,37 @@ public class Abicalc extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel_title = new JPanel();
+		JPanel panel_title = new JPanel();					//Dunkelgrauer Contaier für Buttons/Titel
 		panel_title.setBackground(Color.DARK_GRAY);
 		panel_title.setBounds(10, 10, 764, 44);
 		contentPane.add(panel_title);
 		panel_title.setLayout(null);
 		
-		JLabel lblAbicalc = new JLabel("abicalc");
+		JLabel lblAbicalc = new JLabel("abicalc");			//Titel
 		lblAbicalc.setBounds(25, -3, 92, 47);
 		lblAbicalc.setForeground(Color.WHITE);
 		lblAbicalc.setHorizontalAlignment(SwingConstants.LEFT);
 		lblAbicalc.setFont(new Font("Tahoma", Font.PLAIN, 28));
 		panel_title.add(lblAbicalc);
 		
-		JButton btnEinstellungen = new JButton("Einstellungen");
-		btnEinstellungen.setBounds(504, 10, 120, 23);
+		JButton btnEinstellungen = new JButton("Einstellungen");		//Button Einstellungen
+		btnEinstellungen.setBounds(531, 10, 104, 23);
 		panel_title.add(btnEinstellungen);
 		
-		JButton btnZuruecksetzen = new JButton("Zur\u00FCcksetzen");
-		btnZuruecksetzen.setBounds(634, 10, 120, 23);
+		JButton btnZuruecksetzen = new JButton("Zur\u00FCcksetzen");		//Button Zurücksetzen
+		btnZuruecksetzen.setBounds(645, 10, 109, 23);
 		panel_title.add(btnZuruecksetzen);
 		
-		JPanel panel_main = new JPanel();
+		JButton btnSpeichernAktualisieren = new JButton("Speichern/Aktualisieren");		//Button Speichern und Aktualisieren
+		btnSpeichernAktualisieren.setBounds(376, 11, 145, 22);
+		panel_title.add(btnSpeichernAktualisieren);
+		
+		JPanel panel_main = new JPanel();		//Container für Tabs und Übersicht
 		panel_main.setBounds(10, 65, 764, 431);
 		contentPane.add(panel_main);
 		panel_main.setLayout(null);
 		
-		JTabbedPane tabbedPane_Halbjahre = new JTabbedPane(JTabbedPane.TOP);
+		JTabbedPane tabbedPane_Halbjahre = new JTabbedPane(JTabbedPane.TOP);		//Tabs für Halbjahre eines Fachs
 		tabbedPane_Halbjahre.setBounds(10, 10, 744, 410);
 		panel_main.add(tabbedPane_Halbjahre);
 		
@@ -83,29 +84,32 @@ public class Abicalc extends JFrame {
 		JPanel panel_Pruefungen = new JPanel();
 		tabbedPane_Halbjahre.addTab("Pr\u00FCfungen", null, panel_Pruefungen, null);
 		
-		JPanel panel_unten = new JPanel();
+		JPanel panel_unten = new JPanel();				//Dunkelgrauer Container für Gesamtschnitt
 		panel_unten.setBackground(Color.DARK_GRAY);
 		panel_unten.setBounds(10, 507, 764, 44);
 		contentPane.add(panel_unten);
 		panel_unten.setLayout(null);
 		
-		JLabel lblNotenschnitt = new JLabel("Notenschnitt:");
+		JLabel lblNotenschnitt = new JLabel("Notenschnitt:");					//Beschriftung Gesamtschnitt
 		lblNotenschnitt.setFont(new Font("Tahoma", Font.PLAIN, 28));
 		lblNotenschnitt.setForeground(Color.WHITE);
 		lblNotenschnitt.setBounds(29, 11, 166, 22);
 		panel_unten.add(lblNotenschnitt);
 		
-		lbl_Punkte = new JLabel("00");
+		lbl_Punkte = new JLabel("00");						//Label mit Gesamtschnitt als Inhalt
 		lbl_Punkte.setForeground(Color.WHITE);
 		lbl_Punkte.setFont(new Font("Tahoma", Font.PLAIN, 28));
-		lbl_Punkte.setBounds(198, 11, 47, 22);
+		lbl_Punkte.setBounds(198, 11, 149, 22);
 		panel_unten.add(lbl_Punkte);
 	}
 	
-	public static void setGesamtSchnitt(double d){
+	/*
+	 * Ende UI
+	 */
+	
+	public static void setGesamtSchnitt(double d){				//Double-Variable als Input für JLabel mit Gesamtschnitt
 		lbl_Punkte.setText(""+d);
 	}
-	
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -114,9 +118,10 @@ public class Abicalc extends JFrame {
 					Abicalc frame = new Abicalc();
 					frame.setVisible(true);
 					
+					//Hauptprogramm
 					
-					setGesamtSchnitt(Halbjahresschnitt());
-					
+					Noten notenliste = new Noten();
+					setGesamtSchnitt(notenliste.halbjahresschnitt());
 					
 				} catch (Exception e) {
 					e.printStackTrace();
