@@ -1,5 +1,5 @@
-package abicalc;
+package abicalc;//oberste Datenstruktur unter dem Hauptprogramm
 
-public class Halbjahr {
+public class Halbjahr {//Konstrukror
 	Faecher faecherliste;
 }

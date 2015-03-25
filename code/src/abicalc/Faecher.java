@@ -5,7 +5,7 @@ public class Faecher {
 	Fach Deutsch = new Fach("Deutsch");
 	Fach NeuesFach = new Fach("neues Fach");
 	
-	public Faecher(){
+	public Faecher(){//KOnstruktor = Erstelen der verketteten Liste
 		Mathematik.naechstes = Deutsch;
 		Deutsch.naechstes = NeuesFach;
 	}
