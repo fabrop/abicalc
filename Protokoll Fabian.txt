@@ -4,3 +4,5 @@
 13.03.2015 - Photoshop Layout Design, Eclipse Fehlerbehebung
 18.03.2015 - Eclipse JPanels, JButtons, JTabbedPane
 20.03.2015 - Tabs erstellen, deren Components bearbeiten, Indizes der Tabs
+25.03.2015 - Zusammenführung Noten/main
+27.03.2015 - Dateispeicherung/-lesen Recherche
