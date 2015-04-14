@@ -24,7 +24,7 @@ public class Abicalc extends JFrame {
 	private JPanel contentPane;
 
 	static JLabel lbl_Punkte;
-	private JTextField textField;
+	private JTextField textFieldHJ1;
 	
 	/*
 	 * Anfang UI
@@ -77,20 +77,20 @@ public class Abicalc extends JFrame {
 		tabbedPane_Halbjahre.addTab("Halbjahr 11.1", null, panel_HJ1, null);
 		panel_HJ1.setLayout(null);
 		
-		Box verticalBox = Box.createVerticalBox();		//Liste mit Fächern
-		verticalBox.setBounds(275, 5, 188, 33);
-		panel_HJ1.add(verticalBox);
+		Box verticalBoxHJ1 = Box.createVerticalBox();		//Liste mit Fächern
+		verticalBoxHJ1.setBounds(275, 5, 188, 33);
+		panel_HJ1.add(verticalBoxHJ1);
 		
-		JPanel panel_Fach = new JPanel();			//Container für Textfeld und Button für neue Fächer
-		panel_Fach.setBackground(Color.WHITE);
-		verticalBox.add(panel_Fach);
+		JPanel panel_FachHJ1 = new JPanel();			//Container für Textfeld und Button für neue Fächer
+		panel_FachHJ1.setBackground(Color.WHITE);
+		verticalBoxHJ1.add(panel_FachHJ1);
 		
-		textField = new JTextField();			//Textfeld für den Namen neuer Fächer
-		panel_Fach.add(textField);
-		textField.setColumns(10);
+		textFieldHJ1 = new JTextField();			//Textfeld für den Namen neuer Fächer
+		panel_FachHJ1.add(textFieldHJ1);
+		textFieldHJ1.setColumns(10);
 		
-		JButton btnHinzufuegen = new JButton("Hinzuf\u00FCgen");		//Button zum Hinzufügen neuer Fächer
-		panel_Fach.add(btnHinzufuegen);
+		JButton btnHinzufuegenHJ1 = new JButton("Hinzuf\u00FCgen");		//Button zum Hinzufügen neuer Fächer
+		panel_FachHJ1.add(btnHinzufuegenHJ1);
 		
 		JPanel panel_HJ2 = new JPanel();
 		tabbedPane_Halbjahre.addTab("Halbjahr 11.2", null, panel_HJ2, null);
@@ -146,6 +146,18 @@ public class Abicalc extends JFrame {
 				
 				Noten notenliste = new Noten();
 				setGesamtSchnitt(notenliste.halbjahresschnitt());
+				
+				
+				
+				
+				// HJ1 Fächer hinzufügen
+				btnHinzufuegenHJ1.addActionListener(new ActionListener()
+				{
+				  public void actionPerformed(ActionEvent e)
+				  {
+				    // code
+				  } 
+				});
 				
 			}
 		});
