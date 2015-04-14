@@ -15,13 +15,16 @@ import javax.swing.JSeparator;
 import javax.swing.border.LineBorder;
 import javax.swing.BoxLayout;
 import javax.swing.JTabbedPane;
-import java.io.*;						
+import java.io.*;
+import javax.swing.Box;
+import javax.swing.JTextField;						
 
 public class Abicalc extends JFrame {
 
 	private JPanel contentPane;
 
 	static JLabel lbl_Punkte;
+	private JTextField textField;
 	
 	/*
 	 * Anfang UI
@@ -50,15 +53,15 @@ public class Abicalc extends JFrame {
 		panel_title.add(lblAbicalc);
 		
 		JButton btnEinstellungen = new JButton("Einstellungen");		//Button Einstellungen
-		btnEinstellungen.setBounds(526, 10, 109, 23);
+		btnEinstellungen.setBounds(518, 10, 113, 23);
 		panel_title.add(btnEinstellungen);
 		
 		JButton btnZuruecksetzen = new JButton("Zur\u00FCcksetzen");		//Button Zurücksetzen
-		btnZuruecksetzen.setBounds(645, 10, 109, 23);
+		btnZuruecksetzen.setBounds(641, 10, 113, 23);
 		panel_title.add(btnZuruecksetzen);
 		
 		JButton btnSpeichern = new JButton("Speichern");		//Button Speichern und Aktualisieren
-		btnSpeichern.setBounds(412, 11, 109, 22);
+		btnSpeichern.setBounds(395, 11, 113, 22);
 		panel_title.add(btnSpeichern);
 		
 		JPanel panel_main = new JPanel();		//Container für Tabs und Übersicht
@@ -72,6 +75,22 @@ public class Abicalc extends JFrame {
 		
 		JPanel panel_HJ1 = new JPanel();
 		tabbedPane_Halbjahre.addTab("Halbjahr 11.1", null, panel_HJ1, null);
+		panel_HJ1.setLayout(null);
+		
+		Box verticalBox = Box.createVerticalBox();		//Liste mit Fächern
+		verticalBox.setBounds(275, 5, 188, 33);
+		panel_HJ1.add(verticalBox);
+		
+		JPanel panel_Fach = new JPanel();			//Container für Textfeld und Button für neue Fächer
+		panel_Fach.setBackground(Color.WHITE);
+		verticalBox.add(panel_Fach);
+		
+		textField = new JTextField();			//Textfeld für den Namen neuer Fächer
+		panel_Fach.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnHinzufuegen = new JButton("Hinzuf\u00FCgen");		//Button zum Hinzufügen neuer Fächer
+		panel_Fach.add(btnHinzufuegen);
 		
 		JPanel panel_HJ2 = new JPanel();
 		tabbedPane_Halbjahre.addTab("Halbjahr 11.2", null, panel_HJ2, null);
@@ -118,15 +137,16 @@ public class Abicalc extends JFrame {
 				try {
 					Abicalc frame = new Abicalc();
 					frame.setVisible(true);
-					
-					//Hauptprogramm
-					
-					Noten notenliste = new Noten();
-					setGesamtSchnitt(notenliste.halbjahresschnitt());
-					
+				
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
+				//Hauptprogramm
+				
+				Noten notenliste = new Noten();
+				setGesamtSchnitt(notenliste.halbjahresschnitt());
+				
 			}
 		});
 		
