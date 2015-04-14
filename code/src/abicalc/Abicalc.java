@@ -50,16 +50,16 @@ public class Abicalc extends JFrame {
 		panel_title.add(lblAbicalc);
 		
 		JButton btnEinstellungen = new JButton("Einstellungen");		//Button Einstellungen
-		btnEinstellungen.setBounds(531, 10, 104, 23);
+		btnEinstellungen.setBounds(526, 10, 109, 23);
 		panel_title.add(btnEinstellungen);
 		
 		JButton btnZuruecksetzen = new JButton("Zur\u00FCcksetzen");		//Button Zurücksetzen
 		btnZuruecksetzen.setBounds(645, 10, 109, 23);
 		panel_title.add(btnZuruecksetzen);
 		
-		JButton btnSpeichernAktualisieren = new JButton("Speichern/Aktualisieren");		//Button Speichern und Aktualisieren
-		btnSpeichernAktualisieren.setBounds(376, 11, 145, 22);
-		panel_title.add(btnSpeichernAktualisieren);
+		JButton btnSpeichern = new JButton("Speichern");		//Button Speichern und Aktualisieren
+		btnSpeichern.setBounds(412, 11, 109, 22);
+		panel_title.add(btnSpeichern);
 		
 		JPanel panel_main = new JPanel();		//Container für Tabs und Übersicht
 		panel_main.setBounds(10, 65, 764, 431);
