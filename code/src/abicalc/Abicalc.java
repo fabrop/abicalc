@@ -7,15 +7,23 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.SwingConstants;
+
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JSeparator;
 import javax.swing.border.LineBorder;
 import javax.swing.BoxLayout;
 import javax.swing.JTabbedPane;
+
 import java.io.*;
+
 import javax.swing.Box;
 import javax.swing.JTextField;						
 
@@ -92,6 +100,14 @@ public class Abicalc extends JFrame {
 		JButton btnHinzufuegenHJ1 = new JButton("Hinzuf\u00FCgen");		//Button zum Hinzufügen neuer Fächer
 		panel_FachHJ1.add(btnHinzufuegenHJ1);
 		
+		 btnHinzufuegenHJ1.addActionListener(new ActionListener()
+		{
+		  public void actionPerformed(ActionEvent e)
+		  {
+		    // code
+		  }
+		});		
+		
 		JPanel panel_HJ2 = new JPanel();
 		tabbedPane_Halbjahre.addTab("Halbjahr 11.2", null, panel_HJ2, null);
 		
@@ -131,6 +147,10 @@ public class Abicalc extends JFrame {
 		lbl_Punkte.setText(""+d);
 	}
 	
+	public static void rufeFachKonstruktorAuf(String name){
+		new Fach fach(name);
+	}
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -150,14 +170,7 @@ public class Abicalc extends JFrame {
 				
 				
 				
-				// HJ1 Fächer hinzufügen
-				btnHinzufuegenHJ1.addActionListener(new ActionListener()
-				{
-				  public void actionPerformed(ActionEvent e)
-				  {
-				    // code
-				  } 
-				});
+				
 				
 			}
 		});

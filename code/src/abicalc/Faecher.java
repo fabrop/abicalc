@@ -1,12 +1,21 @@
 package abicalc;
 
 public class Faecher {
-	Fach Mathematik = new Fach("Mathematik");
-	Fach Deutsch = new Fach("Deutsch");
-	Fach NeuesFach = new Fach("neues Fach");
+	Fach anfang = new Fach("1337");		
+	Fach ende = new Fach("13337");
 	
-	public Faecher(){//KOnstruktor = Erstelen der verketteten Liste
-		Mathematik.naechstes = Deutsch;
-		Deutsch.naechstes = NeuesFach;
+	public Faecher(){			//Konstruktor = Erstellen der verketteten Liste
+		anfang.naechstes = ende;
+		ende.naechstes = null;
+	}
+	
+	public void neuesFachEinfuegen (String name){		//Fügt nach dem letzten aktuellen Fach ein Neues ein, übergibt einen String als Namen
+		Fach f = new Fach(name);
+		Fach n = new Fach("");
+		while (n.naechstes!=ende){
+			n.naechstes = n.naechstes.naechstes;
+		}
+		n.naechstes = f;
+		f.naechstes = ende;
 	}
 }
