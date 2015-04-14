@@ -137,6 +137,13 @@ public class Abicalc extends JFrame {
 		lbl_Punkte.setFont(new Font("Tahoma", Font.PLAIN, 28));
 		lbl_Punkte.setBounds(198, 11, 149, 22);
 		panel_unten.add(lbl_Punkte);
+		
+		Faecher hj1 = new Faecher();			//erstellt Fächerlisten für die einzelnen Halbjahre 
+		Faecher hj2 = new Faecher();
+		Faecher hj3 = new Faecher();
+		Faecher hj4 = new Faecher();
+		Faecher pruefungen = new Faecher();
+		
 	}
 	
 	/*
@@ -147,8 +154,8 @@ public class Abicalc extends JFrame {
 		lbl_Punkte.setText(""+d);
 	}
 	
-	public static void rufeFachKonstruktorAuf(String name){
-		new Fach fach(name);
+	public static void neuesFach(String name, Faecher faecherliste){		//Ruft den jeweiligen Konstrukor der Fächerliste auf
+		faecherliste.neuesFachEinfuegen(name);
 	}
 	
 	public static void main(String[] args) {
@@ -164,7 +171,7 @@ public class Abicalc extends JFrame {
 				
 				//Hauptprogramm
 				
-				Noten notenliste = new Noten();
+				Noten notenliste = new Noten();			//temp tests
 				setGesamtSchnitt(notenliste.halbjahresschnitt());
 				
 				
