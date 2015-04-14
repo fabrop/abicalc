@@ -100,14 +100,6 @@ public class Abicalc extends JFrame {
 		JButton btnHinzufuegenHJ1 = new JButton("Hinzuf\u00FCgen");		//Button zum Hinzufügen neuer Fächer
 		panel_FachHJ1.add(btnHinzufuegenHJ1);
 		
-		 btnHinzufuegenHJ1.addActionListener(new ActionListener()
-		{
-		  public void actionPerformed(ActionEvent e)
-		  {
-		    // code
-		  }
-		});		
-		
 		JPanel panel_HJ2 = new JPanel();
 		tabbedPane_Halbjahre.addTab("Halbjahr 11.2", null, panel_HJ2, null);
 		
@@ -138,6 +130,12 @@ public class Abicalc extends JFrame {
 		lbl_Punkte.setBounds(198, 11, 149, 22);
 		panel_unten.add(lbl_Punkte);
 		
+
+		/*
+		 * Ende UI
+		 */
+		
+		
 		Faecher hj1 = new Faecher();			//erstellt Fächerlisten für die einzelnen Halbjahre 
 		Faecher hj2 = new Faecher();
 		Faecher hj3 = new Faecher();
@@ -145,10 +143,6 @@ public class Abicalc extends JFrame {
 		Faecher pruefungen = new Faecher();
 		
 	}
-	
-	/*
-	 * Ende UI
-	 */
 	
 	public static void setGesamtSchnitt(double d){				//Double-Variable als Input für JLabel mit Gesamtschnitt
 		lbl_Punkte.setText(""+d);
@@ -169,9 +163,9 @@ public class Abicalc extends JFrame {
 					e.printStackTrace();
 				}
 				
-				//Hauptprogramm
 				
-				Noten notenliste = new Noten();			//temp tests
+				
+				Noten notenliste = new Noten();								//temp tests
 				setGesamtSchnitt(notenliste.halbjahresschnitt());
 				
 				
