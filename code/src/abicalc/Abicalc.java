@@ -33,11 +33,7 @@ public class Abicalc extends JFrame {
 
 	static JLabel lbl_Punkte;
 	private JTextField textFieldHJ1;
-	
-	/*
-	 * Anfang UI
-	 */
-	
+
 	public Abicalc() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		//Hauptfenster
 		setBounds(100, 100, 800, 600);
@@ -92,12 +88,15 @@ public class Abicalc extends JFrame {
 		JPanel panel_FachHJ1 = new JPanel();			//Container für Textfeld und Button für neue Fächer
 		panel_FachHJ1.setBackground(Color.WHITE);
 		verticalBoxHJ1.add(panel_FachHJ1);
+		panel_FachHJ1.setLayout(null);
 		
 		textFieldHJ1 = new JTextField();			//Textfeld für den Namen neuer Fächer
+		textFieldHJ1.setBounds(5, 6, 113, 20);
 		panel_FachHJ1.add(textFieldHJ1);
 		textFieldHJ1.setColumns(10);
 		
-		JButton btnHinzufuegenHJ1 = new JButton("Hinzuf\u00FCgen");		//Button zum Hinzufügen neuer Fächer
+		JButton btnHinzufuegenHJ1 = new JButton("+");		//Button zum Hinzufügen neuer Fächer
+		btnHinzufuegenHJ1.setBounds(128, 5, 50, 23);
 		panel_FachHJ1.add(btnHinzufuegenHJ1);
 		
 		JPanel panel_HJ2 = new JPanel();
@@ -130,10 +129,6 @@ public class Abicalc extends JFrame {
 		lbl_Punkte.setBounds(198, 11, 149, 22);
 		panel_unten.add(lbl_Punkte);
 		
-
-		/*
-		 * Ende UI
-		 */
 		
 		
 		Faecher hj1 = new Faecher();			//erstellt Fächerlisten für die einzelnen Halbjahre 

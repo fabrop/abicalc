@@ -6,3 +6,5 @@
 20.03.2015 - Tabs erstellen, deren Components bearbeiten, Indizes der Tabs
 25.03.2015 - Zusammenführung Noten/main
 27.03.2015 - Dateispeicherung/-lesen Recherche
+14.04.2015 - Fächerliste Methoden, mehr UI
+15.04.2015 - Fixes
