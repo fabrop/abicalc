@@ -25,14 +25,16 @@ import javax.swing.JTabbedPane;
 import java.io.*;
 
 import javax.swing.Box;
-import javax.swing.JTextField;						
+import javax.swing.JTextField;
+import java.awt.GridLayout;
+import java.awt.Component;						
 
 public class Abicalc extends JFrame {
 
 	private JPanel contentPane;
 
 	static JLabel lbl_Punkte;
-	private JTextField textFieldHJ1;
+	private JTextField txtFachname;
 
 	public Abicalc() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		//Hauptfenster
@@ -81,23 +83,27 @@ public class Abicalc extends JFrame {
 		tabbedPane_Halbjahre.addTab("Halbjahr 11.1", null, panel_HJ1, null);
 		panel_HJ1.setLayout(null);
 		
-		Box verticalBoxHJ1 = Box.createVerticalBox();		//Liste mit Fächern
-		verticalBoxHJ1.setBounds(275, 5, 188, 33);
-		panel_HJ1.add(verticalBoxHJ1);
+		JPanel panel_FaecherHJ1 = new JPanel();
+		panel_FaecherHJ1.setBounds(10, 67, 719, 304);
+		panel_HJ1.add(panel_FaecherHJ1);
+		panel_FaecherHJ1.setBackground(Color.WHITE);
+		panel_FaecherHJ1.setLayout(new GridLayout(1, 0, 0, 0));
 		
-		JPanel panel_FachHJ1 = new JPanel();			//Container für Textfeld und Button für neue Fächer
-		panel_FachHJ1.setBackground(Color.WHITE);
-		verticalBoxHJ1.add(panel_FachHJ1);
-		panel_FachHJ1.setLayout(null);
+		JPanel panel_AddHJ1 = new JPanel();
+		panel_AddHJ1.setBackground(Color.WHITE);
+		panel_AddHJ1.setBounds(10, 11, 719, 45);
+		panel_HJ1.add(panel_AddHJ1);
+		panel_AddHJ1.setLayout(null);
 		
-		textFieldHJ1 = new JTextField();			//Textfeld für den Namen neuer Fächer
-		textFieldHJ1.setBounds(5, 6, 113, 20);
-		panel_FachHJ1.add(textFieldHJ1);
-		textFieldHJ1.setColumns(10);
+		txtFachname = new JTextField();
+		txtFachname.setBounds(10, 11, 216, 23);
+		txtFachname.setText("Fachname");
+		panel_AddHJ1.add(txtFachname);
+		txtFachname.setColumns(10);
 		
-		JButton btnHinzufuegenHJ1 = new JButton("+");		//Button zum Hinzufügen neuer Fächer
-		btnHinzufuegenHJ1.setBounds(128, 5, 50, 23);
-		panel_FachHJ1.add(btnHinzufuegenHJ1);
+		JButton button_plus = new JButton("+");
+		button_plus.setBounds(236, 11, 41, 23);
+		panel_AddHJ1.add(button_plus);
 		
 		JPanel panel_HJ2 = new JPanel();
 		tabbedPane_Halbjahre.addTab("Halbjahr 11.2", null, panel_HJ2, null);
