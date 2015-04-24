@@ -27,15 +27,21 @@ import java.io.*;
 import javax.swing.Box;
 import javax.swing.JTextField;
 import java.awt.GridLayout;
-import java.awt.Component;						
+import java.awt.Component;
+import javax.swing.JScrollPane;
+import java.awt.GridBagLayout;						
 
 public class Abicalc extends JFrame {
 
 	private JPanel contentPane;
 
 	static JLabel lbl_Punkte;
+	
 	private JTextField txt_FachnameHJ1;
 
+	static JPanel panel_scrollContentHJ1 = new JPanel();
+	static JPanel panel_FaecherHJ1 = new JPanel();	
+	
 	public Abicalc() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		//Hauptfenster
 		setBounds(100, 100, 800, 600);
@@ -83,14 +89,19 @@ public class Abicalc extends JFrame {
 		tabbedPane_Halbjahre.addTab("Halbjahr 11.1", null, panel_HJ1, null);
 		panel_HJ1.setLayout(null);
 		
-		JPanel panel_FaecherHJ1 = new JPanel();		//Container für Fächer
-		panel_FaecherHJ1.setBounds(10, 67, 719, 304);
+			//Container für Fächer
+		panel_FaecherHJ1.setBounds(10, 56, 719, 315);
 		panel_HJ1.add(panel_FaecherHJ1);
 		panel_FaecherHJ1.setBackground(Color.WHITE);
-		panel_FaecherHJ1.setLayout(new GridLayout(1, 0, 0, 0));
+		panel_FaecherHJ1.setLayout(null);
 		
-		Box verticalBox_HJ1 = Box.createVerticalBox();		//vertikal angeordnete Fächer
-		panel_FaecherHJ1.add(verticalBox_HJ1);
+		JScrollPane scrollPane_HJ1 = new JScrollPane();
+		scrollPane_HJ1.setBounds(10, 11, 699, 293);
+		panel_FaecherHJ1.add(scrollPane_HJ1);
+		
+		scrollPane_HJ1.setViewportView(panel_scrollContentHJ1);		
+		GridLayout gl = new GridLayout(0, 1, 0, -10);
+		panel_scrollContentHJ1.setLayout(gl);
 		
 		JPanel panel_AddHJ1 = new JPanel();		//HJ1 Panel mit Textfeld und Button
 		panel_AddHJ1.setBackground(Color.WHITE);
@@ -112,7 +123,7 @@ public class Abicalc extends JFrame {
 		button_plusHJ1.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
-	        	verticalBox_HJ1.add(new FachUI(txt_FachnameHJ1.getText()));
+	        	panel_scrollContentHJ1.add(new FachUI(txt_FachnameHJ1.getText()));
 	        }
 	    });
 			
