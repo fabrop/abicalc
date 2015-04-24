@@ -34,7 +34,7 @@ public class Abicalc extends JFrame {
 	private JPanel contentPane;
 
 	static JLabel lbl_Punkte;
-	private JTextField txtFachname;
+	private JTextField txt_FachnameHJ1;
 
 	public Abicalc() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		//Hauptfenster
@@ -79,31 +79,43 @@ public class Abicalc extends JFrame {
 		tabbedPane_Halbjahre.setBounds(10, 10, 744, 410);
 		panel_main.add(tabbedPane_Halbjahre);
 		
-		JPanel panel_HJ1 = new JPanel();
+		JPanel panel_HJ1 = new JPanel();		//Tab für erstes HJ
 		tabbedPane_Halbjahre.addTab("Halbjahr 11.1", null, panel_HJ1, null);
 		panel_HJ1.setLayout(null);
 		
-		JPanel panel_FaecherHJ1 = new JPanel();
+		JPanel panel_FaecherHJ1 = new JPanel();		//Container für Fächer
 		panel_FaecherHJ1.setBounds(10, 67, 719, 304);
 		panel_HJ1.add(panel_FaecherHJ1);
 		panel_FaecherHJ1.setBackground(Color.WHITE);
 		panel_FaecherHJ1.setLayout(new GridLayout(1, 0, 0, 0));
 		
-		JPanel panel_AddHJ1 = new JPanel();
+		Box verticalBox_HJ1 = Box.createVerticalBox();		//vertikal angeordnete Fächer
+		panel_FaecherHJ1.add(verticalBox_HJ1);
+		
+		JPanel panel_AddHJ1 = new JPanel();		//HJ1 Panel mit Textfeld und Button
 		panel_AddHJ1.setBackground(Color.WHITE);
 		panel_AddHJ1.setBounds(10, 11, 719, 45);
 		panel_HJ1.add(panel_AddHJ1);
 		panel_AddHJ1.setLayout(null);
 		
-		txtFachname = new JTextField();
-		txtFachname.setBounds(10, 11, 216, 23);
-		txtFachname.setText("Fachname");
-		panel_AddHJ1.add(txtFachname);
-		txtFachname.setColumns(10);
+		txt_FachnameHJ1 = new JTextField();			//HJ1 Input für Fachname
+		txt_FachnameHJ1.setBounds(10, 11, 216, 23);
+		txt_FachnameHJ1.setText("Fachname");
+		panel_AddHJ1.add(txt_FachnameHJ1);
+		txt_FachnameHJ1.setColumns(10);
 		
-		JButton button_plus = new JButton("+");
-		button_plus.setBounds(236, 11, 41, 23);
-		panel_AddHJ1.add(button_plus);
+		JButton button_plusHJ1 = new JButton("+");		//HJ1 Fach hinzufügen Button
+		button_plusHJ1.setBounds(236, 11, 41, 23);
+		panel_AddHJ1.add(button_plusHJ1);
+		
+		
+		button_plusHJ1.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
+	        public void actionPerformed(java.awt.event.ActionEvent e) {
+	          
+	        	verticalBox_HJ1.add(new FachUI(txt_FachnameHJ1.getText()));
+	        }
+	    });
+			
 		
 		JPanel panel_HJ2 = new JPanel();
 		tabbedPane_Halbjahre.addTab("Halbjahr 11.2", null, panel_HJ2, null);
@@ -136,13 +148,13 @@ public class Abicalc extends JFrame {
 		panel_unten.add(lbl_Punkte);
 		
 		
-		
+		/*
 		Faecher hj1 = new Faecher();			//erstellt Fächerlisten für die einzelnen Halbjahre 
 		Faecher hj2 = new Faecher();
 		Faecher hj3 = new Faecher();
 		Faecher hj4 = new Faecher();
 		Faecher pruefungen = new Faecher();
-		
+		*/
 	}
 	
 	public static void setGesamtSchnitt(double d){				//Double-Variable als Input für JLabel mit Gesamtschnitt
@@ -152,6 +164,9 @@ public class Abicalc extends JFrame {
 	public static void neuesFach(String name, Faecher faecherliste){		//Ruft den jeweiligen Konstrukor der Fächerliste auf
 		faecherliste.neuesFachEinfuegen(name);
 	}
+	
+
+	
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
