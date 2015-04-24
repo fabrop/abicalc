@@ -1,13 +1,19 @@
 package abicalc;
 
+/*
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+*/
 
-public class Note {
+public class Note implements java.io.Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//UntersteDatenstruktur
 	
 	String name;
@@ -20,9 +26,9 @@ public class Note {
 		name = n;
 		punkte = p;
 		}
-	
+  /*	
 	public Note(String n){
-		File datei = new File(n + "txt");
+		File datei = new File(n + ".txt");
 		Scanner reader;
 		try {
 			reader = new Scanner(datei);
@@ -64,5 +70,5 @@ public class Note {
 		}
 		
 	}
-
+*/
 }
