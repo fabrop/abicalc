@@ -19,7 +19,6 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	
 	String name;
 	LinkedList<Note>  notenliste;
-	Fach naechstes;
 	
 	public Fach(String s){ //Konstruktor
 		
