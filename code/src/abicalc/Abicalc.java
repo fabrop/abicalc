@@ -162,9 +162,10 @@ public class Abicalc extends JFrame {
 	
 	
 	public double getGesamtSchnitt(){
-		int gesamtSchnitt = (halbjahre[1].getSchnitt() + halbjahre[2].getSchnitt()
-				+ halbjahre[3].getSchnitt() + halbjahre[4].getSchnitt()
-				+ halbjahre[5].getSchnitt() + halbjahre[5].getSchnitt()) / 6;
+		double gesamtSchnitt = (halbjahre[1].getHJSchnitt() + halbjahre[2].getHJSchnitt()
+				+ halbjahre[3].getHJSchnitt() + halbjahre[4].getHJSchnitt()
+				+ halbjahre[5].getHJSchnitt() + halbjahre[5].getHJSchnitt()) / 6;
+		return gesamtSchnitt;
 	}
 	
 	public static void setGesamtSchnitt(double d){				//Double-Variable als Input für JLabel mit Gesamtschnitt
