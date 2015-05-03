@@ -74,7 +74,7 @@ public class Halbjahr implements java.io.Serializable {/**
 		File vermerk = new File("/data/aufgerufen.txt");
 		try {
 			FileWriter writer = new FileWriter(vermerk);
-			writer.write("Das Programm wurde schon einmal gestartet");
+			writer.write("true");
 			writer.flush();
 			writer.close();
 		} catch (IOException e) {
@@ -87,4 +87,11 @@ public class Halbjahr implements java.io.Serializable {/**
 		faecherliste.add(new Fach(fachName));
 	}
 	
+	public double getHJSchnitt(){
+		double schnitt=0;
+		for (int i =0; i<faecherliste.size();i++){
+			schnitt=schnitt+faecherliste.get(i).getFachSchnitt();
+		}
+		return schnitt;
+	}
 }

@@ -49,4 +49,12 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		
 	}
 
+	public double getFachSchnitt() {
+		double schnitt=0;
+		for (int i=0; i<notenliste.size(); i++){
+			schnitt=schnitt+notenliste.get(i).punkte;
+		}
+		return schnitt;
+	}
+
 }
