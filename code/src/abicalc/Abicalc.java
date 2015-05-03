@@ -14,12 +14,7 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 
 import javax.swing.JButton;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextField;
-
-import java.awt.GridLayout;
-
-import javax.swing.JScrollPane;					
+import javax.swing.JTabbedPane;				
 
 public class Abicalc extends JFrame {
 
@@ -81,11 +76,11 @@ public class Abicalc extends JFrame {
 	
 		
 		
-		Halbjahr hj1 = new Halbjahr();
-		Halbjahr hj2 = new Halbjahr();
-		Halbjahr hj3 = new Halbjahr();
-		Halbjahr hj4 = new Halbjahr();
-		Halbjahr hjP = new Halbjahr();
+		Halbjahr hj1 = new Halbjahr("hj1");
+		Halbjahr hj2 = new Halbjahr("hj2");
+		Halbjahr hj3 = new Halbjahr("hj3");
+		Halbjahr hj4 = new Halbjahr("hj4");
+		Halbjahr hjP = new Halbjahr("hjP");
 		
 		JTabbedPane tabbedPane_Halbjahre = new JTabbedPane(JTabbedPane.TOP);
 		panel_main.add(tabbedPane_Halbjahre);
