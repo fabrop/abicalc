@@ -1,5 +1,7 @@
 package abicalc;
 
+import java.awt.Color;
+import java.awt.GridLayout;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -8,6 +10,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.LinkedList;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 
 public class Halbjahr implements java.io.Serializable {/**
 	 * 
@@ -19,7 +26,7 @@ public class Halbjahr implements java.io.Serializable {/**
 	LinkedList<Fach> faecherliste;
 	//boolean ersterAufruf = ueberpruefen();
 	
-	public Halbjahr(){
+	public Halbjahr(String s){
 		
 		if(ueberpruefen() == true){ //falls es der erste Aufruf ist wird die Linked list generiert und eine File zum vermerken des Ersten Aufrufs angelegt
 		faecherliste = new LinkedList<Fach>();
@@ -28,6 +35,59 @@ public class Halbjahr implements java.io.Serializable {/**
 		else{
 			laden();
 		}
+		
+		
+		
+		
+		
+		
+		JPanel panel = new JPanel();
+		tabbedPane_Halbjahre.addTab(s, null, panel, null);
+		panel.setLayout(null);
+		
+			//Container für Fächer
+		panel_Faecher.setBounds(10, 56, 719, 315);
+		panel.add(panel_FaecherHJ1);
+		panel_Faecher.setBackground(Color.WHITE);
+		panel_Faecher.setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 11, 699, 293);
+		panel_Faecher.add(scrollPane);
+		
+		scrollPane.setViewportView(panel_scrollContent);		
+		GridLayout gl = new GridLayout(0, 1, 0, -10);
+		panel_scrollContentHJ1.setLayout(gl);
+		
+		JPanel panel_Add = new JPanel();		//HJ1 Panel mit Textfeld und Button
+		panel_Add.setBackground(Color.WHITE);
+		panel_Add.setBounds(10, 11, 719, 45);
+		panel.add(panel_Add);
+		panel_Add.setLayout(null);
+		
+		txt_Fachname = new JTextField();			//HJ1 Input für Fachname
+		txt_Fachname.setBounds(10, 11, 216, 23);
+		txt_Fachname.setText("Fachname");
+		panel_Add.add(txt_Fachname);
+		txt_Fachname.setColumns(10);
+		
+		JButton button_plus = new JButton("+");		//HJ1 Fach hinzufügen Button
+		button_plus.setBounds(236, 11, 41, 23);
+		panel_Add.add(button_plus);
+		
+		
+		button_plus.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
+	        public void actionPerformed(java.awt.event.ActionEvent e) {
+	          
+	        	panel_scrollContent.add(new Fach(txt_Fachname.getText(), panel_scrollContent, panel_Faecher));
+	        }
+	    });
+		
+		
+		
+		
+		
+		
 	}
 	
 	public void save(){ // Methode, die die Linked List faecherliste in eine Datei abspeichert
