@@ -1,6 +1,5 @@
 package abicalc;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -13,34 +12,29 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JSeparator;
-import javax.swing.border.LineBorder;
-import javax.swing.BoxLayout;
 import javax.swing.JTabbedPane;
 
-import java.io.*;
-
-import javax.swing.Box;
 import javax.swing.JTextField;
 import java.awt.GridLayout;
-import java.awt.Component;
-import javax.swing.JScrollPane;
-import java.awt.GridBagLayout;						
+import javax.swing.JScrollPane;					
 
 public class Abicalc extends JFrame {
 
-	private JPanel contentPane;
-
-	static JLabel lbl_Punkte;
+	private static final long serialVersionUID = 1L;
 	
-	private JTextField txt_FachnameHJ1;
+	
 
-	static JPanel panel_scrollContentHJ1 = new JPanel();
-	static JPanel panel_FaecherHJ1 = new JPanel();	
+	private JPanel contentPane;		//Enthält alle anderen Elemente
+
+	static JLabel lbl_Punkte;		//aktueller Gesamtschnitt
+	
+	private JTextField txt_FachnameHJ1;		//Textfeld zum Hinzufügen/Benennen von Fächern	
+
+	static JPanel panel_FaecherHJ1 = new JPanel();		//Enthält scrollbaren Bereich
+	static JPanel panel_scrollContentHJ1 = new JPanel();		//Scrollbarer Bereich mit Fächern
+	
 	
 	public Abicalc() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		//Hauptfenster
@@ -51,7 +45,7 @@ public class Abicalc extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel_title = new JPanel();					//Dunkelgrauer Contaier für Buttons/Titel
+		JPanel panel_title = new JPanel();					//Dunkelgrauer Container für Buttons/Titel
 		panel_title.setBackground(Color.DARK_GRAY);
 		panel_title.setBounds(10, 10, 764, 44);
 		contentPane.add(panel_title);
@@ -65,14 +59,17 @@ public class Abicalc extends JFrame {
 		panel_title.add(lblAbicalc);
 		
 		JButton btnEinstellungen = new JButton("Einstellungen");		//Button Einstellungen
+		btnEinstellungen.setForeground(Color.LIGHT_GRAY);
 		btnEinstellungen.setBounds(518, 10, 113, 23);
 		panel_title.add(btnEinstellungen);
 		
 		JButton btnZuruecksetzen = new JButton("Zur\u00FCcksetzen");		//Button Zurücksetzen
+		btnZuruecksetzen.setForeground(Color.LIGHT_GRAY);
 		btnZuruecksetzen.setBounds(641, 10, 113, 23);
 		panel_title.add(btnZuruecksetzen);
 		
 		JButton btnSpeichern = new JButton("Speichern");		//Button Speichern und Aktualisieren
+		btnSpeichern.setForeground(Color.LIGHT_GRAY);
 		btnSpeichern.setBounds(395, 11, 113, 22);
 		panel_title.add(btnSpeichern);
 		
@@ -159,13 +156,6 @@ public class Abicalc extends JFrame {
 		panel_unten.add(lbl_Punkte);
 		
 		
-		/*
-		Faecher hj1 = new Faecher();			//erstellt Fächerlisten für die einzelnen Halbjahre 
-		Faecher hj2 = new Faecher();
-		Faecher hj3 = new Faecher();
-		Faecher hj4 = new Faecher();
-		Faecher pruefungen = new Faecher();
-		*/
 	}
 	
 	public static void setGesamtSchnitt(double d){				//Double-Variable als Input für JLabel mit Gesamtschnitt

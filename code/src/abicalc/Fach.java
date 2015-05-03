@@ -28,7 +28,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		
 		//Panel mit Label und Button und Layout einer Tabelle mit 1 Zeile
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.GRAY);
+		panel.setBackground(Color.LIGHT_GRAY);
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		//Label mit Fächernamen
