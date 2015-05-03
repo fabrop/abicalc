@@ -1,6 +1,7 @@
 package abicalc;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.GridLayout;
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,7 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-public class Halbjahr implements java.io.Serializable {/**
+public class Halbjahr extends Component implements java.io.Serializable {/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;

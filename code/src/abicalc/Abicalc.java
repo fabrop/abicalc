@@ -85,11 +85,11 @@ public class Abicalc extends JFrame {
 		JTabbedPane tabbedPane_Halbjahre = new JTabbedPane(JTabbedPane.TOP);
 		panel_main.add(tabbedPane_Halbjahre);
 		tabbedPane_Halbjahre.setBounds(10, 10, 744, 410);
-		tabbedPane_Halbjahre.addTab("11.1", null, hj1.panel, null);
-		tabbedPane_Halbjahre.addTab("11.2", null, hj2.panel, null);
-		tabbedPane_Halbjahre.addTab("12.1", null, hj3.panel, null);
-		tabbedPane_Halbjahre.addTab("12.2", null, hj4.panel, null);
-		tabbedPane_Halbjahre.addTab("Prüfungen", null, hjP.panel, null);
+		tabbedPane_Halbjahre.addTab("11.1", null, hj1, null);
+		tabbedPane_Halbjahre.addTab("11.2", null, hj2, null);
+		tabbedPane_Halbjahre.addTab("12.1", null, hj3, null);
+		tabbedPane_Halbjahre.addTab("12.2", null, hj4, null);
+		tabbedPane_Halbjahre.addTab("Prüfungen", null, hjP, null);
 		
 		
 		JPanel panel_unten = new JPanel();				//Dunkelgrauer Container für Gesamtschnitt
