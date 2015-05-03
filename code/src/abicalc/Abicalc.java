@@ -1,6 +1,5 @@
 package abicalc;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -157,13 +156,6 @@ public class Abicalc extends JFrame {
 		panel_unten.add(lbl_Punkte);
 		
 		
-		/*
-		Faecher hj1 = new Faecher();			//erstellt Fächerlisten für die einzelnen Halbjahre 
-		Faecher hj2 = new Faecher();
-		Faecher hj3 = new Faecher();
-		Faecher hj4 = new Faecher();
-		Faecher pruefungen = new Faecher();
-		*/
 	}
 	
 	public static void setGesamtSchnitt(double d){				//Double-Variable als Input für JLabel mit Gesamtschnitt
