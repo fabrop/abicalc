@@ -33,7 +33,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	LinkedList<Fach> faecherliste;
 	
 	//boolean ersterAufruf = ueberpruefen();
-	public Halbjahr(String S){
+	public Halbjahr(String S, JPanel jpnl){
 		
 		halbjahrName = S;
 		if(ueberpruefen() == true){ //falls es der erste Aufruf ist wird die Linked list generiert und eine File zum vermerken des Ersten Aufrufs angelegt
@@ -59,19 +59,19 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		GridLayout gl = new GridLayout(0, 1, 0, -10);
 		panel_scrollContent.setLayout(gl);
 		
-		JPanel panel_Add = new JPanel();		//HJ1 Panel mit Textfeld und Button
+		JPanel panel_Add = new JPanel();		//HJ Panel mit Textfeld und Button
 		panel_Add.setBackground(Color.WHITE);
 		panel_Add.setBounds(10, 11, 719, 45);
 		panel.add(panel_Add);
 		panel_Add.setLayout(null);
 		
-		txt_Fachname = new JTextField();			//HJ1 Input für Fachname
+		txt_Fachname = new JTextField();			//HJ Input für Fachname
 		txt_Fachname.setBounds(10, 11, 216, 23);
 		txt_Fachname.setText("Fachname");
 		panel_Add.add(txt_Fachname);
 		txt_Fachname.setColumns(10);
 		
-		JButton button_plus = new JButton("+");		//HJ1 Fach hinzufügen Button
+		JButton button_plus = new JButton("+");		//HJ Fach hinzufügen Button
 		button_plus.setBounds(236, 11, 41, 23);
 		panel_Add.add(button_plus);
 		
@@ -82,6 +82,9 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	        	panel_scrollContent.add(new Fach(txt_Fachname.getText(), panel_scrollContent, panel_Faecher));
 	        }
 	    });		
+		
+		jpnl.validate();
+		jpnl.repaint();
 		
 	}
 
