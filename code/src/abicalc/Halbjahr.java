@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 public class Halbjahr extends Component implements java.io.Serializable {/**
@@ -33,7 +34,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	LinkedList<Fach> faecherliste;
 	
 	//boolean ersterAufruf = ueberpruefen();
-	public Halbjahr(String S, JPanel jpnl){
+	public Halbjahr(String S, String title, JTabbedPane jtbp, JPanel jpnl){
 		
 		halbjahrName = S;
 		if(ueberpruefen() == true){ //falls es der erste Aufruf ist wird die Linked list generiert und eine File zum vermerken des Ersten Aufrufs angelegt
@@ -83,6 +84,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	        }
 	    });		
 		
+		jtbp.add(panel, title);
 		jpnl.validate();
 		jpnl.repaint();
 		
