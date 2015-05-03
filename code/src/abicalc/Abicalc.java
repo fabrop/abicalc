@@ -15,9 +15,11 @@ import java.awt.Color;
 
 import javax.swing.JButton;
 import javax.swing.JTabbedPane;
-
 import javax.swing.JTextField;
+
 import java.awt.GridLayout;
+import java.util.LinkedList;
+
 import javax.swing.JScrollPane;					
 
 public class Abicalc extends JFrame {
@@ -25,7 +27,7 @@ public class Abicalc extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	
-
+	static Halbjahr halbjahre[] = new Halbjahr[5];
 	private JPanel contentPane;		//Enthält alle anderen Elemente
 
 	static JLabel lbl_Punkte;		//aktueller Gesamtschnitt
@@ -162,8 +164,9 @@ public class Abicalc extends JFrame {
 		lbl_Punkte.setText(""+d);
 	}
 	
-	public static void neuesFach(String name, Faecher faecherliste){		//Ruft den jeweiligen Konstrukor der Fächerliste auf
-		faecherliste.neuesFachEinfuegen(name);
+	public static void neuesFach(String name,  int HJNummer){		//Ruft den jeweiligen Konstrukor der Fächerliste auf
+		Fach neuesFach = new Fach(name);
+		halbjahre[HJNummer].faecherliste.add(neuesFach);
 	}
 	
 
@@ -182,7 +185,7 @@ public class Abicalc extends JFrame {
 				
 				
 				
-				Noten notenliste = new Noten();								//temp tests
+				LinkedList notenliste = new LinkedList();								//temp tests
 				setGesamtSchnitt(notenliste.halbjahresschnitt());
 				
 				
