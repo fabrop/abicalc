@@ -37,7 +37,6 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		
 		if(ueberpruefen() == true){ //falls es der erste Aufruf ist wird die Linked list generiert und eine File zum vermerken des Ersten Aufrufs angelegt
 		faecherliste = new LinkedList<Fach>();
-		vermerken();
 		}
 		else{
 			laden();
@@ -104,6 +103,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		vermerken();
 		
 	}
 	
@@ -140,7 +140,9 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		try {
 			
 			FileWriter writer = new FileWriter(vermerk);
-			vermerk.createNewFile();
+			if(!vermerk.exists()){
+				vermerk.createNewFile();
+			}
 			writer.write("true");
 			writer.flush();
 			writer.close();
