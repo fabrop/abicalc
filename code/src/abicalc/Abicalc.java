@@ -98,7 +98,6 @@ public class Abicalc extends JFrame {
 		
 		
 		
-		
 				//Tabs für Halbjahre eines Fachs
 	
 		
@@ -108,6 +107,11 @@ public class Abicalc extends JFrame {
 		Halbjahr hj3 = new Halbjahr("12.1");
 		Halbjahr hj4 = new Halbjahr("12.2");
 		Halbjahr hjP = new Halbjahr("Prüfungen");
+		
+		JTabbedPane tabbedPane_Halbjahre = new JTabbedPane(JTabbedPane.TOP);
+		panel_main.add(tabbedPane_Halbjahre);
+		tabbedPane_Halbjahre.setBounds(10, 10, 744, 410);
+		tabbedPane_Halbjahre.addTab(s, null, halbjahr1.panel, null);
 		
 		
 		

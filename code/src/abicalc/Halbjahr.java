@@ -25,7 +25,7 @@ public class Halbjahr implements java.io.Serializable {/**
 	JTextField txt_Fachname;
 	static JPanel panel_Faecher = new JPanel();
 	static JPanel panel_scrollContent = new JPanel();
-	JTabbedPane tabbedPane_Halbjahre = new JTabbedPane(JTabbedPane.TOP);
+	
 	
 //oberste Datenstruktur unter dem Hauptprogramm
 	String halbjahrName;
@@ -45,13 +45,13 @@ public class Halbjahr implements java.io.Serializable {/**
 		
 		
 		
-		tabbedPane_Halbjahre.setBounds(10, 10, 744, 410);
-		panel_main.add(tabbedPane_Halbjahre);
+		
+		
 		
 		
 		
 		JPanel panel = new JPanel();
-		tabbedPane_Halbjahre.addTab(s, null, panel, null);
+		
 		panel.setLayout(null);
 		
 			//Container für Fächer
