@@ -95,6 +95,10 @@ public class Abicalc extends JFrame {
 		contentPane.add(panel_main);
 		panel_main.setLayout(null);
 		
+		
+		
+		
+		
 				//Tabs für Halbjahre eines Fachs
 		tabbedPane_Halbjahre.setBounds(10, 10, 744, 410);
 		panel_main.add(tabbedPane_Halbjahre);
@@ -102,19 +106,13 @@ public class Abicalc extends JFrame {
 		
 		
 		
+		Halbjahr hj1 = new Halbjahr("11.1");
+		Halbjahr hj1 = new Halbjahr("11.2");
+		Halbjahr hj1 = new Halbjahr("12.1");
+		Halbjahr hj1 = new Halbjahr("12.2");
+		Halbjahr hj1 = new Halbjahr("Prüfungen");
 		
-	
 		
-		
-		
-		JPanel panel_HJ3 = new JPanel();
-		tabbedPane_Halbjahre.addTab("Halbjahr 12.1", null, panel_HJ3, null);
-		
-		JPanel panel_HJ4 = new JPanel();
-		tabbedPane_Halbjahre.addTab("Halbjahr 12.2", null, panel_HJ4, null);
-		
-		JPanel panel_Pruefungen = new JPanel();
-		tabbedPane_Halbjahre.addTab("Pr\u00FCfungen", null, panel_Pruefungen, null);
 		
 		JPanel panel_unten = new JPanel();				//Dunkelgrauer Container für Gesamtschnitt
 		panel_unten.setBackground(Color.DARK_GRAY);

@@ -89,7 +89,7 @@ public class Halbjahr implements java.io.Serializable {/**
 		
 		
 	}
-	
+
 	public void save(){ // Methode, die die Linked List faecherliste in eine Datei abspeichert
 		FileOutputStream speichern;
 		try {
