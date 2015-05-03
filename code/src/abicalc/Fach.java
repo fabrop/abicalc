@@ -2,6 +2,7 @@ package abicalc;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.LinkedList;
 
@@ -31,6 +32,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		panel.setBackground(Color.LIGHT_GRAY);
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 		
+		
 		//Label mit Fächernamen
 		JLabel lbl = new JLabel(name);
 		panel.add(lbl);
@@ -40,6 +42,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		btn.setBounds(641, 10, 113, 23);
 		panel.add(btn);
 		
+
 		//Stellt sicher, dass UI aktualisiert wird
 		Abicalc.panel_scrollContentHJ1.add(panel);
 		Abicalc.panel_FaecherHJ1.validate();
