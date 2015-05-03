@@ -30,28 +30,7 @@ public class Abicalc extends JFrame {
 	JPanel contentPane;		//Enthält alle anderen Elemente
 
 	static JLabel lbl_Punkte;		//aktueller Gesamtschnitt
-	/*
-	JTextField txt_FachnameHJ1;		//Textfeld zum Hinzufügen/Benennen von Fächern	
-	JTextField txt_FachnameHJ2;
-	JTextField txt_FachnameHJ3;
-	JTextField txt_FachnameHJ4;
-	JTextField txt_FachnamePruefungen;
 
-	static JPanel panel_FaecherHJ1 = new JPanel();		//Enthält scrollbaren Bereich
-	static JPanel panel_FaecherHJ2 = new JPanel();
-	static JPanel panel_FaecherHJ3 = new JPanel();
-	static JPanel panel_FaecherHJ4 = new JPanel();
-	static JPanel panel_FaecherPruefungen = new JPanel();	
-	
-	static JPanel panel_scrollContentHJ1 = new JPanel();		//Scrollbarer Bereich mit Fächern
-	static JPanel panel_scrollContentHJ2 = new JPanel();
-	static JPanel panel_scrollContentHJ3 = new JPanel();
-	static JPanel panel_scrollContentHJ4 = new JPanel();
-	static JPanel panel_scrollContentPruefungen = new JPanel();
-	
-	JTabbedPane tabbedPane_Halbjahre = new JTabbedPane(JTabbedPane.TOP);
-	
-	*/
 	
 	public Abicalc() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		//Hauptfenster
