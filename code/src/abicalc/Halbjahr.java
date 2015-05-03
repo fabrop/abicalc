@@ -22,6 +22,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	String verzeichnis = Halbjahr.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 	JTextField txt_Fachname;
 	static JPanel panel_Faecher = new JPanel();
 	static JPanel panel_scrollContent = new JPanel();
@@ -102,7 +103,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	public void save(){ // Methode, die die Linked List faecherliste in eine Datei abspeichert
 		FileOutputStream speichern;
 		try {
-			speichern = new FileOutputStream("/data/" + halbjahrName + ".ser");
+			speichern = new FileOutputStream(verzeichnis + "/data/" + halbjahrName + ".ser");
 			ObjectOutputStream out = new ObjectOutputStream(speichern);
 			out.writeObject(faecherliste);
 			out.close();
@@ -118,7 +119,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	public void laden(){ // Methode, die vorhandene serialisierte Linked List einliest um damit zu arbeiten
 		FileInputStream laden;
 		try {
-			laden = new FileInputStream("/data/" + halbjahrName + ".ser");
+			laden = new FileInputStream(verzeichnis + "/data/" + halbjahrName + ".ser");
 			ObjectInputStream in = new ObjectInputStream(laden);
 			faecherliste = (LinkedList<Fach>) in.readObject();
 			in.close();
@@ -131,7 +132,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	}
 	
 	public boolean ueberpruefen(){ //Es wird Überprüft ob eine Datei vorhanden ist, welche bei dem ersten Start vorhanden ist
-		File test = new File("/data/aufgerufen.txt");
+		File test = new File(verzeichnis + "/data/aufgerufen.txt");
 		if(test.exists()){
 			return true;
 		}
