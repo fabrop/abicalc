@@ -14,6 +14,7 @@ import java.util.LinkedList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 public class Halbjahr implements java.io.Serializable {/**
@@ -21,11 +22,16 @@ public class Halbjahr implements java.io.Serializable {/**
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	JTextField txt_Fachname;
+	static JPanel panel_Faecher = new JPanel();
+	static JPanel panel_scrollContent = new JPanel();
+	JTabbedPane tabbedPane_Halbjahre = new JTabbedPane(JTabbedPane.TOP);
+	
 //oberste Datenstruktur unter dem Hauptprogramm
 	String halbjahrName;
 	LinkedList<Fach> faecherliste;
-	//boolean ersterAufruf = ueberpruefen();
 	
+	//boolean ersterAufruf = ueberpruefen();
 	public Halbjahr(String s){
 		
 		if(ueberpruefen() == true){ //falls es der erste Aufruf ist wird die Linked list generiert und eine File zum vermerken des Ersten Aufrufs angelegt
@@ -39,6 +45,9 @@ public class Halbjahr implements java.io.Serializable {/**
 		
 		
 		
+		tabbedPane_Halbjahre.setBounds(10, 10, 744, 410);
+		panel_main.add(tabbedPane_Halbjahre);
+		
 		
 		
 		JPanel panel = new JPanel();
@@ -47,7 +56,7 @@ public class Halbjahr implements java.io.Serializable {/**
 		
 			//Container für Fächer
 		panel_Faecher.setBounds(10, 56, 719, 315);
-		panel.add(panel_FaecherHJ1);
+		panel.add(panel_Faecher);
 		panel_Faecher.setBackground(Color.WHITE);
 		panel_Faecher.setLayout(null);
 		
@@ -57,7 +66,7 @@ public class Halbjahr implements java.io.Serializable {/**
 		
 		scrollPane.setViewportView(panel_scrollContent);		
 		GridLayout gl = new GridLayout(0, 1, 0, -10);
-		panel_scrollContentHJ1.setLayout(gl);
+		panel_scrollContent.setLayout(gl);
 		
 		JPanel panel_Add = new JPanel();		//HJ1 Panel mit Textfeld und Button
 		panel_Add.setBackground(Color.WHITE);

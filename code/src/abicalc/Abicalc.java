@@ -30,7 +30,7 @@ public class Abicalc extends JFrame {
 	JPanel contentPane;		//Enthält alle anderen Elemente
 
 	static JLabel lbl_Punkte;		//aktueller Gesamtschnitt
-	
+	/*
 	JTextField txt_FachnameHJ1;		//Textfeld zum Hinzufügen/Benennen von Fächern	
 	JTextField txt_FachnameHJ2;
 	JTextField txt_FachnameHJ3;
@@ -51,7 +51,7 @@ public class Abicalc extends JFrame {
 	
 	JTabbedPane tabbedPane_Halbjahre = new JTabbedPane(JTabbedPane.TOP);
 	
-	
+	*/
 	
 	public Abicalc() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		//Hauptfenster
@@ -100,10 +100,7 @@ public class Abicalc extends JFrame {
 		
 		
 				//Tabs für Halbjahre eines Fachs
-		tabbedPane_Halbjahre.setBounds(10, 10, 744, 410);
-		panel_main.add(tabbedPane_Halbjahre);
-		
-		
+	
 		
 		
 		Halbjahr hj1 = new Halbjahr("11.1");
