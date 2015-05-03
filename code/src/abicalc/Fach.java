@@ -20,7 +20,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	String name;
 	LinkedList<Note>  notenliste;
 	
-	public Fach(String s){ //Konstruktor
+	public Fach(String s, JPanel jpnl1, JPanel jpnl2){ //Konstruktor
 		
 		//Verkette Liste aus Noten und Name des Fachs mithilfe des übergebenen Strings
 		name = s;
@@ -54,9 +54,9 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 			
 
 		//Stellt sicher, dass UI aktualisiert wird
-		this.getParent().add(panel);
-		this.getParent().getParent().getParent().validate();
-		this.getParent().getParent().getParent().repaint();
+		jpnl1.add(panel);
+		jpnl2.validate();
+		jpnl2.repaint();
 		
 	}
 

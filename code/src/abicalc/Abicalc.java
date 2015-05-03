@@ -138,7 +138,7 @@ public class Abicalc extends JFrame {
 		button_plusHJ1.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
-	        	panel_scrollContentHJ1.add(new Fach(txt_FachnameHJ1.getText()));
+	        	panel_scrollContentHJ1.add(new Fach(txt_FachnameHJ1.getText(), panel_scrollContentHJ1, panel_FaecherHJ1));
 	        }
 	    });
 			
@@ -182,7 +182,7 @@ public class Abicalc extends JFrame {
 		button_plusHJ2.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
-	        	panel_scrollContentHJ2.add(new Fach(txt_FachnameHJ2.getText()));
+	        	panel_scrollContentHJ2.add(new Fach(txt_FachnameHJ2.getText(), panel_scrollContentHJ2, panel_FaecherHJ2));
 	        }
 	    });
 
@@ -232,12 +232,6 @@ public class Abicalc extends JFrame {
 		lbl_Punkte.setText(""+d);
 	}
 	
-	public static void neuesFach(String name,  int HJNummer){		//Ruft den jeweiligen Konstruktor der Fächerliste auf
-		Fach neuesFach = new Fach(name);
-		halbjahre[HJNummer].faecherliste.add(neuesFach);
-	}
-	
-
 	
 	
 	public static void main(String[] args) {
