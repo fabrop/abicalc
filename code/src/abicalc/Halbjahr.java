@@ -18,10 +18,11 @@ public class Halbjahr implements java.io.Serializable {/**
 //oberste Datenstruktur unter dem Hauptprogramm
 	String halbjahrName;
 	LinkedList<Fach> faecherliste;
+	//boolean ersterAufruf = ueberpruefen();
 	
 	public Halbjahr(){
 		
-		if(ueberpruefen == true){ //falls es der erste Aufruf ist wird die Linked list generiert und eine File zum vermerken des Ersten Aufrufs angelegt
+		if(ueberpruefen() == true){ //falls es der erste Aufruf ist wird die Linked list generiert und eine File zum vermerken des Ersten Aufrufs angelegt
 		faecherliste = new LinkedList<Fach>();
 		vermerken();
 		}
