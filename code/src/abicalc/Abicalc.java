@@ -161,7 +161,7 @@ public class Abicalc extends JFrame {
 	}
 	
 	
-	public double getGesamtSchnitt(){
+	public static double getGesamtSchnitt(){
 		double gesamtSchnitt = (halbjahre[1].getHJSchnitt() + halbjahre[2].getHJSchnitt()
 				+ halbjahre[3].getHJSchnitt() + halbjahre[4].getHJSchnitt()
 				+ halbjahre[5].getHJSchnitt() + halbjahre[5].getHJSchnitt()) / 6;
@@ -172,7 +172,7 @@ public class Abicalc extends JFrame {
 		lbl_Punkte.setText(""+d);
 	}
 	
-	public static void neuesFach(String name,  int HJNummer){		//Ruft den jeweiligen Konstrukor der Fächerliste auf
+	public static void neuesFach(String name,  int HJNummer){		//Ruft den jeweiligen Konstruktor der Fächerliste auf
 		Fach neuesFach = new Fach(name);
 		halbjahre[HJNummer].faecherliste.add(neuesFach);
 	}
