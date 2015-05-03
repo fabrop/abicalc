@@ -18,7 +18,6 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 import java.awt.GridLayout;
-import java.util.LinkedList;
 
 import javax.swing.JScrollPane;					
 

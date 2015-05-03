@@ -45,6 +45,7 @@ public class Halbjahr implements java.io.Serializable {/**
 		
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void laden(){ // Methode, die vorhandene serialisierte Linked List einliest um damit zu arbeiten
 		FileInputStream laden;
 		try {
