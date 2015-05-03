@@ -55,8 +55,8 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 
 		//Stellt sicher, dass UI aktualisiert wird
 		this.getParent().add(panel);
-		this.getParent().validate();
-		this.getParent().repaint();
+		this.getParent().getParent().getParent().validate();
+		this.getParent().getParent().getParent().repaint();
 		
 	}
 

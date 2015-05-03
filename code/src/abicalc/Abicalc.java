@@ -185,7 +185,7 @@ public class Abicalc extends JFrame {
 	        	panel_scrollContentHJ2.add(new Fach(txt_FachnameHJ2.getText()));
 	        }
 	    });
-		
+
 		
 		
 		
@@ -252,7 +252,7 @@ public class Abicalc extends JFrame {
 				}
 				
 				
-				setGesamtSchnitt(getGesamtSchnitt());
+				//setGesamtSchnitt(getGesamtSchnitt());
 				
 				
 			}
