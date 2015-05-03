@@ -83,6 +83,8 @@ public class Halbjahr implements java.io.Serializable {/**
 		}
 	}
 	
+	
+	
 	public void fachHinzufügen(String fachName){ // nicht vollständig
 		faecherliste.add(new Fach(fachName));
 	}

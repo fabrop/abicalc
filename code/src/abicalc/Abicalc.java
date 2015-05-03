@@ -160,6 +160,13 @@ public class Abicalc extends JFrame {
 		
 	}
 	
+	
+	public double getGesamtSchnitt(){
+		int gesamtSchnitt = (halbjahre[1].getSchnitt() + halbjahre[2].getSchnitt()
+				+ halbjahre[3].getSchnitt() + halbjahre[4].getSchnitt()
+				+ halbjahre[5].getSchnitt() + halbjahre[5].getSchnitt()) / 6;
+	}
+	
 	public static void setGesamtSchnitt(double d){				//Double-Variable als Input für JLabel mit Gesamtschnitt
 		lbl_Punkte.setText(""+d);
 	}
@@ -184,13 +191,7 @@ public class Abicalc extends JFrame {
 				}
 				
 				
-				
-				LinkedList notenliste = new LinkedList();								//temp tests
-				setGesamtSchnitt(notenliste.halbjahresschnitt());
-				
-				
-				
-				
+				setGesamtSchnitt(getGesamtSchnitt());
 				
 				
 			}
