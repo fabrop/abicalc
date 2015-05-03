@@ -162,19 +162,19 @@ public class Abicalc extends JFrame {
 		GridLayout gl2 = new GridLayout(0, 1, 0, -10);
 		panel_scrollContentHJ2.setLayout(gl2);
 		
-		JPanel panel_AddHJ2 = new JPanel();		//HJ1 Panel mit Textfeld und Button
+		JPanel panel_AddHJ2 = new JPanel();		//HJ2 Panel mit Textfeld und Button
 		panel_AddHJ2.setBackground(Color.WHITE);
 		panel_AddHJ2.setBounds(10, 11, 719, 45);
-		panel_HJ2.add(panel_AddHJ1);
+		panel_HJ2.add(panel_AddHJ2);
 		panel_AddHJ2.setLayout(null);
 		
-		txt_FachnameHJ2 = new JTextField();			//HJ1 Input für Fachname
+		txt_FachnameHJ2 = new JTextField();			//HJ2 Input für Fachname
 		txt_FachnameHJ2.setBounds(10, 11, 216, 23);
 		txt_FachnameHJ2.setText("Fachname");
 		panel_AddHJ2.add(txt_FachnameHJ2);
 		txt_FachnameHJ2.setColumns(10);
 		
-		JButton button_plusHJ2 = new JButton("+");		//HJ1 Fach hinzufügen Button
+		JButton button_plusHJ2 = new JButton("+");		//HJ2 Fach hinzufügen Button
 		button_plusHJ2.setBounds(236, 11, 41, 23);
 		panel_AddHJ2.add(button_plusHJ2);
 		
