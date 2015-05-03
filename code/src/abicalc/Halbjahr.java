@@ -43,15 +43,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 			laden();
 		}
 		
-		
-		
 		halbjahrName = S;
-		
-		
-		
-		
-		
-		
 		
 		panel.setLayout(null);
 		
@@ -91,20 +83,20 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	          
 	        	panel_scrollContent.add(new Fach(txt_Fachname.getText(), panel_scrollContent, panel_Faecher));
 	        }
-	    });
-		
-		
-		
-		
-		
+	    });		
 		
 	}
 
 	public void save(){ // Methode, die die Linked List faecherliste in eine Datei abspeichert
 		FileOutputStream speichern;
+		File datei;
 		try {
-			speichern = new FileOutputStream(verzeichnis + "/data/" + halbjahrName + ".ser");
+			datei = new File(verzeichnis + "/data/" + halbjahrName + ".ser");
+			speichern = new FileOutputStream(datei);
 			ObjectOutputStream out = new ObjectOutputStream(speichern);
+			if(!datei.exists()){
+				datei.createNewFile();
+			}
 			out.writeObject(faecherliste);
 			out.close();
 			speichern.close();
@@ -118,8 +110,10 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	@SuppressWarnings("unchecked")
 	public void laden(){ // Methode, die vorhandene serialisierte Linked List einliest um damit zu arbeiten
 		FileInputStream laden;
+		File datei;
 		try {
-			laden = new FileInputStream(verzeichnis + "/data/" + halbjahrName + ".ser");
+			datei = new File(verzeichnis + "/data/" + halbjahrName + ".ser");
+			laden = new FileInputStream(datei);
 			ObjectInputStream in = new ObjectInputStream(laden);
 			faecherliste = (LinkedList<Fach>) in.readObject();
 			in.close();
@@ -144,7 +138,9 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	public void vermerken(){ //Eine Datei wird angelegt, um den ersten Start des Programms zu vermerken
 		File vermerk = new File("/data/aufgerufen.txt");
 		try {
+			
 			FileWriter writer = new FileWriter(vermerk);
+			vermerk.createNewFile();
 			writer.write("true");
 			writer.flush();
 			writer.close();
