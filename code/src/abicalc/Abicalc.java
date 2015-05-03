@@ -107,10 +107,10 @@ public class Abicalc extends JFrame {
 		
 		
 		Halbjahr hj1 = new Halbjahr("11.1");
-		Halbjahr hj1 = new Halbjahr("11.2");
-		Halbjahr hj1 = new Halbjahr("12.1");
-		Halbjahr hj1 = new Halbjahr("12.2");
-		Halbjahr hj1 = new Halbjahr("Prüfungen");
+		Halbjahr hj2 = new Halbjahr("11.2");
+		Halbjahr hj3 = new Halbjahr("12.1");
+		Halbjahr hj4 = new Halbjahr("12.2");
+		Halbjahr hjP = new Halbjahr("Prüfungen");
 		
 		
 		
