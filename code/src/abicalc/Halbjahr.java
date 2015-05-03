@@ -32,7 +32,7 @@ public class Halbjahr implements java.io.Serializable {/**
 	LinkedList<Fach> faecherliste;
 	
 	//boolean ersterAufruf = ueberpruefen();
-	public Halbjahr(String s){
+	public Halbjahr(){
 		
 		if(ueberpruefen() == true){ //falls es der erste Aufruf ist wird die Linked list generiert und eine File zum vermerken des Ersten Aufrufs angelegt
 		faecherliste = new LinkedList<Fach>();
