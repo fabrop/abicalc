@@ -25,7 +25,7 @@ public class Halbjahr implements java.io.Serializable {/**
 	JTextField txt_Fachname;
 	static JPanel panel_Faecher = new JPanel();
 	static JPanel panel_scrollContent = new JPanel();
-	
+	JPanel panel = new JPanel();
 	
 //oberste Datenstruktur unter dem Hauptprogramm
 	String halbjahrName;
@@ -50,7 +50,7 @@ public class Halbjahr implements java.io.Serializable {/**
 		
 		
 		
-		JPanel panel = new JPanel();
+		
 		
 		panel.setLayout(null);
 		
