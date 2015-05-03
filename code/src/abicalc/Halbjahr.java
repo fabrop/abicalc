@@ -35,14 +35,13 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	//boolean ersterAufruf = ueberpruefen();
 	public Halbjahr(String S){
 		
+		halbjahrName = S;
 		if(ueberpruefen() == true){ //falls es der erste Aufruf ist wird die Linked list generiert und eine File zum vermerken des Ersten Aufrufs angelegt
 		faecherliste = new LinkedList<Fach>();
 		}
 		else{
 			laden();
 		}
-		
-		halbjahrName = S;
 		
 		panel.setLayout(null);
 		
