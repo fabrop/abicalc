@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 import java.util.LinkedList;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -41,6 +42,17 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		btn.setBounds(641, 10, 113, 23);
 		panel.add(btn);
 		
+		btn.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
+	        public void actionPerformed(java.awt.event.ActionEvent e) {
+	          
+	        	 JDialog meinJDialog = new JDialog();
+	             meinJDialog.setTitle(s+"bearbeiten");
+	             meinJDialog.setSize(200,200);
+	             meinJDialog.setModal(true);
+	             meinJDialog.setVisible(true);
+	        }
+	    });
+			
 
 		//Stellt sicher, dass UI aktualisiert wird
 		Abicalc.panel_scrollContentHJ1.add(panel);
