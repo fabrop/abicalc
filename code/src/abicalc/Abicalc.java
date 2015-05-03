@@ -28,15 +28,27 @@ public class Abicalc extends JFrame {
 	
 	
 	static Halbjahr halbjahre[] = new Halbjahr[5];
-	private JPanel contentPane;		//Enthält alle anderen Elemente
+	JPanel contentPane;		//Enthält alle anderen Elemente
 
 	static JLabel lbl_Punkte;		//aktueller Gesamtschnitt
 	
-	private JTextField txt_FachnameHJ1;		//Textfeld zum Hinzufügen/Benennen von Fächern	
+	JTextField txt_FachnameHJ1;		//Textfeld zum Hinzufügen/Benennen von Fächern	
+	JTextField txt_FachnameHJ2;
+	JTextField txt_FachnameHJ3;
+	JTextField txt_FachnameHJ4;
+	JTextField txt_FachnamePruefungen;
 
 	static JPanel panel_FaecherHJ1 = new JPanel();		//Enthält scrollbaren Bereich
-	static JPanel panel_scrollContentHJ1 = new JPanel();		//Scrollbarer Bereich mit Fächern
+	static JPanel panel_FaecherHJ2 = new JPanel();
+	static JPanel panel_FaecherHJ3 = new JPanel();
+	static JPanel panel_FaecherHJ4 = new JPanel();
+	static JPanel panel_FaecherPruefungen = new JPanel();	
 	
+	static JPanel panel_scrollContentHJ1 = new JPanel();		//Scrollbarer Bereich mit Fächern
+	static JPanel panel_scrollContentHJ2 = new JPanel();
+	static JPanel panel_scrollContentHJ3 = new JPanel();
+	static JPanel panel_scrollContentHJ4 = new JPanel();
+	static JPanel panel_scrollContentPruefungen = new JPanel();
 	
 	public Abicalc() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		//Hauptfenster
@@ -84,6 +96,11 @@ public class Abicalc extends JFrame {
 		tabbedPane_Halbjahre.setBounds(10, 10, 744, 410);
 		panel_main.add(tabbedPane_Halbjahre);
 		
+		
+		
+		
+		
+		
 		JPanel panel_HJ1 = new JPanel();		//Tab für erstes HJ
 		tabbedPane_Halbjahre.addTab("Halbjahr 11.1", null, panel_HJ1, null);
 		panel_HJ1.setLayout(null);
@@ -99,8 +116,8 @@ public class Abicalc extends JFrame {
 		panel_FaecherHJ1.add(scrollPane_HJ1);
 		
 		scrollPane_HJ1.setViewportView(panel_scrollContentHJ1);		
-		GridLayout gl = new GridLayout(0, 1, 0, -10);
-		panel_scrollContentHJ1.setLayout(gl);
+		GridLayout gl1 = new GridLayout(0, 1, 0, -10);
+		panel_scrollContentHJ1.setLayout(gl1);
 		
 		JPanel panel_AddHJ1 = new JPanel();		//HJ1 Panel mit Textfeld und Button
 		panel_AddHJ1.setBackground(Color.WHITE);
@@ -127,8 +144,52 @@ public class Abicalc extends JFrame {
 	    });
 			
 		
-		JPanel panel_HJ2 = new JPanel();
+
+		JPanel panel_HJ2 = new JPanel();		//Tab für zweites HJ
 		tabbedPane_Halbjahre.addTab("Halbjahr 11.2", null, panel_HJ2, null);
+		panel_HJ2.setLayout(null);
+		
+			//Container für Fächer
+		panel_FaecherHJ2.setBounds(10, 56, 719, 315);
+		panel_HJ2.add(panel_FaecherHJ2);
+		panel_FaecherHJ2.setBackground(Color.WHITE);
+		panel_FaecherHJ2.setLayout(null);
+		
+		JScrollPane scrollPane_HJ2 = new JScrollPane();
+		scrollPane_HJ2.setBounds(10, 11, 699, 293);
+		panel_FaecherHJ2.add(scrollPane_HJ2);
+		
+		scrollPane_HJ2.setViewportView(panel_scrollContentHJ2);		
+		GridLayout gl2 = new GridLayout(0, 1, 0, -10);
+		panel_scrollContentHJ2.setLayout(gl2);
+		
+		JPanel panel_AddHJ2 = new JPanel();		//HJ1 Panel mit Textfeld und Button
+		panel_AddHJ2.setBackground(Color.WHITE);
+		panel_AddHJ2.setBounds(10, 11, 719, 45);
+		panel_HJ2.add(panel_AddHJ1);
+		panel_AddHJ2.setLayout(null);
+		
+		txt_FachnameHJ2 = new JTextField();			//HJ1 Input für Fachname
+		txt_FachnameHJ2.setBounds(10, 11, 216, 23);
+		txt_FachnameHJ2.setText("Fachname");
+		panel_AddHJ2.add(txt_FachnameHJ2);
+		txt_FachnameHJ2.setColumns(10);
+		
+		JButton button_plusHJ2 = new JButton("+");		//HJ1 Fach hinzufügen Button
+		button_plusHJ2.setBounds(236, 11, 41, 23);
+		panel_AddHJ2.add(button_plusHJ2);
+		
+		
+		button_plusHJ2.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
+	        public void actionPerformed(java.awt.event.ActionEvent e) {
+	          
+	        	panel_scrollContentHJ2.add(new Fach(txt_FachnameHJ2.getText()));
+	        }
+	    });
+		
+		
+		
+		
 		
 		JPanel panel_HJ3 = new JPanel();
 		tabbedPane_Halbjahre.addTab("Halbjahr 12.1", null, panel_HJ3, null);

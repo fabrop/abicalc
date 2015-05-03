@@ -46,8 +46,8 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
 	        	 JDialog meinJDialog = new JDialog();
-	             meinJDialog.setTitle(s+"bearbeiten");
-	             meinJDialog.setSize(200,200);
+	             meinJDialog.setTitle(s+" bearbeiten");
+	             meinJDialog.setSize(500,400);
 	             meinJDialog.setModal(true);
 	             meinJDialog.setVisible(true);
 	        }
@@ -55,9 +55,9 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 			
 
 		//Stellt sicher, dass UI aktualisiert wird
-		Abicalc.panel_scrollContentHJ1.add(panel);
-		Abicalc.panel_FaecherHJ1.validate();
-		Abicalc.panel_FaecherHJ1.repaint();
+		this.getParent().add(panel);
+		this.getParent().validate();
+		this.getParent().repaint();
 		
 	}
 
