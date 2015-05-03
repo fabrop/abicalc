@@ -123,7 +123,7 @@ public class Abicalc extends JFrame {
 		button_plusHJ1.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
-	        	panel_scrollContentHJ1.add(new FachUI(txt_FachnameHJ1.getText()));
+	        	panel_scrollContentHJ1.add(new Fach(txt_FachnameHJ1.getText()));
 	        }
 	    });
 			

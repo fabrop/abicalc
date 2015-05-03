@@ -1,4 +1,4 @@
-package abicalc;
+/*package abicalc;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -18,11 +18,11 @@ public class FachUI extends Component {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.GRAY);
-		/*
-		panel.setMaximumSize(new Dimension(600, 100));
-		panel.setPreferredSize(new Dimension(600, 100));
-		panel.setMinimumSize(new Dimension(600, 100));
-		*/
+		
+		//panel.setMaximumSize(new Dimension(600, 100));
+		//panel.setPreferredSize(new Dimension(600, 100));
+		//panel.setMinimumSize(new Dimension(600, 100));
+		
 		
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 		
@@ -41,3 +41,4 @@ public class FachUI extends Component {
 		Abicalc.panel_FaecherHJ1.repaint();
 	}
 }
+*/
