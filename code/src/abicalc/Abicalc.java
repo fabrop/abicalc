@@ -74,22 +74,16 @@ public class Abicalc extends JFrame {
 		
 				//Tabs für Halbjahre eines Fachs
 	
-		
-		
-		Halbjahr hj1 = new Halbjahr("hj1");
-		Halbjahr hj2 = new Halbjahr("hj2");
-		Halbjahr hj3 = new Halbjahr("hj3");
-		Halbjahr hj4 = new Halbjahr("hj4");
-		Halbjahr hjP = new Halbjahr("hjP");
-		
 		JTabbedPane tabbedPane_Halbjahre = new JTabbedPane(JTabbedPane.TOP);
 		panel_main.add(tabbedPane_Halbjahre);
+		
+		Halbjahr hj1 = new Halbjahr("hj1", "11.1", tabbedPane_Halbjahre ,panel_main);
+		Halbjahr hj2 = new Halbjahr("hj2", "11.2", tabbedPane_Halbjahre ,panel_main);
+		Halbjahr hj3 = new Halbjahr("hj3", "12.1", tabbedPane_Halbjahre ,panel_main);
+		Halbjahr hj4 = new Halbjahr("hj4", "12.2", tabbedPane_Halbjahre ,panel_main);
+		Halbjahr hjP = new Halbjahr("hjP", "Prüfungen", tabbedPane_Halbjahre ,panel_main);
+		
 		tabbedPane_Halbjahre.setBounds(10, 10, 744, 410);
-		tabbedPane_Halbjahre.addTab("11.1", null, hj1, null);
-		tabbedPane_Halbjahre.addTab("11.2", null, hj2, null);
-		tabbedPane_Halbjahre.addTab("12.1", null, hj3, null);
-		tabbedPane_Halbjahre.addTab("12.2", null, hj4, null);
-		tabbedPane_Halbjahre.addTab("Prüfungen", null, hjP, null);
 		
 		
 		JPanel panel_unten = new JPanel();				//Dunkelgrauer Container für Gesamtschnitt
@@ -109,7 +103,7 @@ public class Abicalc extends JFrame {
 		lbl_Punkte.setFont(new Font("Tahoma", Font.PLAIN, 28));
 		lbl_Punkte.setBounds(198, 11, 149, 22);
 		panel_unten.add(lbl_Punkte);
-		
+			
 		
 	}
 	
