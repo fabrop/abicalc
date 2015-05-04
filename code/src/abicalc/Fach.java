@@ -1,5 +1,6 @@
 package abicalc;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridLayout;
@@ -9,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Fach extends Component implements java.io.Serializable{//Datenstruktur aus Noten, die ein UI-ELement ist
 	
@@ -67,23 +69,32 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         JPanel main = new JPanel();		//Enthält alles
         fachJDialog.add(main);
         main.setBackground(Color.LIGHT_GRAY);
-        GridLayout gl = new GridLayout(0, 1, 0, -10);
-        main.setLayout(gl);
         
         JPanel panel_title = new JPanel();		//Panel mit Titel-Label
+        //panel_title.setSize(500, getHeight());
         panel_title.setBackground(Color.WHITE);
         JLabel title = new JLabel(name);		//Titel-Label
         panel_title.add(title);
-        main.add(panel_title);
+        main.add(panel_title, BorderLayout.PAGE_START);
+        
         
         
         
         JPanel panel_add = new JPanel();
-        main.add(panel_add);
+        //panel_add.setSize(500, getHeight());
+        
+        JTextField txt_Note = new JTextField();			//HJ Input für Fachname
+        txt_Note.setText("Note");
+		panel_add.add(txt_Note);
+		txt_Note.setColumns(10);
+		JButton button_plus = new JButton("+");		//HJ Fach hinzufügen Button
+		
+		panel_add.add(button_plus);
+        main.add(panel_add, BorderLayout.CENTER);
         
         
         JPanel panel_noten = new JPanel();
-        main.add(panel_noten);
+        main.add(panel_noten, BorderLayout.PAGE_END);
         
         
         
