@@ -59,24 +59,23 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	
 	public void openDialog() {
 
-   	 JDialog fachJDialog = new JDialog();
+   	 	JDialog fachJDialog = new JDialog();		//Pop-up Fenster
         fachJDialog.setTitle(name+" bearbeiten");
         fachJDialog.setSize(500,400);
         fachJDialog.setModal(true);
         
-        JPanel main = new JPanel();
+        JPanel main = new JPanel();		//Enthält alles
         fachJDialog.add(main);
         main.setLayout(null);
         main.setBackground(Color.LIGHT_GRAY);
         
-        JPanel titlePanel = new JPanel();
+        JPanel titlePanel = new JPanel();		//Panel mit Titel-Label
         main.add(titlePanel);
         titlePanel.setBackground(Color.WHITE);
-        JLabel title = new JLabel(name);
+        JLabel title = new JLabel(name);		//Titel-Label
         titlePanel.add(title);
         
-        
-        fachJDialog.setVisible(true);
+        fachJDialog.setVisible(true);		//Dialog wird sichtbar gemacht
 	}
 
 	public double getFachSchnitt() {
