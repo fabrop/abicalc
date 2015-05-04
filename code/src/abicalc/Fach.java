@@ -66,15 +66,16 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         
         JPanel main = new JPanel();		//Enthält alles
         fachJDialog.add(main);
-        main.setLayout(null);
         main.setBackground(Color.LIGHT_GRAY);
         
         JPanel titlePanel = new JPanel();		//Panel mit Titel-Label
         titlePanel.setBackground(Color.WHITE);
         JLabel title = new JLabel(name);		//Titel-Label
         titlePanel.add(title);
-        main.add(titlePanel);
+        main.add(title);
         
+        main.validate();
+        main.repaint();
         fachJDialog.setVisible(true);		//Dialog wird sichtbar gemacht
 	}
 
