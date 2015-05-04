@@ -25,8 +25,8 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	
 	String verzeichnis = Halbjahr.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 	JTextField txt_Fachname;
-	static JPanel panel_Faecher = new JPanel();
-	static JPanel panel_scrollContent = new JPanel();
+	JPanel panel_Faecher = new JPanel();
+	JPanel panel_scrollContent = new JPanel();
 	JPanel panel = new JPanel();
 	
 	//oberste Datenstruktur unter dem Hauptprogramm
