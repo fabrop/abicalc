@@ -38,6 +38,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		
 		halbjahrName = S;
 		if(ueberpruefen() == true){ //falls es der erste Aufruf ist wird die Linked list generiert und eine File zum vermerken des Ersten Aufrufs angelegt
+		ordnerAnlegen("data");
 		faecherliste = new LinkedList<Fach>();
 		}
 		else{
@@ -95,11 +96,11 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		File datei;
 		try {
 			datei = new File(verzeichnis + "/data/" + halbjahrName + ".ser");
-			speichern = new FileOutputStream(datei);
-			ObjectOutputStream out = new ObjectOutputStream(speichern);
 			if(!datei.exists()){
 				datei.createNewFile();
 			}
+			speichern = new FileOutputStream(datei);
+			ObjectOutputStream out = new ObjectOutputStream(speichern);
 			out.writeObject(faecherliste);
 			out.close();
 			speichern.close();
@@ -108,7 +109,12 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 			e.printStackTrace();
 		}
 		vermerken();
-		
+	}
+	
+	public void ordnerAnlegen(String name){
+		String ordnerName = name;
+		File ordner = new File(verzeichnis + "/" + ordnerName);
+		ordner.mkdir();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -142,11 +148,10 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	public void vermerken(){ //Eine Datei wird angelegt, um den ersten Start des Programms zu vermerken
 		File vermerk = new File("/data/aufgerufen.txt");
 		try {
-			
-			FileWriter writer = new FileWriter(vermerk);
 			if(!vermerk.exists()){
 				vermerk.createNewFile();
 			}
+			FileWriter writer = new FileWriter(vermerk);
 			writer.write("true");
 			writer.flush();
 			writer.close();
