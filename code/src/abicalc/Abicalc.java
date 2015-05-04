@@ -12,6 +12,9 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 
 import java.awt.Color;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JTabbedPane;				
@@ -119,7 +122,22 @@ public class Abicalc extends JFrame {
 		lbl_Punkte.setText(""+d);
 	}
 	
-	
+	public static void vermerken(){ //Eine Datei wird angelegt, um den ersten Start des Programms zu vermerken
+		String verzeichnis = Halbjahr.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+		File vermerk = new File(verzeichnis + "/data/aufgerufen.txt");
+		try {
+			if(!vermerk.exists()){
+				vermerk.createNewFile();
+			}
+			FileWriter writer = new FileWriter(vermerk);
+			writer.write("true");
+			writer.flush();
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -127,7 +145,7 @@ public class Abicalc extends JFrame {
 				try {
 					Abicalc frame = new Abicalc();
 					frame.setVisible(true);
-				
+					vermerken();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

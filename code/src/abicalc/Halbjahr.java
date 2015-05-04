@@ -97,11 +97,11 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		File datei;
 		try {
 			datei = new File(verzeichnis + "/data/" + halbjahrName + ".ser");
+			speichern = new FileOutputStream(datei);
+			ObjectOutputStream out = new ObjectOutputStream(speichern);
 			if(!datei.exists()){
 				datei.createNewFile();
 			}
-			speichern = new FileOutputStream(datei);
-			ObjectOutputStream out = new ObjectOutputStream(speichern);
 			out.writeObject(faecherliste);
 			out.close();
 			speichern.close();
@@ -109,7 +109,6 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		vermerken();
 	}
 	
 	public void ordnerAnlegen(String name){
@@ -146,21 +145,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		}
 	}
 	
-	public void vermerken(){ //Eine Datei wird angelegt, um den ersten Start des Programms zu vermerken
-		File vermerk = new File("/data/aufgerufen.txt");
-		try {
-			if(!vermerk.exists()){
-				vermerk.createNewFile();
-			}
-			FileWriter writer = new FileWriter(vermerk);
-			writer.write("true");
-			writer.flush();
-			writer.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+
 	
 	
 	
