@@ -44,11 +44,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		btn.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
-	        	 JDialog meinJDialog = new JDialog();
-	             meinJDialog.setTitle(s+" bearbeiten");
-	             meinJDialog.setSize(500,400);
-	             meinJDialog.setModal(true);
-	             meinJDialog.setVisible(true);
+	        	openDialog();
 	        }
 	    });
 			
@@ -58,6 +54,20 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		jpnl2.validate();
 		jpnl2.repaint();
 		
+	}
+	
+	
+	public void openDialog() {
+
+   	 JDialog fachJDialog = new JDialog();
+        fachJDialog.setTitle(name+" bearbeiten");
+        fachJDialog.setSize(500,400);
+        fachJDialog.setModal(true);
+        fachJDialog.setVisible(true);
+        
+        
+        
+        
 	}
 
 	public double getFachSchnitt() {
