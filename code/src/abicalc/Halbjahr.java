@@ -29,7 +29,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	static JPanel panel_scrollContent = new JPanel();
 	JPanel panel = new JPanel();
 	
-//oberste Datenstruktur unter dem Hauptprogramm
+	//oberste Datenstruktur unter dem Hauptprogramm
 	String halbjahrName;
 	LinkedList<Fach> faecherliste;
 	
@@ -52,7 +52,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		panel_Faecher.setBackground(Color.WHITE);
 		panel_Faecher.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
+		JScrollPane scrollPane = new JScrollPane();		//Scrollbarer Bereich
 		scrollPane.setBounds(10, 11, 699, 293);
 		panel_Faecher.add(scrollPane);
 		
