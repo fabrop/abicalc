@@ -116,11 +116,12 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
     	scrollPane.setSize(getWidth(), 310);
     	panel_noten.add(scrollPane);
     	
+    	//scrollPane.add(panel_scroll);
 		scrollPane.setViewportView(panel_scroll);
 		GridLayout gl = new GridLayout(0, 1, 0, 10);
 		panel_scroll.setLayout(gl);
 		
-		scrollPane.add(panel_scroll);
+		
 		
         main.add(panel_noten, BorderLayout.CENTER);	//Scrollbarer Bereich für einzelne Noten wird hinzugefügt
         
