@@ -154,6 +154,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	        	notenliste.add(n);
 	        	main.validate();
 	    		main.repaint();
+	    		Abicalc.setzeGesamtSchnitt(Abicalc.getGesamtSchnitt());
 	        }
 	    });
         

@@ -172,6 +172,7 @@ public class Abicalc extends JFrame {
 		}
 	}
 	
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -183,8 +184,8 @@ public class Abicalc extends JFrame {
 					e.printStackTrace();
 				}
 				
-				
 				setzeGesamtSchnitt(getGesamtSchnitt());
+				
 				
 				
 			}
