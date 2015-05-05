@@ -121,7 +121,7 @@ public class Abicalc extends JFrame {
 	
 	
 
-	public static double getGesamtSchnitt(){
+	public static double getGesamtSchnitt(){ //Rechnet den Schnitt aller halbjahre, welche man bisher benutzt hat aus
 		double gesamtSchnitt;
 		double hjSumme = 0;
 		double aktiveHJs = 0;
@@ -170,7 +170,7 @@ public class Abicalc extends JFrame {
 		}
 	}
 	
-	public void allesZuruecksetzen(String verzeichnis){		
+	public void allesZuruecksetzen(String verzeichnis){		//löscht alle dateien, welche von dem programm generiert wurden
 		File zuLoeschen = new File(verzeichnis + "/data/");
 		String[] dateienZuLoeschen = zuLoeschen.list();
 		if(zuLoeschen.exists()){
@@ -180,7 +180,7 @@ public class Abicalc extends JFrame {
 			}	
 			zuLoeschen.delete();
 		}
-		for(int i = 0; i < halbjahre.length; i++){
+		for(int i = 0; i < halbjahre.length; i++){ //Linked Lists werden gelöscht
     		halbjahre[i].faecherliste.clear();
     	}
     	contentPane.validate();
