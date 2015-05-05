@@ -126,14 +126,13 @@ public class Abicalc extends JFrame {
 		double hjSumme = 0;
 		double aktiveHJs = 0;
 		for(int i = 0; i < halbjahre.length; i++){
-			if(halbjahre[i].faecherliste.getFirst() == null);
-			else{
+			if(!halbjahre[i].faecherliste.isEmpty()){
+				
 				aktiveHJs++;
 				hjSumme = hjSumme + halbjahre[i].getHJSchnitt();
 			}
 		}
 		gesamtSchnitt = hjSumme / aktiveHJs;
-		
 		
 		return gesamtSchnitt;
 	}
@@ -170,7 +169,7 @@ public class Abicalc extends JFrame {
 		}
 	}
 	
-	public void allesZuruecksetzen(String verzeichnis){		//löscht alle dateien, welche von dem programm generiert wurden
+	public void allesZuruecksetzen(String verzeichnis){		//löscht alle Dateien, welche von dem Programm generiert wurden
 		File zuLoeschen = new File(verzeichnis + "/data/");
 		String[] dateienZuLoeschen = zuLoeschen.list();
 		if(zuLoeschen.exists()){
