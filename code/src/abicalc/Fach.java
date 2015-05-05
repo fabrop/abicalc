@@ -32,14 +32,14 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		
 	}
 	
-	public void fachSchnittBerechnen(){
-		double summe = 0;
-		double sGewichtung = 0;
-		for(int i = 0; i < notenliste.size(); i++){
+	public void fachSchnittBerechnen(){		//berechnet den Schnitt eines einzelnen Faches
+		double summe = 0;		//summe sind alle Noten mit deren Gewichtungen eingerechnet
+		double sGewichtung = 0;		//Summe der Gewichtungen
+		for(int i = 0; i < notenliste.size(); i++){		//für jede Note wird deren Wert mit ihrer Gewicchtung multipliziert
 			summe = summe + (notenliste.get(i).gewichtung * notenliste.get(i).punkte);
 			sGewichtung = sGewichtung + notenliste.get(i).gewichtung;
 		}
-		schnitt = summe / sGewichtung;
+		schnitt = summe / sGewichtung;		
 	}
 	
 	public void uiLaden(JPanel jpnl){
@@ -61,7 +61,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		btn.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
-	        	openDialog();
+	        	openDialog();		//ruft den JDialog zum Bearbeiten der Noten auf
 	        	
 	        	//Stellt sicher, dass UI aktualisiert wird
 	        	panel.validate();
@@ -121,7 +121,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         
         //Container der scrollbar wird und Noten enthält
         JScrollPane scrollPane = new JScrollPane (panel_content); 
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);		//bekommt nur Scrollbar, wenn genug Elemente vorhanden sind
         scrollPane.setPreferredSize(new Dimension(460, 300));
         
         panel_noten.add(scrollPane);
@@ -140,8 +140,11 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         button_plus.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Noten hinzufügen
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
-	        	Note n = new Note(Double.parseDouble(txt_Gewichtung.getText()), txt_Name.getText(), Integer.parseInt(txt_Note.getText()), panel_content);
+	        	//Note wird mithilfe der Daten aus den Textfeldern erzeugt
+	        	Note n = new Note(Double.parseDouble(txt_Gewichtung.getText()), txt_Name.getText(), Integer.parseInt(txt_Note.getText()), panel_content);	
+	        	//Note wird zur LinkedList hinzugefügt
 	        	notenliste.add(n);
+	        	//UI wird aktualisiert
 	        	main.validate();
 	    		main.repaint();
 	    		Abicalc.setzeGesamtSchnitt(Abicalc.getGesamtSchnitt(), Abicalc.punkteZuNote(Abicalc.getGesamtSchnitt()));		//Aktualisieren des Gesamtschnitts
