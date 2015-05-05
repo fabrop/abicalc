@@ -23,13 +23,8 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	
 	String name;
 	LinkedList<Note>  notenliste;
-<<<<<<< HEAD
 	double schnitt;
-=======
-
 	public JPanel panel_content = new JPanel();
-	
->>>>>>> origin/master
 	
 	public Fach(String s, JPanel jpnl){ //Konstruktor
 		
