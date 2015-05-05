@@ -60,14 +60,14 @@ public class Abicalc extends JFrame {
 		panel_title.add(btnEinstellungen);
 		
 		JButton btnZuruecksetzen = new JButton("Zur\u00FCcksetzen");		//Button Zurücksetzen
-		btnZuruecksetzen.setForeground(Color.LIGHT_GRAY);
+		btnZuruecksetzen.setForeground(Color.DARK_GRAY);
 		btnZuruecksetzen.setBounds(641, 10, 113, 23);
-		panel_title.add(btnZuruecksetzen);
 		btnZuruecksetzen.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent evt){
 				btnZuruecksetzen_ActionPerformed(evt);
 			}
 		});
+		panel_title.add(btnZuruecksetzen);
 		
 		JButton btnSpeichern = new JButton("Speichern");		//Button Speichern und Aktualisieren
 		btnSpeichern.setForeground(Color.LIGHT_GRAY);
