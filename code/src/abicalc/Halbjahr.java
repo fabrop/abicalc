@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.LinkedList;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -183,7 +182,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	public double getHJSchnitt(){
 		double schnitt=0;
 		for (int i =0; i<faecherliste.size();i++){
-			schnitt=schnitt+faecherliste.get(i).getFachSchnitt();
+			schnitt=schnitt+faecherliste.get(i).schnitt;
 		}
 		schnitt=schnitt/faecherliste.size();
 		return schnitt;

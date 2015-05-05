@@ -1,23 +1,18 @@
 package abicalc;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-
 import java.awt.Font;
-
 import javax.swing.SwingConstants;
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import javax.swing.JButton;
 import javax.swing.JTabbedPane;				
 
@@ -133,7 +128,7 @@ public class Abicalc extends JFrame {
 		return gesamtSchnitt;
 	}
 	
-	public static void setGesamtSchnitt(double d){				//Double-Variable als Input für JLabel mit Gesamtschnitt
+	public static void setzeGesamtSchnitt(double d){				//Double-Variable als Input für JLabel mit Gesamtschnitt
 		lbl_Punkte.setText(""+d);
 	}
 	
@@ -189,7 +184,7 @@ public class Abicalc extends JFrame {
 				}
 				
 				
-				//setGesamtSchnitt(getGesamtSchnitt());
+				setzeGesamtSchnitt(getGesamtSchnitt());
 				
 				
 			}

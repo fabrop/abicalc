@@ -6,7 +6,6 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.LinkedList;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -16,9 +15,6 @@ import javax.swing.JTextField;
 
 public class Fach extends Component implements java.io.Serializable{//Datenstruktur aus Noten, die ein UI-ELement ist
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	String name;
@@ -166,15 +162,6 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         main.validate();	//UI wird geupdated
         main.repaint();
         fachJDialog.setVisible(true);		//Dialog wird sichtbar gemacht
-	}
-
-	public double getFachSchnitt() {
-		double schnitt=0;
-		for (int i=0; i<notenliste.size(); i++){
-			schnitt=schnitt+notenliste.get(i).punkte;
-		}
-		schnitt=schnitt/notenliste.size();
-		return schnitt;
 	}
 
 }
