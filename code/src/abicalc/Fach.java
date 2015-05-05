@@ -67,34 +67,40 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         fachJDialog.setModal(true);
         
         JPanel main = new JPanel();		//Enthält alles
+        main.setLayout(new BorderLayout(5, 5));
         fachJDialog.add(main);
         main.setBackground(Color.LIGHT_GRAY);
         
         JPanel panel_title = new JPanel();		//Panel mit Titel-Label
-        //panel_title.setSize(500, getHeight());
-        panel_title.setBackground(Color.WHITE);
-        JLabel title = new JLabel(name);		//Titel-Label
+        JLabel title = new JLabel(name+"                             ");//Titel-Label
         panel_title.add(title);
-        main.add(panel_title, BorderLayout.PAGE_START);
         
-        
-        
-        
+ 
         JPanel panel_add = new JPanel();
-        //panel_add.setSize(500, getHeight());
         
         JTextField txt_Note = new JTextField();			//HJ Input für Notenname
         txt_Note.setText("Note");
 		panel_add.add(txt_Note);
 		txt_Note.setColumns(10);
+		JTextField txt_Gewichtung = new JTextField();			//HJ Input für Notenname
+        txt_Gewichtung.setText("Gewichtung");
+		panel_add.add(txt_Gewichtung);
+		txt_Gewichtung.setColumns(10);
 		JButton button_plus = new JButton("+");		//HJ Note hinzufügen Button
 		
 		panel_add.add(button_plus);
-        main.add(panel_add, BorderLayout.CENTER);
+		
+		
+		JPanel panel_top = new JPanel();
+		panel_top.add(panel_title);
+		panel_top.add(panel_add);
+		
+        main.add(panel_top, BorderLayout.PAGE_START);
         
         
         JPanel panel_noten = new JPanel();		//Container für einzelne Noten
-        main.add(panel_noten, BorderLayout.PAGE_END);
+        panel_noten.setBackground(Color.WHITE);
+        main.add(panel_noten, BorderLayout.CENTER);
         
         
         
@@ -108,6 +114,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		for (int i=0; i<notenliste.size(); i++){
 			schnitt=schnitt+notenliste.get(i).punkte;
 		}
+		schnitt=schnitt/notenliste.size();
 		return schnitt;
 	}
 

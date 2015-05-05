@@ -81,12 +81,12 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
 	        	panel_scrollContent.add(new Fach(txt_Fachname.getText(), panel_scrollContent, panel_Faecher));
+	        	jpnl.validate();
+	    		jpnl.repaint();
 	        }
 	    });		
 		
 		jtbp.add(panel, title);
-		jpnl.validate();
-		jpnl.repaint();
 		
 	}
 
