@@ -25,7 +25,18 @@ public class Note implements java.io.Serializable {
 		gewichtung = g;
 		name = n;
 		punkte = p;
-		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
   /*	
 	public Note(String n){
 		File datei = new File(n + ".txt");
