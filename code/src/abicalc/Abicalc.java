@@ -121,7 +121,7 @@ public class Abicalc extends JFrame {
 	
 	
 
-	public static double getGesamtSchnitt(){ //Rechnet den Schnitt aller halbjahre, welche man bisher benutzt hat aus
+	public static double getGesamtSchnitt(){ //Berechnet den Schnitt aller Halbjahre, welche man bisher benutzt hat
 		double gesamtSchnitt;
 		double hjSumme = 0;
 		double aktiveHJs = 0;
