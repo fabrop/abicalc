@@ -47,14 +47,17 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
 	        	openDialog();
+	        	
+	        	//Stellt sicher, dass UI aktualisiert wird
+	        	jpnl2.validate();
+	    		jpnl2.repaint();
 	        }
 	    });
 			
 
-		//Stellt sicher, dass UI aktualisiert wird
+		//Panel wird hinzugefügt
 		jpnl1.add(panel);
-		jpnl2.validate();
-		jpnl2.repaint();
+		
 		
 	}
 	
