@@ -98,13 +98,8 @@ public class Abicalc extends JFrame {
 		halbjahre[2] = new Halbjahr("hj3", "12.1", tabbedPane_Halbjahre, panel_main);
 		halbjahre[3] = new Halbjahr("hj4", "12.2", tabbedPane_Halbjahre, panel_main);
 		halbjahre[4] = new Halbjahr("hjP", "Prüfungen", tabbedPane_Halbjahre, panel_main);
-		/*
-		Halbjahr hj1 = new Halbjahr("hj1", "11.1", tabbedPane_Halbjahre, panel_main);
-		Halbjahr hj2 = new Halbjahr("hj2", "11.2", tabbedPane_Halbjahre, panel_main);
-		Halbjahr hj3 = new Halbjahr("hj3", "12.1", tabbedPane_Halbjahre, panel_main);
-		Halbjahr hj4 = new Halbjahr("hj4", "12.2", tabbedPane_Halbjahre, panel_main);
-		Halbjahr hjP = new Halbjahr("hjP", "Prüfungen", tabbedPane_Halbjahre, panel_main);
-		*/
+
+
 		tabbedPane_Halbjahre.setBounds(10, 10, 744, 410);
 		
 		

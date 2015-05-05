@@ -1,10 +1,5 @@
-nach Prioritaet:
-
-- Interface Aufteilung
-- Noten fuer einzelne Faecher
-- Einzelne Klausuren + Muendliche Noten
-- Abiturpruefungen
-- Kurswahlen
-- GUI
-- (Bundeslaender)
-- (Portierung)
+- Einstellungen (Note/Punkte)
+- Schnitt pro Fach
+- Kurse (4+)
+- Haupt/Nebenfächer
+- Speichern nur für fertige Halbjahre
