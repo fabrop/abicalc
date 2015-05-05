@@ -106,6 +106,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 				datei.createNewFile();
 			}
 			out.writeObject(faecherliste);
+			out.flush();
 			out.close();
 			speichern.close();
 		} catch (IOException e) {
