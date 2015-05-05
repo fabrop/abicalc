@@ -30,11 +30,11 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		name = s;
 		notenliste = new LinkedList<Note>();		
 		
-		laden(jpnl);
+		uiLaden(jpnl);
 		
 	}
 	
-	public void laden(JPanel jpnl){
+	public void uiLaden(JPanel jpnl){
 		//Panel mit Label und Button und Layout einer Tabelle mit 1 Zeile
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);

@@ -25,11 +25,11 @@ public class Note extends Component implements java.io.Serializable {
 		name = n;
 		punkte = p;
 		
-		laden(jpnl);
+		uiLaden(jpnl);
 	}
 
 
-	public void laden(JPanel jpnl){
+	public void uiLaden(JPanel jpnl){
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
 		
