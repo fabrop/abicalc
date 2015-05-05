@@ -45,7 +45,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		}
 		
 		panel.setLayout(null);
-		
+		 
 			//Container für Fächer
 		panel_Faecher.setBounds(10, 56, 719, 315);
 		panel.add(panel_Faecher);
@@ -156,6 +156,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		for (int i =0; i<faecherliste.size();i++){
 			schnitt=schnitt+faecherliste.get(i).getFachSchnitt();
 		}
+		schnitt=schnitt/faecherliste.size();
 		return schnitt;
 	}
 }
