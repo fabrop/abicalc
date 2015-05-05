@@ -1,16 +1,23 @@
 package abicalc;
 
 import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.SwingConstants;
+
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+
 import javax.swing.JButton;
 import javax.swing.JTabbedPane;				
 
@@ -56,6 +63,11 @@ public class Abicalc extends JFrame {
 		btnZuruecksetzen.setForeground(Color.LIGHT_GRAY);
 		btnZuruecksetzen.setBounds(641, 10, 113, 23);
 		panel_title.add(btnZuruecksetzen);
+		btnZuruecksetzen.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				btnZuruecksetzen_ActionPerformed(evt);
+			}
+		});
 		
 		JButton btnSpeichern = new JButton("Speichern");		//Button Speichern und Aktualisieren
 		btnSpeichern.setForeground(Color.LIGHT_GRAY);
@@ -106,6 +118,11 @@ public class Abicalc extends JFrame {
 	}
 	
 	
+	public void btnZuruecksetzen_ActionPerformed(ActionEvent evt) {
+		allesZuruecksetzen();
+	}
+
+
 	public static double getGesamtSchnitt(){
 		double gesamtSchnitt = (halbjahre[1].getHJSchnitt() + halbjahre[2].getHJSchnitt()
 				+ halbjahre[3].getHJSchnitt() + halbjahre[4].getHJSchnitt()
@@ -131,6 +148,14 @@ public class Abicalc extends JFrame {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+	
+	public void allesZuruecksetzen(){
+		String verzeichnis = Halbjahr.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+		File zuLoeschen = new File(verzeichnis + "/data/");
+		if(zuLoeschen.exists()){
+			zuLoeschen.delete();
 		}
 	}
 	
