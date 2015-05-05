@@ -55,7 +55,7 @@ public class Abicalc extends JFrame {
 		panel_title.add(btnEinstellungen);
 		
 		JButton btnZuruecksetzen = new JButton("Zur\u00FCcksetzen");		//Button Zurücksetzen
-		btnZuruecksetzen.setForeground(Color.DARK_GRAY);
+		btnZuruecksetzen.setForeground(Color.LIGHT_GRAY);
 		btnZuruecksetzen.setBounds(641, 10, 113, 23);
 		btnZuruecksetzen.addActionListener(new ActionListener() {		
 	        public void actionPerformed(ActionEvent e) {
@@ -65,7 +65,7 @@ public class Abicalc extends JFrame {
 		panel_title.add(btnZuruecksetzen);
 		
 		JButton btnSpeichern = new JButton("Speichern");		//Button Speichern und Aktualisieren
-		btnSpeichern.setForeground(Color.DARK_GRAY);
+		btnSpeichern.setForeground(Color.LIGHT_GRAY);
 		btnSpeichern.setBounds(395, 11, 113, 22);
 		panel_title.add(btnSpeichern);
 		btnSpeichern.addActionListener(new ActionListener() {		
@@ -123,8 +123,8 @@ public class Abicalc extends JFrame {
 
 	public static double getGesamtSchnitt(){ //Berechnet den Schnitt aller Halbjahre, welche man bisher benutzt hat
 		double gesamtSchnitt;
-		double hjSumme = 0;
-		double aktiveHJs = 0;
+		double hjSumme = 0;		//Summe aller Halbjahrespunkte
+		double aktiveHJs = 0;		//Anzahl der Halbjahre, in denen bereits Fächer eingetragen sind
 		for(int i = 0; i < halbjahre.length; i++){
 			if(!halbjahre[i].faecherliste.isEmpty()){
 				
