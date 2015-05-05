@@ -19,7 +19,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	
 	String name;
 	LinkedList<Note>  notenliste;
-	double schnitt;
+	
 	public JPanel panel_content = new JPanel();
 	
 	public Fach(String s, JPanel jpnl){ //Konstruktor
@@ -32,14 +32,16 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		
 	}
 	
-	public void fachSchnittBerechnen(){		//berechnet den Schnitt eines einzelnen Faches
+	public double fachSchnittBerechnen(){		//berechnet den Schnitt eines einzelnen Faches
+		double schnitt;
 		double summe = 0;		//summe sind alle Noten mit deren Gewichtungen eingerechnet
 		double sGewichtung = 0;		//Summe der Gewichtungen
 		for(int i = 0; i < notenliste.size(); i++){		//für jede Note wird deren Wert mit ihrer Gewicchtung multipliziert
 			summe = summe + (notenliste.get(i).gewichtung * notenliste.get(i).punkte);
 			sGewichtung = sGewichtung + notenliste.get(i).gewichtung;
 		}
-		schnitt = summe / sGewichtung;		
+		schnitt = summe / sGewichtung;	
+		return schnitt;
 	}
 	
 	public void uiLaden(JPanel jpnl){

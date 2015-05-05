@@ -178,7 +178,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	public double getHJSchnitt(){ //Der schnitt des Halbjahres wird berechnet
 		double schnitt=0;
 		for (int i =0; i<faecherliste.size();i++){
-			schnitt=schnitt+faecherliste.get(i).schnitt;
+			schnitt=schnitt+faecherliste.get(i).fachSchnittBerechnen();
 		}
 		schnitt=schnitt/faecherliste.size();
 		return schnitt;
