@@ -3,6 +3,7 @@ package abicalc;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.LinkedList;
 
@@ -12,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 
 public class Fach extends Component implements java.io.Serializable{//Datenstruktur aus Noten, die ein UI-ELement ist
 	
@@ -87,15 +89,15 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         JPanel panel_add = new JPanel();
         
         JTextField txt_Name = new JTextField();			//HJ Input für Notenname
-        txt_Name.setText("Note...");
+        txt_Name.setText("Note");
 		panel_add.add(txt_Name);
 		txt_Name.setColumns(10);
 		JTextField txt_Note = new JTextField();			//HJ Input für Notenname
-        txt_Note.setText("Punktzahl...");
+        txt_Note.setText("Punktzahl");
 		panel_add.add(txt_Note);
 		txt_Note.setColumns(7);
 		JTextField txt_Gewichtung = new JTextField();			//HJ Input für Notenname
-        txt_Gewichtung.setText("Gewichtung...");
+        txt_Gewichtung.setText("Gewichtung");
 		panel_add.add(txt_Gewichtung);
 		txt_Gewichtung.setColumns(7);
 		JButton button_plus = new JButton("+");		//HJ Note hinzufügen Button
@@ -109,11 +111,19 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         
         
         JPanel panel_noten = new JPanel();		//Container für einzelne Noten
-        //panel_noten.setBackground(Color.WHITE);
-        panel_noten.setLayout(null);
         
-        JPanel panel_scroll = new JPanel();
         
+        JPanel panel_content = new JPanel();
+        panel_content.setBackground(Color.WHITE);
+        JScrollPane scrollPane = new JScrollPane (panel_content); //, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED
+        panel_content.setPreferredSize(new Dimension(470, 298));
+        scrollPane.setViewportView(panel_content);
+        
+        
+        panel_noten.add(scrollPane);
+        
+        //panel_content.setLayout(new GridLayout(0, 1, 0, 10));
+        /*
     	JScrollPane scrollPane = new JScrollPane();		//Scrollbarer Bereich
     	scrollPane.setSize(getWidth(), 310);
     	panel_noten.add(scrollPane);
@@ -122,17 +132,16 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		scrollPane.setViewportView(panel_scroll);
 		GridLayout gl = new GridLayout(0, 1, 0, 10);
 		panel_scroll.setLayout(gl);
-		
+		*/
 		
 		
         main.add(panel_noten, BorderLayout.CENTER);	//Scrollbarer Bereich für einzelne Noten wird hinzugefügt
         
         
-        
         button_plus.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Noten hinzufügen
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
-	        	Note n = new Note(Double.parseDouble(txt_Gewichtung.getText()), txt_Name.getText(), Integer.parseInt(txt_Note.getText()), panel_scroll);
+	        	Note n = new Note(Double.parseDouble(txt_Gewichtung.getText()), txt_Name.getText(), Integer.parseInt(txt_Note.getText()), panel_content);
 	        	notenliste.add(n);
 	        	main.validate();
 	    		main.repaint();
