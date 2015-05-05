@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.LinkedList;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -66,10 +67,19 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		
 		//TODO Alte Fächer laden
 		
-		
-		
-		
-		
+		for (int i = 0; i>faecherliste.size(); i++){
+			
+			
+			Fach f = new Fach(faecherliste.get(i).name, panel_scrollContent);
+        	//es werden neue Fächer generiert (die UI-Elemente sind) aber deren Daten nicht zur faecherliste hinzugefügt
+			
+			for (int j = 0; j<f.notenliste.size(); j++){
+	        	f.notenliste.add(new Note(f.notenliste.get(j).gewichtung, f.notenliste.get(j).name, f.notenliste.get(j).punkte, f.panel_content));
+	        	
+	        }
+			
+			
+		}
 		
 		
 		
