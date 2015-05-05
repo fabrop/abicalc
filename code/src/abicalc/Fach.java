@@ -124,7 +124,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         button_plus.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Noten hinzufügen
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
-	        	Note n = new Note(Integer.parseInt(txt_Gewichtung.getText()), txt_Name.getText(), Integer.parseInt(txt_Note.getText()));
+	        	Note n = new Note(Integer.parseInt(txt_Gewichtung.getText()), txt_Name.getText(), Integer.parseInt(txt_Note.getText()), panel_scrollContent);
 	        	notenliste.add(n);
 	        }
 	    });

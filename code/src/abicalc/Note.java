@@ -2,7 +2,10 @@ package abicalc;
 
 import java.awt.Component;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import com.sun.prism.paint.Color;
 
 
 public class Note extends Component implements java.io.Serializable {
@@ -17,21 +20,28 @@ public class Note extends Component implements java.io.Serializable {
 	int punkte;
 	double gewichtung;
 	
-	public Note(double g, String n, int p){//Konstruktor
+	public Note(double g, String n, int p, JPanel jpnl){//Konstruktor
 		gewichtung = g;
 		name = n;
 		punkte = p;
 		
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.LIGHT_GRAY);
+		
+		JLabel label_n = new JLabel(n);
+		panel.add(label_n);
+		
+		JLabel label_g = new JLabel(""+g);
+		panel.add(label_g);
+		
+		JLabel label_p = new JLabel(""+p);
+		panel.add(label_p);
 		
 		
-		
-		
-		
-		
-		
-		
+		panel.validate();
+		panel.repaint();
+		jpnl.add(panel);
 	}
   /*	
 	public Note(String n){
