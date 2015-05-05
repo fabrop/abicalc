@@ -23,6 +23,8 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	
 	String name;
 	LinkedList<Note>  notenliste;
+
+	public JPanel panel_content = new JPanel();
 	
 	
 	public Fach(String s, JPanel jpnl){ //Konstruktor
@@ -112,7 +114,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         JPanel panel_noten = new JPanel();		//Übercontainer für einzelne Noten
         
         
-        JPanel panel_content = new JPanel();		//Container der scrollbar wird und Noten enthält
+        //Container der scrollbar wird und Noten enthält
         JScrollPane scrollPane = new JScrollPane (panel_content); 
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setPreferredSize(new Dimension(460, 300));
