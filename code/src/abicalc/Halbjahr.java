@@ -65,7 +65,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		GridLayout gl = new GridLayout(0, 1, 0, 10);
 		panel_scrollContent.setLayout(gl);
 		
-		//TODO Alte Fächer laden
+		//TODO Alte Fächer laden BETA_STRATS
 		
 		for (int i = 0; i>faecherliste.size(); i++){
 			
@@ -75,7 +75,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 			
 			for (int j = 0; j<f.notenliste.size(); j++){
 	        	f.notenliste.add(new Note(f.notenliste.get(j).gewichtung, f.notenliste.get(j).name, f.notenliste.get(j).punkte, f.panel_content));
-	        	
+	        	//die Noten des Daten-Faches werden in das UI-Fach eingetragen
 	        }
 			
 			

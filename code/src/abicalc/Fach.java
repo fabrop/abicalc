@@ -125,12 +125,13 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         panel_content.setLayout(gl);
 		
         
-    
+        /*
         //Alte Noten werden geladen
         for (int i = 0; i<notenliste.size(); i++){
         	Note n = new Note(notenliste.get(i).gewichtung, notenliste.get(i).name, notenliste.get(i).punkte, panel_content);
         	//es werden neue Noten generiert (die UI-Elemente sind) aber deren Daten nicht zur notenliste hinzugefügt
         }
+        */
         
         main.validate();
 		main.repaint();
