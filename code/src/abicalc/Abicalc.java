@@ -12,6 +12,8 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -60,8 +62,8 @@ public class Abicalc extends JFrame {
 		JButton btnZuruecksetzen = new JButton("Zur\u00FCcksetzen");		//Button Zurücksetzen
 		btnZuruecksetzen.setForeground(Color.DARK_GRAY);
 		btnZuruecksetzen.setBounds(641, 10, 113, 23);
-		btnZuruecksetzen.addActionListener(new java.awt.event.ActionListener() {		
-	        public void actionPerformed(java.awt.event.ActionEvent e) {
+		btnZuruecksetzen.addActionListener(new ActionListener() {		
+	        public void actionPerformed(ActionEvent e) {
 	        	allesZuruecksetzen();
 	        }
 	    });
@@ -71,8 +73,8 @@ public class Abicalc extends JFrame {
 		btnSpeichern.setForeground(Color.DARK_GRAY);
 		btnSpeichern.setBounds(395, 11, 113, 22);
 		panel_title.add(btnSpeichern);
-		btnSpeichern.addActionListener(new java.awt.event.ActionListener() {		
-	        public void actionPerformed(java.awt.event.ActionEvent e) {
+		btnSpeichern.addActionListener(new ActionListener() {		
+	        public void actionPerformed(ActionEvent e) {
 	        	allesSpeichern();
 	        }
 	    });
