@@ -83,22 +83,22 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         JPanel panel_add = new JPanel();
         //panel_add.setSize(500, getHeight());
         
-        JTextField txt_Note = new JTextField();			//HJ Input für Fachname
+        JTextField txt_Note = new JTextField();			//HJ Input für Notenname
         txt_Note.setText("Note");
 		panel_add.add(txt_Note);
 		txt_Note.setColumns(10);
-		JButton button_plus = new JButton("+");		//HJ Fach hinzufügen Button
+		JButton button_plus = new JButton("+");		//HJ Note hinzufügen Button
 		
 		panel_add.add(button_plus);
         main.add(panel_add, BorderLayout.CENTER);
         
         
-        JPanel panel_noten = new JPanel();
+        JPanel panel_noten = new JPanel();		//Container für einzelne Noten
         main.add(panel_noten, BorderLayout.PAGE_END);
         
         
         
-        main.validate();
+        main.validate();	//UI wird geupdated
         main.repaint();
         fachJDialog.setVisible(true);		//Dialog wird sichtbar gemacht
 	}

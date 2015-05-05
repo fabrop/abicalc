@@ -1,21 +1,16 @@
 package abicalc;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-
 import java.awt.Font;
-
 import javax.swing.SwingConstants;
-
 import java.awt.Color;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import javax.swing.JButton;
 import javax.swing.JTabbedPane;				
 
@@ -80,11 +75,11 @@ public class Abicalc extends JFrame {
 		JTabbedPane tabbedPane_Halbjahre = new JTabbedPane(JTabbedPane.TOP);
 		panel_main.add(tabbedPane_Halbjahre);
 		
-		Halbjahr hj1 = new Halbjahr("hj1", "11.1", tabbedPane_Halbjahre ,panel_main);
-		Halbjahr hj2 = new Halbjahr("hj2", "11.2", tabbedPane_Halbjahre ,panel_main);
-		Halbjahr hj3 = new Halbjahr("hj3", "12.1", tabbedPane_Halbjahre ,panel_main);
-		Halbjahr hj4 = new Halbjahr("hj4", "12.2", tabbedPane_Halbjahre ,panel_main);
-		Halbjahr hjP = new Halbjahr("hjP", "Prüfungen", tabbedPane_Halbjahre ,panel_main);
+		Halbjahr hj1 = new Halbjahr("hj1", "11.1", tabbedPane_Halbjahre, panel_main);
+		Halbjahr hj2 = new Halbjahr("hj2", "11.2", tabbedPane_Halbjahre, panel_main);
+		Halbjahr hj3 = new Halbjahr("hj3", "12.1", tabbedPane_Halbjahre, panel_main);
+		Halbjahr hj4 = new Halbjahr("hj4", "12.2", tabbedPane_Halbjahre, panel_main);
+		Halbjahr hjP = new Halbjahr("hjP", "Prüfungen", tabbedPane_Halbjahre, panel_main);
 		
 		tabbedPane_Halbjahre.setBounds(10, 10, 744, 410);
 		
