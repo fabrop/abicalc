@@ -149,7 +149,7 @@ public class Abicalc extends JFrame {
 	
 	public static double runden(double d){
 		d = d*100;
-		d = Math.round(d);
+		d = (double) Math.round(d);
 		d = d /100;
 		return d;
 	}
