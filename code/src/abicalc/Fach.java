@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 public class Fach extends Component implements java.io.Serializable{//Datenstruktur aus Noten, die ein UI-ELement ist
@@ -35,7 +36,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		
 		
 		//Label mit Fächernamen
-		JLabel lbl = new JLabel(name);
+		JLabel lbl = new JLabel("   "+name);
 		panel.add(lbl);
 		
 		//Button zum Noten bearbeiten
@@ -75,35 +76,58 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         main.setBackground(Color.LIGHT_GRAY);
         
         JPanel panel_title = new JPanel();		//Panel mit Titel-Label
-        JLabel title = new JLabel(name+"                             ");//Titel-Label
+        JLabel title = new JLabel(name+"                  ");//Titel-Label
         panel_title.add(title);
         
  
         JPanel panel_add = new JPanel();
         
-        JTextField txt_Note = new JTextField();			//HJ Input für Notenname
-        txt_Note.setText("Note");
+        JTextField txt_Name = new JTextField();			//HJ Input für Notenname
+        txt_Name.setText("Note...");
+		panel_add.add(txt_Name);
+		txt_Name.setColumns(10);
+		JTextField txt_Note = new JTextField();			//HJ Input für Notenname
+        txt_Note.setText("Punktzahl...");
 		panel_add.add(txt_Note);
-		txt_Note.setColumns(10);
+		txt_Note.setColumns(7);
 		JTextField txt_Gewichtung = new JTextField();			//HJ Input für Notenname
-        txt_Gewichtung.setText("Gewichtung");
+        txt_Gewichtung.setText("Gewichtung...");
 		panel_add.add(txt_Gewichtung);
-		txt_Gewichtung.setColumns(10);
+		txt_Gewichtung.setColumns(7);
 		JButton button_plus = new JButton("+");		//HJ Note hinzufügen Button
-		
 		panel_add.add(button_plus);
-		
-		
 		JPanel panel_top = new JPanel();
 		panel_top.add(panel_title);
 		panel_top.add(panel_add);
 		
-        main.add(panel_top, BorderLayout.PAGE_START);
+        main.add(panel_top, BorderLayout.PAGE_START);		//Label, Textfelder und Button werden zum oberen Teil des Dialogs hinzugefügt
+        
         
         
         JPanel panel_noten = new JPanel();		//Container für einzelne Noten
-        panel_noten.setBackground(Color.WHITE);
-        main.add(panel_noten, BorderLayout.CENTER);
+        //panel_noten.setBackground(Color.WHITE);
+        panel_noten.setLayout(null);
+        
+    	JScrollPane scrollPane = new JScrollPane();		//Scrollbarer Bereich
+    	scrollPane.setSize(getWidth(), 320);
+		JPanel panel_scrollContent = new JPanel();
+		scrollPane.setViewportView(panel_scrollContent);		
+		GridLayout gl = new GridLayout(0, 1, 0, -10);
+		panel_scrollContent.setLayout(gl);
+		
+		scrollPane.add(panel_scrollContent);
+		panel_noten.add(scrollPane);
+        main.add(panel_noten, BorderLayout.CENTER);	//Scrollbarer Bereich für einzelne Noten wird hinzugefügt
+        
+        
+        
+        button_plus.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Noten hinzufügen
+	        public void actionPerformed(java.awt.event.ActionEvent e) {
+	          
+	        	Note n = new Note(Integer.parseInt(txt_Gewichtung.getText()), txt_Name.getText(), Integer.parseInt(txt_Note.getText()));
+	        	
+	        }
+	    });
         
         
         

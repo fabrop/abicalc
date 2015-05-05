@@ -68,7 +68,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		
 		txt_Fachname = new JTextField();			//HJ Input für Fachname
 		txt_Fachname.setBounds(10, 11, 216, 23);
-		txt_Fachname.setText("Fachname");
+		txt_Fachname.setText("Fachname...");
 		panel_Add.add(txt_Fachname);
 		txt_Fachname.setColumns(10);
 		
