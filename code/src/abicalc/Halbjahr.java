@@ -65,7 +65,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		GridLayout gl = new GridLayout(0, 1, 0, 10);
 		panel_scrollContent.setLayout(gl);
 		
-		//TODO Alte Fächer laden BETA_STRATS
+		//TODO Alte Fächer laden BETA-STRATS
 		
 		for (int i = 0; i>faecherliste.size(); i++){
 			

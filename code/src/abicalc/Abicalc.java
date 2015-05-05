@@ -64,7 +64,7 @@ public class Abicalc extends JFrame {
 		btnZuruecksetzen.setBounds(641, 10, 113, 23);
 		btnZuruecksetzen.addActionListener(new ActionListener() {		
 	        public void actionPerformed(ActionEvent e) {
-	        	allesZuruecksetzen();
+	        	allesZuruecksetzen(halbjahre[1].verzeichnis);
 	        }
 	    });
 		panel_title.add(btnZuruecksetzen);
@@ -159,8 +159,7 @@ public class Abicalc extends JFrame {
 		}
 	}
 	
-	public void allesZuruecksetzen(){
-		String verzeichnis = Halbjahr.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+	public void allesZuruecksetzen(String verzeichnis){
 		File zuLoeschen = new File(verzeichnis + "/data/");
 		String[] dateienZuLoeschen = zuLoeschen.list();
 		if(zuLoeschen.exists()){
