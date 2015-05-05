@@ -36,9 +36,9 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		
 		halbjahrName = S;
 		if(!ueberpruefen() == true){ //falls es der erste Aufruf ist wird die Linked list generiert und eine File zum vermerken des Ersten Aufrufs angelegt
-		ordnerAnlegen("data");
-		faecherliste = new LinkedList<Fach>();
-		save();
+		ordnerAnlegen("data"); //Ein ORdner für die verschiedenen Daten des Programms wird erstellt
+		faecherliste = new LinkedList<Fach>(); // die liste für die einzelnen Fächer des HJ
+		save(); //DIe Liste wird gespeichert
 		}
 		else{
 			laden();
@@ -115,26 +115,25 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		FileOutputStream speichern;
 		File datei;
 		try {
-			datei = new File(verzeichnis + "/data/" + halbjahrName + ".ser");
-			speichern = new FileOutputStream(datei);
-			ObjectOutputStream out = new ObjectOutputStream(speichern);
-			if(!datei.exists()){
+			datei = new File(verzeichnis + "/data/" + halbjahrName + ".ser"); //Datei mit angegen´benem Verzeichnis wird erstellt
+			speichern = new FileOutputStream(datei); //FileOutputStream ist nötig, um auf die Festplatte zu schreiben
+			ObjectOutputStream out = new ObjectOutputStream(speichern); //ObjectOutputStream serialisiert die Linked List
+			if(!datei.exists()){ // Fall die Datei noch nicht existiert wrd sie erstellt
 				datei.createNewFile();
 			}
-			out.writeObject(faecherliste);
-			out.flush();
-			out.close();
-			speichern.close();
+			out.writeObject(faecherliste); //der ObjectOutputStream schreibt die Linked List serialisiert in die Datei
+			out.flush(); // Der Cache des ObjectOutputStreams wird entleert und somit auf die Festplatte geschrieben
+			out.close(); 
+			speichern.close(); // Die OutStreams werden geschlossen
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	public void ordnerAnlegen(String name){
+	public void ordnerAnlegen(String name){ //MEthode, die gebraucht wird, um Ordner zum Speichern der daten zu erzeugen
 		String ordnerName = name;
 		File ordner = new File(verzeichnis + "/" + ordnerName);
-		ordner.mkdirs();
+		ordner.mkdirs(); 
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -142,20 +141,19 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		FileInputStream laden;
 		File datei;
 		try {
-			datei = new File(verzeichnis + "/data/" + halbjahrName + ".ser");
+			datei = new File(verzeichnis + "/data/" + halbjahrName + ".ser"); //Pfad der einzulesenden Datei
 			laden = new FileInputStream(datei);
 			ObjectInputStream in = new ObjectInputStream(laden);
-			faecherliste = (LinkedList<Fach>) in.readObject();
+			faecherliste = (LinkedList<Fach>) in.readObject(); // Gespeicherte Linked List wird deserialisiert und als Linked List festgelegt
 			in.close();
 			laden.close();
 		} catch (IOException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		painteLinkedList();
 	}
 	
-	public boolean ueberpruefen(){ //Es wird Überprüft ob eine Datei vorhanden ist, welche bei dem ersten Start vorhanden ist
+	public boolean ueberpruefen(){ //Es wird Überprüft ob eine Datei vorhanden ist, welche bei dem ersten Speichern generiert wird
 		File test = new File(verzeichnis + "/data/aufgerufen.txt");
 		if(test.exists()){
 			return true;
@@ -166,7 +164,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	}
 	
 
-	public void painteLinkedList(){
+	public void painteLinkedList(){ //geladenen Linked Lists werden grafisch abgebildet
 		for(int i = 0; i < faecherliste.size(); i++){
 			faecherliste.get(i).uiLaden(panel);
 		}
@@ -177,7 +175,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	//	faecherliste.add(new Fach(fachName));
 	}
 	
-	public double getHJSchnitt(){
+	public double getHJSchnitt(){ //Der schnitt des Halbjahres wird berechnet
 		double schnitt=0;
 		for (int i =0; i<faecherliste.size();i++){
 			schnitt=schnitt+faecherliste.get(i).schnitt;
