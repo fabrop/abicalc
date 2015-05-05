@@ -64,6 +64,15 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		GridLayout gl = new GridLayout(0, 1, 0, 10);
 		panel_scrollContent.setLayout(gl);
 		
+		//TODO Alte Fächer laden
+		
+		
+		
+		
+		
+		
+		
+		
 		JPanel panel_Add = new JPanel();		//HJ Panel mit Textfeld und Button
 		panel_Add.setBackground(Color.WHITE);
 		panel_Add.setBounds(10, 11, 719, 45);
