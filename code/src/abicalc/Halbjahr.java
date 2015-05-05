@@ -151,7 +151,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 
 	public void painteLinkedList(){
 		for(int i = 0; i < faecherliste.size(); i++){
-			faecherliste.get(i).fachPanelHinzufuegen(panel);
+			faecherliste.get(i).laden(panel);
 		}
 	}
 	

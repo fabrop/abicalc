@@ -19,19 +19,17 @@ public class Note extends Component implements java.io.Serializable {
 	String name;
 	int punkte;
 	double gewichtung;
-	JPanel temp;
 	
 	public Note(double g, String n, int p, JPanel jpnl){//Konstruktor
 		gewichtung = g;
 		name = n;
 		punkte = p;
-		temp = jpnl;
 		
-		laden();
+		laden(jpnl);
 	}
 
 
-	public void laden(){
+	public void laden(JPanel jpnl){
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
 		
@@ -47,7 +45,7 @@ public class Note extends Component implements java.io.Serializable {
 		
 		panel.validate();
 		panel.repaint();
-		temp.add(panel);
+		jpnl.add(panel);
 		
 	}
 	
