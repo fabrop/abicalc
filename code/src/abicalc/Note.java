@@ -2,7 +2,6 @@ package abicalc;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,7 +14,7 @@ public class Note extends Component implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	//UntersteDatenstruktur
+	//Unterste Datenstruktur
 	
 	String name;
 	int punkte;
