@@ -23,6 +23,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	String name;
 	LinkedList<Note>  notenliste;
 	
+	
 	public Fach(String s, JPanel jpnl){ //Konstruktor
 		
 		//Verkette Liste aus Noten und Name des Fachs mithilfe des übergebenen Strings
@@ -61,6 +62,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		
 		
 	}
+	
 	
 	
 	public void openDialog() {
@@ -108,15 +110,18 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         //panel_noten.setBackground(Color.WHITE);
         panel_noten.setLayout(null);
         
+        JPanel panel_scroll = new JPanel();
+        
     	JScrollPane scrollPane = new JScrollPane();		//Scrollbarer Bereich
     	scrollPane.setSize(getWidth(), 310);
-		JPanel panel_scrollContent = new JPanel();
-		scrollPane.setViewportView(panel_scrollContent);		
+    	panel_noten.add(scrollPane);
+    	
+		scrollPane.setViewportView(panel_scroll);
 		GridLayout gl = new GridLayout(0, 1, 0, 10);
-		panel_scrollContent.setLayout(gl);
+		panel_scroll.setLayout(gl);
 		
-		scrollPane.add(panel_scrollContent);
-		panel_noten.add(scrollPane);
+		scrollPane.add(panel_scroll);
+		
         main.add(panel_noten, BorderLayout.CENTER);	//Scrollbarer Bereich für einzelne Noten wird hinzugefügt
         
         
@@ -124,7 +129,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         button_plus.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Noten hinzufügen
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
-	        	Note n = new Note(Double.parseDouble(txt_Gewichtung.getText()), txt_Name.getText(), Integer.parseInt(txt_Note.getText()), panel_scrollContent);
+	        	Note n = new Note(Double.parseDouble(txt_Gewichtung.getText()), txt_Name.getText(), Integer.parseInt(txt_Note.getText()), panel_scroll);
 	        	notenliste.add(n);
 	        	main.validate();
 	    		main.repaint();
