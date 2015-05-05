@@ -122,9 +122,23 @@ public class Abicalc extends JFrame {
 	
 
 	public static double getGesamtSchnitt(){
-		double gesamtSchnitt = (halbjahre[1].getHJSchnitt() + halbjahre[2].getHJSchnitt()
+		double gesamtSchnitt;
+		double hjSumme = 0;
+		double aktiveHJs = 0;
+		for(int i = 0; i < halbjahre.length; i++){
+			if(halbjahre[i].faecherliste.getFirst() == null);
+			else{
+				aktiveHJs++;
+				hjSumme = hjSumme + halbjahre[i].getHJSchnitt();
+			}
+		}
+		gesamtSchnitt = hjSumme / aktiveHJs;
+		
+		
+		/*double gesamtSchnitt = (halbjahre[1].getHJSchnitt() + halbjahre[2].getHJSchnitt()
 				+ halbjahre[3].getHJSchnitt() + halbjahre[4].getHJSchnitt()
 				+ halbjahre[5].getHJSchnitt() + halbjahre[5].getHJSchnitt()) / 6;
+		*/
 		return gesamtSchnitt;
 	}
 	
