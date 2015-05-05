@@ -63,11 +63,6 @@ public class Abicalc extends JFrame {
 		btnZuruecksetzen.addActionListener(new java.awt.event.ActionListener() {		
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	        	allesZuruecksetzen();
-	        	for(int i = 0; i < halbjahre.length; i++){
-	        		halbjahre[i].faecherliste.clear();
-	        	}
-	        	contentPane.validate();
-	        	contentPane.repaint();
 	        }
 	    });
 		panel_title.add(btnZuruecksetzen);
@@ -168,6 +163,11 @@ public class Abicalc extends JFrame {
 			}	
 			zuLoeschen.delete();
 		}
+		for(int i = 0; i < halbjahre.length; i++){
+    		halbjahre[i].faecherliste.clear();
+    	}
+    	contentPane.validate();
+    	contentPane.repaint();
 	}
 	
 	public void allesSpeichern(){
