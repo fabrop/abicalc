@@ -109,10 +109,10 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         panel_noten.setLayout(null);
         
     	JScrollPane scrollPane = new JScrollPane();		//Scrollbarer Bereich
-    	scrollPane.setSize(getWidth(), 320);
+    	scrollPane.setSize(getWidth(), 310);
 		JPanel panel_scrollContent = new JPanel();
 		scrollPane.setViewportView(panel_scrollContent);		
-		GridLayout gl = new GridLayout(0, 1, 0, -10);
+		GridLayout gl = new GridLayout(0, 1, 0, 10);
 		panel_scrollContent.setLayout(gl);
 		
 		scrollPane.add(panel_scrollContent);
@@ -125,7 +125,6 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
 	        	Note n = new Note(Double.parseDouble(txt_Gewichtung.getText()), txt_Name.getText(), Integer.parseInt(txt_Note.getText()), panel_scrollContent);
-	        	panel_scrollContent.add(n);
 	        	notenliste.add(n);
 	        	main.validate();
 	    		main.repaint();

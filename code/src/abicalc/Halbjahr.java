@@ -57,7 +57,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		panel_Faecher.add(scrollPane);
 		
 		scrollPane.setViewportView(panel_scrollContent);		
-		GridLayout gl = new GridLayout(0, 1, 0, -10);
+		GridLayout gl = new GridLayout(0, 1, 0, 10);
 		panel_scrollContent.setLayout(gl);
 		
 		JPanel panel_Add = new JPanel();		//HJ Panel mit Textfeld und Button
@@ -81,7 +81,6 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
 	        	Fach f = new Fach(txt_Fachname.getText(), panel_scrollContent);
-	        	panel_scrollContent.add(f);
 	        	faecherliste.add(f);
 	        	jpnl.validate();
 	    		jpnl.repaint();
