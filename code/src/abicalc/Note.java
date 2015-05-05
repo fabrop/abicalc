@@ -1,14 +1,11 @@
 package abicalc;
 
-/*
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
-*/
+import java.awt.Component;
 
-public class Note implements java.io.Serializable {
+import javax.swing.JPanel;
+
+
+public class Note extends Component implements java.io.Serializable {
 	
 	/**
 	 * 
@@ -19,7 +16,6 @@ public class Note implements java.io.Serializable {
 	String name;
 	int punkte;
 	double gewichtung;
-	Note naechstes;
 	
 	public Note(double g, String n, int p){//Konstruktor
 		gewichtung = g;
@@ -27,7 +23,7 @@ public class Note implements java.io.Serializable {
 		punkte = p;
 		
 		
-		
+		JPanel panel = new JPanel();
 		
 		
 		

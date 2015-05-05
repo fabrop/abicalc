@@ -80,7 +80,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		button_plus.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
-	        	Fach f = new Fach(txt_Fachname.getText(), panel_scrollContent, panel_Faecher);
+	        	Fach f = new Fach(txt_Fachname.getText(), panel_scrollContent);
 	        	panel_scrollContent.add(f);
 	        	faecherliste.add(f);
 	        	jpnl.validate();
