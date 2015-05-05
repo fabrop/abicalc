@@ -25,25 +25,25 @@ public class Note extends Component implements java.io.Serializable {
 		name = n;
 		punkte = p;
 		
-		uiLaden(jpnl);
+		uiLaden(jpnl);		//Erzeugt das UI
 	}
 
 
 	public void uiLaden(JPanel jpnl){
-		JPanel panel = new JPanel();
+		JPanel panel = new JPanel();		//Gesamter Container
 		panel.setBackground(Color.LIGHT_GRAY);
 		
-		JLabel label_n = new JLabel(name+":         ");
+		JLabel label_n = new JLabel(name+":   ");		//Label mit dem Namen der Note
 		panel.add(label_n);
 		
-		JLabel label_g = new JLabel(gewichtung+" x ");
+		JLabel label_g = new JLabel("("+gewichtung+"x)");		//Label mit der Gewichtung der Note
 		panel.add(label_g);
 		
-		JLabel label_p = new JLabel(""+punkte+" Punkte");
+		JLabel label_p = new JLabel(""+punkte+" Punkte");		//Label mit der Punktzahl
 		panel.add(label_p);
 		
 		
-		panel.validate();
+		panel.validate();		//UI-Refresh
 		panel.repaint();
 		jpnl.add(panel);
 		
