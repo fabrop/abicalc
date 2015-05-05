@@ -1,11 +1,11 @@
 package abicalc;
 
+import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.sun.prism.paint.Color;
 
 
 public class Note extends Component implements java.io.Serializable {
