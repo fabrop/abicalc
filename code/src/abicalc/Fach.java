@@ -114,11 +114,9 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
         
         
         JPanel panel_content = new JPanel();		//Container der scrollbar wird und Noten enthält
-        panel_content.setBackground(Color.WHITE);
         JScrollPane scrollPane = new JScrollPane (panel_content); 
-        panel_content.setPreferredSize(new Dimension(470, 298));
-        scrollPane.setViewportView(panel_content);
-        
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setPreferredSize(new Dimension(460, 300));
         
         panel_noten.add(scrollPane);
         

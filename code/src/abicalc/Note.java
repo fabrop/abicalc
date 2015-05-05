@@ -33,13 +33,13 @@ public class Note extends Component implements java.io.Serializable {
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
 		
-		JLabel label_n = new JLabel(name);
+		JLabel label_n = new JLabel(name+":         ");
 		panel.add(label_n);
 		
-		JLabel label_g = new JLabel(""+gewichtung);
+		JLabel label_g = new JLabel(gewichtung+" x ");
 		panel.add(label_g);
 		
-		JLabel label_p = new JLabel(""+punkte);
+		JLabel label_p = new JLabel(""+punkte+" Punkte");
 		panel.add(label_p);
 		
 		
