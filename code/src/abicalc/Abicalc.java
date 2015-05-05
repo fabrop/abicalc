@@ -135,19 +135,15 @@ public class Abicalc extends JFrame {
 		gesamtSchnitt = hjSumme / aktiveHJs;
 		
 		
-		/*double gesamtSchnitt = (halbjahre[1].getHJSchnitt() + halbjahre[2].getHJSchnitt()
-				+ halbjahre[3].getHJSchnitt() + halbjahre[4].getHJSchnitt()
-				+ halbjahre[5].getHJSchnitt() + halbjahre[5].getHJSchnitt()) / 6;
-		*/
 		return gesamtSchnitt;
 	}
 	
-	public static double punkteZuNote(double d){
+	public static double punkteZuNote(double d){		//rechnet Punkte in Noten um
 		d = (17-d)/3;
 		return d;
 	}
 	
-	public static double runden(double d){
+	public static double runden(double d){		//rundet doubles auf 2 Nachkommastellen
 		d = d*100;
 		d = (double) Math.round(d);
 		d = d /100;
@@ -174,7 +170,7 @@ public class Abicalc extends JFrame {
 		}
 	}
 	
-	public void allesZuruecksetzen(String verzeichnis){
+	public void allesZuruecksetzen(String verzeichnis){		
 		File zuLoeschen = new File(verzeichnis + "/data/");
 		String[] dateienZuLoeschen = zuLoeschen.list();
 		if(zuLoeschen.exists()){
@@ -191,7 +187,7 @@ public class Abicalc extends JFrame {
     	contentPane.repaint();
 	}
 	
-	public void allesSpeichern(){
+	public void allesSpeichern(){		//Ruft die Speichern-Methode für jedes Halbjahr auf
 		for(int i = 0; i < halbjahre.length; i++){
 			halbjahre[i].save();
 		}
@@ -209,7 +205,7 @@ public class Abicalc extends JFrame {
 					e.printStackTrace();
 				}
 				
-				setzeGesamtSchnitt(getGesamtSchnitt(), punkteZuNote(getGesamtSchnitt()));
+				setzeGesamtSchnitt(getGesamtSchnitt(), punkteZuNote(getGesamtSchnitt()));		//setzt bei Programmstart den Schnitt
 				
 				
 				
