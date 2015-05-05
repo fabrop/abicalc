@@ -62,11 +62,11 @@ public class Abicalc extends JFrame {
 		JButton btnZuruecksetzen = new JButton("Zur\u00FCcksetzen");		//Button Zurücksetzen
 		btnZuruecksetzen.setForeground(Color.DARK_GRAY);
 		btnZuruecksetzen.setBounds(641, 10, 113, 23);
-		btnZuruecksetzen.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent evt){
-				btnZuruecksetzen_ActionPerformed(evt);
-			}
-		});
+		btnZuruecksetzen.addActionListener(new java.awt.event.ActionListener() {		
+	        public void actionPerformed(java.awt.event.ActionEvent e) {
+	        	allesZuruecksetzen();
+	        }
+	    });
 		panel_title.add(btnZuruecksetzen);
 		
 		JButton btnSpeichern = new JButton("Speichern");		//Button Speichern und Aktualisieren
@@ -118,10 +118,6 @@ public class Abicalc extends JFrame {
 	}
 	
 	
-	public void btnZuruecksetzen_ActionPerformed(ActionEvent evt) {
-		allesZuruecksetzen();
-	}
-
 
 	public static double getGesamtSchnitt(){
 		double gesamtSchnitt = (halbjahre[1].getHJSchnitt() + halbjahre[2].getHJSchnitt()
