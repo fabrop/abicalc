@@ -68,9 +68,14 @@ public class Abicalc extends JFrame {
 		panel_title.add(btnZuruecksetzen);
 		
 		JButton btnSpeichern = new JButton("Speichern");		//Button Speichern und Aktualisieren
-		btnSpeichern.setForeground(Color.LIGHT_GRAY);
+		btnSpeichern.setForeground(Color.DARK_GRAY);
 		btnSpeichern.setBounds(395, 11, 113, 22);
 		panel_title.add(btnSpeichern);
+		btnSpeichern.addActionListener(new java.awt.event.ActionListener() {		
+	        public void actionPerformed(java.awt.event.ActionEvent e) {
+	        	allesSpeichern();
+	        }
+	    });
 		
 		JPanel panel_main = new JPanel();		//Container für Tabs und Übersicht
 		panel_main.setBounds(10, 65, 764, 431);

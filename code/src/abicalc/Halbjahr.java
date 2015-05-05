@@ -135,7 +135,7 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+		painteLinkedList();
 	}
 	
 	public boolean ueberpruefen(){ //Es wird Überprüft ob eine Datei vorhanden ist, welche bei dem ersten Start vorhanden ist
@@ -149,7 +149,11 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 	}
 	
 
-	
+	public void painteLinkedList(){
+		for(int i = 0; i < faecherliste.size(); i++){
+			faecherliste.get(i).fachPanelHinzufuegen(panel);
+		}
+	}
 	
 	
 	public void fachHinzufügen(String fachName){ // nicht vollständig
