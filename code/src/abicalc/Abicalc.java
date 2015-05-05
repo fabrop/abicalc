@@ -142,8 +142,20 @@ public class Abicalc extends JFrame {
 		return gesamtSchnitt;
 	}
 	
-	public static void setzeGesamtSchnitt(double d){				//Double-Variable als Input für JLabel mit Gesamtschnitt
-		lbl_Punkte.setText(""+d);
+	public static double punkteZuNote(double d){
+		d = (17-d)/3;
+		return d;
+	}
+	
+	public static double runden(double d){
+		d = d*100;
+		d = Math.round(d);
+		d = d /100;
+		return d;
+	}
+	
+	public static void setzeGesamtSchnitt(double d, double e){				//Double-Variable als Input für JLabel mit Gesamtschnitt
+		lbl_Punkte.setText(runden(e)+" / "+runden(d)+" Punkte");
 	}
 	
 	public static void vermerken(){ //Eine Datei wird angelegt, um den ersten Start des Programms zu vermerken
@@ -158,7 +170,6 @@ public class Abicalc extends JFrame {
 			writer.flush();
 			writer.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -198,7 +209,7 @@ public class Abicalc extends JFrame {
 					e.printStackTrace();
 				}
 				
-				setzeGesamtSchnitt(getGesamtSchnitt());
+				setzeGesamtSchnitt(getGesamtSchnitt(), punkteZuNote(getGesamtSchnitt()));
 				
 				
 				

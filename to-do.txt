@@ -1,5 +1,5 @@
 - Einstellungen (Note/Punkte)
 - Schnitt pro Fach
-- Kurse (4+)
+- Kurse (40+)
 - Haupt/Nebenfächer
 - Speichern nur für fertige Halbjahre
