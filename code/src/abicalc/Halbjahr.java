@@ -117,7 +117,9 @@ public class Halbjahr extends Component implements java.io.Serializable {
 	public void save(){ // Methode, die die Linked List faecherliste in eine Datei abspeichert
 		FileOutputStream speichern;
 		File datei;
+		File ordner  = new File(verzeichnis + "/data/");
 		try {
+			if(!ordner.exists()) ordnerAnlegen("data");
 			datei = new File(verzeichnis + "/data/" + halbjahrName + ".ser"); //Datei mit angegen´benem Verzeichnis wird erstellt
 			speichern = new FileOutputStream(datei); //FileOutputStream ist nötig, um auf die Festplatte zu schreiben
 			ObjectOutputStream out = new ObjectOutputStream(speichern); //ObjectOutputStream serialisiert die Linked List
