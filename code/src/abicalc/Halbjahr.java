@@ -143,7 +143,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 	
 
 	@SuppressWarnings("unchecked")
-	public void laden(){ // Methode, die vorhandene serialisierte Linked List einliest um damit zu arbeiten
+	public void laden(){ // Methode, die die vorhandene serialisierte Linked List einliest, um damit zu arbeiten
 		FileInputStream laden;
 		File datei;
 		try {
