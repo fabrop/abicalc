@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.LinkedList;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -138,6 +139,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 		ordner.mkdirs(); 
 	}
 	
+
 	@SuppressWarnings("unchecked")
 	public void laden(){ // Methode, die vorhandene serialisierte Linked List einliest um damit zu arbeiten
 		FileInputStream laden;
