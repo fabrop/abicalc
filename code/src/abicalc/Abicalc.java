@@ -55,7 +55,7 @@ public class Abicalc extends JFrame{
 		panel_title.add(btnEinstellungen);
 		
 		JButton btnZuruecksetzen = new JButton("Zur\u00FCcksetzen");		//Button Zurücksetzen
-		btnZuruecksetzen.setForeground(Color.LIGHT_GRAY);
+		btnZuruecksetzen.setForeground(Color.DARK_GRAY);
 		btnZuruecksetzen.setBounds(641, 10, 113, 23);
 		btnZuruecksetzen.addActionListener(new ActionListener() {		
 	        public void actionPerformed(ActionEvent e) {
