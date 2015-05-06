@@ -172,6 +172,8 @@ public class Halbjahr extends Component implements java.io.Serializable {
 		for(int i = 0; i < faecherliste.size(); i++){
 			faecherliste.get(i).uiLaden(panel);
 		}
+		panel.validate();
+		panel.repaint();
 	}
 	
 	
