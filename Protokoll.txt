@@ -1,0 +1,15 @@
+04.03.2015 - Ideenfindung
+06.03.2015 - Ideensammlung (Features etc.)
+11.03.2015 - Installieren Git Client, Eclipse + Einrichten der Programme
+13.03.2015 - Layout Überlegungen, To-Do List
+18.03.2015 - Rahmen des Programms mit JPanels und JTabbedPane, Erstellen von Note & Fach.java
+20.03.2015 - Einlesen in Layout-Manager, dynamisches Erstellen von Components, Tab-Indizes
+25.03.2015 - Datenstruktur Überlegungen, LinkedLists
+27.03.2015 - Recherche Dateispeicherung/-lesen
+14.04.2015 - Fächerliste Methoden, Speichern von LinkedLists, Recherchen
+16.04.2015 - Bug-Fixes
+23.04.2015 - Layout
+25.04.2015 - Halbjahr, Recherche ActionListener
+04.05.2015 - Zusammenführung Components und LinkedLists, JDialogs erstellt für Noten, komplett neue Konstruktoren, Halbjahresschnitt Methode
+05.05.2015 - Runden, Anzeige Gesamtschnitt, Fehlerbehebungen, Fachschnittberechnung inklusive Gewichtung
+06.04.2015 - (De-)Serialisierung Fehlerbehebung, allgemeine Verbesserungen und Optimierungen, Laden der gespeicherten Dateien automatisiert
