@@ -91,7 +91,8 @@ public class Halbjahr extends Component implements java.io.Serializable {
 		
 		jtbp.add(panel, title);
 		
-		//painteLinkedList();
+		panel.repaint();
+		panel.validate();
 		
 		if(ueberpruefen() == false){ //falls es der erste Aufruf ist, wird die Linked List generiert und eine Datei zum Vermerken des ersten Aufrufs angelegt
 			ordnerAnlegen("data"); //Ein Ordner für die verschiedenen Daten des Programms wird erstellt
