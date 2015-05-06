@@ -65,7 +65,7 @@ public class Abicalc extends JFrame{
 		panel_title.add(btnZuruecksetzen);
 		
 		JButton btnSpeichern = new JButton("Speichern");		//Button Speichern und Aktualisieren
-		btnSpeichern.setForeground(Color.LIGHT_GRAY);
+		btnSpeichern.setForeground(Color.DARK_GRAY);
 		btnSpeichern.setBounds(395, 11, 113, 22);
 		panel_title.add(btnSpeichern);
 		btnSpeichern.addActionListener(new ActionListener() {		
@@ -113,7 +113,7 @@ public class Abicalc extends JFrame{
 		lbl_Punkte = new JLabel("00");						//Label mit Gesamtschnitt als Inhalt
 		lbl_Punkte.setForeground(Color.WHITE);
 		lbl_Punkte.setFont(new Font("Tahoma", Font.PLAIN, 28));
-		lbl_Punkte.setBounds(198, 11, 149, 22);
+		lbl_Punkte.setBounds(198, 11, 350, 22);
 		panel_unten.add(lbl_Punkte);
 			
 		
@@ -179,11 +179,11 @@ public class Abicalc extends JFrame{
 			}	
 			zuLoeschen.delete();
 		}
-		for(int i = 0; i < halbjahre.length; i++){ //Linked Lists werden gelöscht
-    		halbjahre[i].faecherliste.clear();
-    		halbjahre[i].panel_scrollContent.removeAll();
+		for(int i = 0; i < halbjahre.length; i++){ 
+    		halbjahre[i].faecherliste.clear();	//Linked Lists werden gelöscht
+    		halbjahre[i].panel_scrollContent.removeAll();	//setzt UI zurück
     		
-    		
+    		setzeGesamtSchnitt(0, 0);	//setzt Schnitt zurück
     		
     	}
     	contentPane.validate();
