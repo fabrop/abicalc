@@ -38,10 +38,10 @@ public class Halbjahr extends Component implements java.io.Serializable {
 	public Halbjahr(String S, String title, JTabbedPane jtbp, JPanel jpnl){
 		
 		halbjahrName = S;
-		if(!ueberpruefen() == true){ //falls es der erste Aufruf ist, wird die Linked List generiert und eine Datei zum Vermerken des ersten Aufrufs angelegt
-		ordnerAnlegen("data"); //Ein Ordner für die verschiedenen Daten des Programms wird erstellt
-		faecherliste = new LinkedList<Fach>(); // die Liste für die einzelnen Fächer des Halbjahrs
-		save(); //Die Liste wird gespeichert
+		if(ueberpruefen() == false){ //falls es der erste Aufruf ist, wird die Linked List generiert und eine Datei zum Vermerken des ersten Aufrufs angelegt
+			ordnerAnlegen("data"); //Ein Ordner für die verschiedenen Daten des Programms wird erstellt
+			faecherliste = new LinkedList<Fach>(); // die Liste für die einzelnen Fächer des Halbjahrs
+			save(); //Die Liste wird gespeichert
 		}
 		else{
 			laden();
