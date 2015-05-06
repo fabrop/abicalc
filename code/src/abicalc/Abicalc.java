@@ -16,7 +16,7 @@ import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JTabbedPane;				
 
-public class Abicalc extends JFrame {
+public class Abicalc extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	

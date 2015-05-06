@@ -16,9 +16,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
-public class Halbjahr extends Component implements java.io.Serializable {/**
-	 * 
-	 */
+public class Halbjahr extends Component implements java.io.Serializable {
+	
+	
 	private static final long serialVersionUID = 1L;
 	
 	String verzeichnis = Halbjahr.class.getProtectionDomain().getCodeSource().getLocation().getPath();
@@ -170,10 +170,6 @@ public class Halbjahr extends Component implements java.io.Serializable {/**
 		}
 	}
 	
-	
-	public void fachHinzufügen(String fachName){ // nicht vollständig
-	//	faecherliste.add(new Fach(fachName));
-	}
 	
 	public double getHJSchnitt(){ //Der schnitt des Halbjahres wird berechnet
 		double schnitt=0;
