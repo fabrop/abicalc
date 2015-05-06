@@ -101,7 +101,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 	    });		
 		
 		jtbp.add(panel, title);
-		
+		painteLinkedList();
 	}
 
 	public void save(){ // Methode, die die Linked List faecherliste in eine Datei abspeichert
