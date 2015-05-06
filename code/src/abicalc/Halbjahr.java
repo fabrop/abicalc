@@ -67,20 +67,10 @@ public class Halbjahr extends Component implements java.io.Serializable {
 		GridLayout gl = new GridLayout(0, 1, 0, 10);
 		panel_scrollContent.setLayout(gl);
 		
-		/*
-		for (int i = 0; i>faecherliste.size(); i++){
-			
-			
-			Fach f = new Fach(faecherliste.get(i).name, panel_scrollContent);
-        	//es werden neue Fächer generiert (die UI-Elemente sind) aber deren Daten nicht zur faecherliste hinzugefügt
-			
-			for (int j = 0; j<f.notenliste.size(); j++){
-	        	f.notenliste.add(new Note(f.notenliste.get(j).gewichtung, f.notenliste.get(j).name, f.notenliste.get(j).punkte, f.panel_content));
-	        	//die Noten des Daten-Faches werden in das UI-Fach eingetragen
-	        }
-			
-		}
-		*/
+		
+		//for (int i = 0; i>faecherliste.size(); i++){
+		//}
+		
 		
 		
 		JPanel panel_Add = new JPanel();		//HJ Panel mit Textfeld und Button
@@ -159,7 +149,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 		painteLinkedList();
 	}
 	
-	public boolean ueberpruefen(){ //Es wird Überprüft ob eine Datei vorhanden ist, welche bei dem ersten Speichern generiert wird
+	public boolean ueberpruefen(){ //Es wird überprüft ob eine Datei vorhanden ist, welche bei dem ersten Speichern generiert wird
 		File test = new File(verzeichnis + "/data/aufgerufen.txt");
 		if(test.exists()){
 			return true;
@@ -170,7 +160,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 	}
 	
 
-	public void painteLinkedList(){ //geladenen Linked Lists werden grafisch abgebildet
+	public void painteLinkedList(){ //geladene Linked Lists werden grafisch abgebildet
 		for(int i = 0; i < faecherliste.size(); i++){
 			faecherliste.get(i).uiLaden(panel);
 		}
@@ -179,7 +169,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 	}
 	
 	
-	public double getHJSchnitt(){ //Der schnitt des Halbjahres wird berechnet
+	public double getHJSchnitt(){ //Der Schnitt des Halbjahres wird berechnet
 		double schnitt=0;
 		for (int i =0; i<faecherliste.size();i++){
 			schnitt=schnitt+faecherliste.get(i).fachSchnittBerechnen();
