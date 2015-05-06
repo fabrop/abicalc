@@ -181,6 +181,10 @@ public class Abicalc extends JFrame{
 		}
 		for(int i = 0; i < halbjahre.length; i++){ //Linked Lists werden gelöscht
     		halbjahre[i].faecherliste.clear();
+    		halbjahre[i].panel_scrollContent.removeAll();
+    		
+    		
+    		
     	}
     	contentPane.validate();
     	contentPane.repaint();
