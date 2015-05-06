@@ -1,5 +1,9 @@
-- Einstellungen (Note/Punkte)
-- Schnitt pro Fach
+- Einstellungen?
+- Schnitt pro Fach JLabel
+- Fächer bearbeiten
+- Noten bearbeiten
+
+
 - Kurse (40+)
 - Haupt/Nebenfächer
-- Speichern nur für fertige Halbjahre
+
