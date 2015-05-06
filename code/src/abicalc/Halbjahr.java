@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.LinkedList;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -22,7 +21,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	String verzeichnis = Halbjahr.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+	String verzeichnis = Halbjahr.class.getProtectionDomain().getCodeSource().getLocation().getPath(); //In Ahnlehnung an Internetquelle
 	JTextField txt_Fachname;
 	JPanel panel_Faecher = new JPanel();
 	
