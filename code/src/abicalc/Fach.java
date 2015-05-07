@@ -180,6 +180,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         JPanel panelTitel = new JPanel();		
         JLabel titel = new JLabel(name+"     ");
         panelTitel.add(titel);
+        
         JPanel panelHinzufuegen = new JPanel();
         
         //Input für Notenname
@@ -220,7 +221,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         panelNoten.add(scrollPane);
         
         //sorgt für vertikale Anordnung der Elemente
-        GridLayout gl = new GridLayout(0, 1, 0, 10);	
+        GridLayout gl = new GridLayout(0, 1, 0, 10);
         panelHaupt.setLayout(gl);
 		
         //UI-Aktualisierung
