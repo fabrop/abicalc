@@ -72,7 +72,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		//Label mit Fächernamen
-		labelFachName.setText(""+name);
+		labelFachName.setText(name);
 		panel.add(labelFachName);
 		
 		//Fächerdurchschnitt
@@ -172,8 +172,8 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 	
 	
 	public void fachNameAktualisieren(){
-		name = this.txtFachname.getText();
-		this.labelFachName.setText(name);
+		//Fachname wird mit String aus JDialog aktualisiert
+		this.name=txtFachname.getText();
 	}
 	
 	//Dialog um Noten zu bearbeiten
