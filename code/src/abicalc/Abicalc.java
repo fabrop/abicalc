@@ -30,7 +30,7 @@ public class Abicalc extends JFrame{
 	//Array mit den 4 Halbjahren und den Prüfungen
 	static Halbjahr halbjahre[] = new Halbjahr[5];
 	//Enthält alle UI Elemente
-	JPanel contentPane;		
+	static JPanel contentPane;		
 	//Label für den aktuellen Gesamtschnitt
 	static JLabel lbl_Punkte;		
 
