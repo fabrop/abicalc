@@ -192,7 +192,6 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         	@Override
     	    public void windowClosed(WindowEvent e) {
     	    	fachSchnittAktualisieren();
-    	    	
     	    }
     	});
         
