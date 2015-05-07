@@ -100,7 +100,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 		//Fachschnitt wird berechnet und gerundet
 		this.fachSchnitt = Abicalc.runden(this.fachSchnittBerechnen());
 		//Label wird geupdated
-		this.lbl_fs.setText(String.valueOf(fachSchnitt));
+		this.lbl_fs.setText("(Schnitt: "+String.valueOf(fachSchnitt)+" Punkte)");
 	}
 	
 	
@@ -187,6 +187,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 	        }
 	    });
         
+        //Sorgt für Aktualisierung des Fachschnitts nach Schließen des JDialogs
         fachJDialog.addWindowListener(new WindowAdapter() {
         	@Override
     	    public void windowClosed(WindowEvent e) {

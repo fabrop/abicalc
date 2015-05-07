@@ -1,6 +1,11 @@
-- Einstellungen?
+- Einstellungen Button löschen
+- Speichern Button WindowCLoseEvent
 - Fächer bearbeiten
 - Noten bearbeiten
-- Kurse (40+)
+
+
+
+Eventuell:
+- Kurse
 - Haupt/Nebenfächer
 
