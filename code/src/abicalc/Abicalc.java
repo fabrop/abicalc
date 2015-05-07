@@ -1,18 +1,25 @@
 package abicalc;
 
 import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.SwingConstants;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+
 import javax.swing.JButton;
 import javax.swing.JTabbedPane;				
 
@@ -29,8 +36,14 @@ public class Abicalc extends JFrame{
 
 	
 	public Abicalc() {
-		//Hauptfenster
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+		//Hauptfenster	
+		addWindowListener(new WindowAdapter(){
+			@Override
+			public void windowClosing(WindowEvent e){
+				allesSpeichern();
+				e.getWindow().dispose();
+			}
+		});
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
