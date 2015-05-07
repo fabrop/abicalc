@@ -24,7 +24,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	LinkedList<Note>  notenliste;
 	double fachSchnitt;
 	
-	public JPanel panel_content = new JPanel();		//Panel mit Noten
+	public JPanel panelHaupt = new JPanel();		//Panel mit Noten
 	
 	public JLabel lbl_fs = new JLabel();		//Label mit Fachschnitt
 	
@@ -62,8 +62,9 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		panel.add(lbl_n);
 		
 		//Fächerdurchschnitt
-		fachSchnitt= Abicalc.runden(fachSchnittBerechnen());
-		lbl_fs.setText(String.valueOf(fachSchnitt));
+		//fachSchnitt= Abicalc.runden(fachSchnittBerechnen());
+		//lbl_fs.setText(String.valueOf(fachSchnitt));
+		fachSchnittAktualisieren();
 		panel.add(lbl_fs);
 		
 		//Button zum Noten bearbeiten
@@ -74,7 +75,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		btn.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
-	        	openDialog();		//ruft den JDialog zum Bearbeiten der Noten auf
+	        	dialogOeffnen();		//ruft den JDialog zum Bearbeiten der Noten auf
 	        	
 	        	//Stellt sicher, dass UI aktualisiert wird
 	        	panel.validate();
@@ -95,90 +96,91 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	
 	
 	
-	public void openDialog() {
+	public void dialogOeffnen() {
 
    	 	JDialog fachJDialog = new JDialog();		//Pop-up Fenster
         fachJDialog.setTitle(name+" bearbeiten");
         fachJDialog.setSize(500,400);
         fachJDialog.setModal(true);
         
-        JPanel main = new JPanel();		//Enthält alles
-        main.setLayout(new BorderLayout(5, 5));
-        fachJDialog.add(main);
-        main.setBackground(Color.LIGHT_GRAY);
+        JPanel panelDialog = new JPanel();		//Enthält alles
+        panelDialog.setLayout(new BorderLayout(5, 5));
+        fachJDialog.add(panelDialog);
+        panelDialog.setBackground(Color.LIGHT_GRAY);
         
-        JPanel panel_title = new JPanel();		//Panel mit Titel-Label
-        JLabel title = new JLabel(name+"                  ");//Titel-Label
-        panel_title.add(title);
+        JPanel panelTitel = new JPanel();		//Panel mit Titel-Label
+        JLabel titel = new JLabel(name+"                  ");//Titel-Label
+        panelTitel.add(titel);
         
  
-        JPanel panel_add = new JPanel();
+        JPanel panelHinzufuegen = new JPanel();
         
-        JTextField txt_Name = new JTextField();			//HJ Input für Notenname
-        txt_Name.setText("Note");
-		panel_add.add(txt_Name);
-		txt_Name.setColumns(10);
-		JTextField txt_Note = new JTextField();			//HJ Input für Notenname
-        txt_Note.setText("Punktzahl");
-		panel_add.add(txt_Note);
-		txt_Note.setColumns(7);
-		JTextField txt_Gewichtung = new JTextField();			//HJ Input für Notenname
-        txt_Gewichtung.setText("Gewichtung");
-		panel_add.add(txt_Gewichtung);
-		txt_Gewichtung.setColumns(7);
-		JButton button_plus = new JButton("+");		//HJ Note hinzufügen Button
-		panel_add.add(button_plus);
-		JPanel panel_top = new JPanel();
-		panel_top.add(panel_title);
-		panel_top.add(panel_add);
+        JTextField txtName = new JTextField();			//HJ Input für Notenname
+        txtName.setText("Note");
+        panelHinzufuegen.add(txtName);
+		txtName.setColumns(10);
+		JTextField txtNote = new JTextField();			//HJ Input für Notenname
+        txtNote.setText("Punktzahl");
+        panelHinzufuegen.add(txtNote);
+		txtNote.setColumns(7);
+		JTextField txtGewichtung = new JTextField();			//HJ Input für Notenname
+        txtGewichtung.setText("Gewichtung");
+        panelHinzufuegen.add(txtGewichtung);
+		txtGewichtung.setColumns(7);
+		JButton buttonPlus = new JButton("+");		//HJ Note hinzufügen Button
+		panelHinzufuegen.add(buttonPlus);
+		JPanel panelOben = new JPanel();
+		panelOben.add(panelTitel);
+		panelOben.add(panelHinzufuegen);
 		
-        main.add(panel_top, BorderLayout.PAGE_START);		//Label, Textfelder und Button werden zum oberen Teil des Dialogs hinzugefügt
+		panelDialog.add(panelOben, BorderLayout.PAGE_START);		//Label, Textfelder und Button werden zum oberen Teil des Dialogs hinzugefügt
         
         
         
-        JPanel panel_noten = new JPanel();		//Übercontainer für einzelne Noten
+        JPanel panelNoten = new JPanel();		//Übercontainer für einzelne Noten
         
         
         //Container der scrollbar wird und Noten enthält
-        JScrollPane scrollPane = new JScrollPane (panel_content); 
+        JScrollPane scrollPane = new JScrollPane (panelHaupt); 
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);		//bekommt nur Scrollbar, wenn genug Elemente vorhanden sind
         scrollPane.setPreferredSize(new Dimension(460, 300));
         
-        panel_noten.add(scrollPane);
+        panelNoten.add(scrollPane);
         
         GridLayout gl = new GridLayout(0, 1, 0, 10);	//sorgt für vertikale Anordnung der Elemente
-        panel_content.setLayout(gl);
+        panelHaupt.setLayout(gl);
 		
         
-        main.validate();		//UI-Aktualisierung
-		main.repaint();
+        panelDialog.validate();		//UI-Aktualisierung
+        panelDialog.repaint();
         
         
-        main.add(panel_noten, BorderLayout.CENTER);	//Scrollbarer Bereich für einzelne Noten wird hinzugefügt
+        panelDialog.add(panelNoten, BorderLayout.CENTER);	//Scrollbarer Bereich für einzelne Noten wird hinzugefügt
         
         
-        button_plus.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Noten hinzufügen
+        buttonPlus.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Noten hinzufügen
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
 	        	//Note wird mithilfe der Daten aus den Textfeldern erzeugt
-	        	Note n = new Note(Double.parseDouble(txt_Gewichtung.getText()), txt_Name.getText(), Integer.parseInt(txt_Note.getText()), panel_content);	
+	        	Note n = new Note(Double.parseDouble(txtGewichtung.getText()), txtName.getText(), Integer.parseInt(txtNote.getText()), panelHaupt);	
 	        	//Note wird zur LinkedList hinzugefügt
 	        	notenliste.add(n);
 	        	//UI wird aktualisiert
-	        	main.validate();
-	    		main.repaint();
+	        	panelDialog.validate();
+	        	panelDialog.repaint();
 	    		Abicalc.setzeGesamtSchnitt(Abicalc.getGesamtSchnitt(), Abicalc.punkteZuNote(Abicalc.getGesamtSchnitt()));		//Aktualisieren des Gesamtschnitts
 	        }
 	    });
         
         fachJDialog.addWindowListener(new WindowAdapter() {
+        	@Override
     	    public void windowClosed(WindowEvent e) {
     	    	fachSchnittAktualisieren();
     	    }
     	});
         
-        main.validate();	//UI wird geupdated
-        main.repaint();
+        panelDialog.validate();	//UI wird geupdated
+        panelDialog.repaint();
         fachJDialog.setVisible(true);		//Dialog wird sichtbar gemacht
 	}
 
