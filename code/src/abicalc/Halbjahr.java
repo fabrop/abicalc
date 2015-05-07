@@ -22,6 +22,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	String verzeichnis = Halbjahr.class.getProtectionDomain().getCodeSource().getLocation().getPath(); //In Ahnlehnung an Internetquelle http://stackoverflow.com/questions/320542/how-to-get-the-path-of-a-running-jar-file
+	String myTitle = verzeichnis.substring(0, verzeichnis.length() -11);
 	JTextField txt_Fachname;
 	JPanel panel_Faecher = new JPanel();
 	
@@ -110,7 +111,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 		File ordner  = new File(verzeichnis + "/data/");
 		try {
 			if(!ordner.exists()) ordnerAnlegen("data");
-			datei = new File(verzeichnis + "/data/" + halbjahrName + ".ser"); //Datei mit angegen´benem Verzeichnis wird erstellt
+			datei = new File(myTitle + "/data/" + halbjahrName + ".ser"); //Datei mit angegen´benem Verzeichnis wird erstellt
 			speichern = new FileOutputStream(datei); //FileOutputStream ist nötig, um auf die Festplatte zu schreiben
 			ObjectOutputStream out = new ObjectOutputStream(speichern); //ObjectOutputStream serialisiert die Linked List
 			if(!datei.exists()){ // Fall die Datei noch nicht existiert wrd sie erstellt
@@ -127,7 +128,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 	
 	public void ordnerAnlegen(String name){ //MEthode, die gebraucht wird, um Ordner zum Speichern der daten zu erzeugen
 		String ordnerName = name;
-		File ordner = new File(verzeichnis + "/" + ordnerName);
+		File ordner = new File(myTitle + "/" + ordnerName);
 		ordner.mkdirs(); 
 	}
 	
@@ -137,7 +138,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 		FileInputStream laden;
 		File datei;
 		try {
-			datei = new File(verzeichnis + "/data/" + halbjahrName + ".ser"); //Pfad der einzulesenden Datei
+			datei = new File(myTitle + "/data/" + halbjahrName + ".ser"); //Pfad der einzulesenden Datei
 			laden = new FileInputStream(datei);
 			ObjectInputStream in = new ObjectInputStream(laden);
 			faecherliste = (LinkedList<Fach>) in.readObject(); // Gespeicherte Linked List wird deserialisiert und als Linked List festgelegt
@@ -150,7 +151,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 	}
 	
 	public boolean ueberpruefen(){ //Es wird überprüft ob eine Datei vorhanden ist, welche bei dem ersten Speichern generiert wird
-		File test = new File(verzeichnis + "/data/aufgerufen.txt");
+		File test = new File(myTitle + "/data/aufgerufen.txt");
 		if(test.exists()){
 			return true;
 		}

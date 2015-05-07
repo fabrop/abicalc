@@ -155,7 +155,7 @@ public class Abicalc extends JFrame{
 	
 	public static void vermerken(){ //Eine Datei wird angelegt, um den ersten Start des Programms zu vermerken
 		String verzeichnis = Halbjahr.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-		File vermerk = new File(verzeichnis + "/data/aufgerufen.txt");
+		File vermerk = new File(halbjahre[1].myTitle + "/data/aufgerufen.txt");
 		try {
 			if(!vermerk.exists()){
 				vermerk.createNewFile();
@@ -170,7 +170,7 @@ public class Abicalc extends JFrame{
 	}
 	
 	public void allesZuruecksetzen(String verzeichnis){		//löscht alle Dateien, welche von dem Programm generiert wurden
-		File zuLoeschen = new File(verzeichnis + "/data/");
+		File zuLoeschen = new File(halbjahre[1].myTitle + "/data/");
 		String[] dateienZuLoeschen = zuLoeschen.list();
 		if(zuLoeschen.exists()){
 			for(int i = 0; i < dateienZuLoeschen.length; i++){
@@ -201,8 +201,9 @@ public class Abicalc extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Abicalc frame = new Abicalc();
-					frame.setVisible(true);
+					Abicalc myframe = new Abicalc();
+					myframe.setVisible(true);
+					myframe.setTitle(halbjahre[1].myTitle);
 					vermerken();
 				} catch (Exception e) {
 					e.printStackTrace();
