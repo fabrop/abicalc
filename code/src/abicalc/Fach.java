@@ -235,12 +235,11 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 		//Pop-up Fenster
    	 	JDialog nameJDialog = new JDialog();		
    	 	nameJDialog.setTitle(name+": Name bearbeiten");
-   	 	nameJDialog.setSize(400,200);
+   	 	nameJDialog.setSize(300,75);
    	 	nameJDialog.setModal(true);
         
         //Panel, das den kompletten Inhalt enthält
         JPanel panelNameDialog = new JPanel();		
-        panelNameDialog.setLayout(new BorderLayout(5, 5));
         nameJDialog.add(panelNameDialog);
         
         //Input für Notenname
