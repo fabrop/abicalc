@@ -28,9 +28,6 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 	
 	//Label mit Fachschnitt
 	public JLabel lbl_fs = new JLabel();
-	//Label mit Fachschnitt
-	public JLabel lbl_n = new JLabel();
-	
 	
 	public Fach(String s, JPanel jpnl){
 		
@@ -69,6 +66,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		//Label mit Fächernamen
+		JLabel lbl_n = new JLabel();
 		lbl_n.setText(""+name);
 		panel.add(lbl_n);
 		
@@ -296,7 +294,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 	
 	public void fachNameAktualisieren() {
 		//Label wird geupdated
-		//this.lbl_n.setText(""+this.name);
+		this.lbl_n.setText(""+this.name);
 		
 	}
 	
