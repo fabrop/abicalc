@@ -196,6 +196,16 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
     	    	Abicalc.contentPane.validate();
     	    }
     	});
+        //Sorgt für Aktualisierung des Fachschnitts nach Schließen des JDialogs
+        fachJDialog.addWindowListener(new WindowAdapter() {
+        	@Override
+    	    public void windowClosing(WindowEvent e) {
+    	    	fachSchnittAktualisieren();
+    	    	Abicalc.contentPane.repaint();
+    	    	Abicalc.contentPane.validate();
+    	    }
+    	});
+        
         
         //UI wird geupdated
         panelDialog.validate();	
