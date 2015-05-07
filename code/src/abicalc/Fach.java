@@ -262,7 +262,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 	        }
 	    });
         
-        //Sorgt für Aktualisierung des Fachschnitts nach Schließen des JDialogs
+        //Sorgt für Aktualisierung des Fachnamens nach Schließen des JDialogs
         nameJDialog.addWindowListener(new WindowAdapter() {
         	@Override
     	    public void windowClosed(WindowEvent e) {
@@ -271,7 +271,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
     	    	Abicalc.contentPane.validate();
     	    }
     	});
-        //Sorgt für Aktualisierung des Fachschnitts nach Schließen des JDialogs
+        //Sorgt für Aktualisierung des fachnames nach Schließen des JDialogs
         nameJDialog.addWindowListener(new WindowAdapter() {
         	@Override
     	    public void windowClosing(WindowEvent e) {
