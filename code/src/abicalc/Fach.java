@@ -8,7 +8,6 @@ import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.LinkedList;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -16,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-public class Fach extends Component implements java.io.Serializable{//Datenstruktur aus Noten, die ein UI-ELement ist
+public class Fach extends Component implements java.io.Serializable{		//Datenstruktur aus Noten, die ein UI-ELement ist
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -42,7 +41,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		double schnitt;
 		double summe = 0;		//Summe sind alle Noten mit deren Gewichtungen eingerechnet
 		double sGewichtung = 0;		//Summe der Gewichtungen
-		for(int i = 0; i < notenliste.size(); i++){		//für jede Note wird deren Wert mit ihrer Gewicchtung multipliziert
+		for(int i = 0; i < notenliste.size(); i++){		//für jede Note wird deren Wert mit ihrer Gewichtung multipliziert
 			summe = summe + (notenliste.get(i).gewichtung * notenliste.get(i).punkte);
 			sGewichtung = sGewichtung + notenliste.get(i).gewichtung;
 		}
@@ -62,8 +61,6 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		panel.add(lbl_n);
 		
 		//Fächerdurchschnitt
-		//fachSchnitt= Abicalc.runden(fachSchnittBerechnen());
-		//lbl_fs.setText(String.valueOf(fachSchnitt));
 		fachSchnittAktualisieren();
 		panel.add(lbl_fs);
 		
@@ -97,68 +94,74 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	
 	
 	public void dialogOeffnen() {
-
-   	 	JDialog fachJDialog = new JDialog();		//Pop-up Fenster
+		
+		//Pop-up Fenster
+   	 	JDialog fachJDialog = new JDialog();		
         fachJDialog.setTitle(name+" bearbeiten");
         fachJDialog.setSize(500,400);
         fachJDialog.setModal(true);
         
-        JPanel panelDialog = new JPanel();		//Enthält alles
+        //Panel, das den kompletten Inhalt enthält
+        JPanel panelDialog = new JPanel();		
         panelDialog.setLayout(new BorderLayout(5, 5));
         fachJDialog.add(panelDialog);
         panelDialog.setBackground(Color.LIGHT_GRAY);
         
-        JPanel panelTitel = new JPanel();		//Panel mit Titel-Label
-        JLabel titel = new JLabel(name+"                  ");//Titel-Label
+        //Panel mit Titel-Label
+        JPanel panelTitel = new JPanel();		
+        JLabel titel = new JLabel(name+"                  ");
         panelTitel.add(titel);
-        
- 
         JPanel panelHinzufuegen = new JPanel();
         
-        JTextField txtName = new JTextField();			//HJ Input für Notenname
+        //Input für Notenname
+        JTextField txtName = new JTextField();			
         txtName.setText("Note");
         panelHinzufuegen.add(txtName);
 		txtName.setColumns(10);
-		JTextField txtNote = new JTextField();			//HJ Input für Notenname
+		//Input für Punktzahl
+		JTextField txtNote = new JTextField();			
         txtNote.setText("Punktzahl");
         panelHinzufuegen.add(txtNote);
 		txtNote.setColumns(7);
-		JTextField txtGewichtung = new JTextField();			//HJ Input für Notenname
+		JTextField txtGewichtung = new JTextField();			
+		//Input für Gewichtung
         txtGewichtung.setText("Gewichtung");
         panelHinzufuegen.add(txtGewichtung);
 		txtGewichtung.setColumns(7);
-		JButton buttonPlus = new JButton("+");		//HJ Note hinzufügen Button
+		JButton buttonPlus = new JButton("+");		
+		//Note hinzufügen Button
 		panelHinzufuegen.add(buttonPlus);
 		JPanel panelOben = new JPanel();
 		panelOben.add(panelTitel);
 		panelOben.add(panelHinzufuegen);
 		
-		panelDialog.add(panelOben, BorderLayout.PAGE_START);		//Label, Textfelder und Button werden zum oberen Teil des Dialogs hinzugefügt
+		//Label, Textfelder und Button werden zum oberen Teil des Dialogs hinzugefügt
+		panelDialog.add(panelOben, BorderLayout.PAGE_START);		
         
-        
-        
-        JPanel panelNoten = new JPanel();		//Übercontainer für einzelne Noten
-        
+		//Übercontainer für einzelne Noten
+        JPanel panelNoten = new JPanel();		
         
         //Container der scrollbar wird und Noten enthält
         JScrollPane scrollPane = new JScrollPane (panelHaupt); 
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);		//bekommt nur Scrollbar, wenn genug Elemente vorhanden sind
+        //bekommt nur Scrollbar, wenn genug Elemente vorhanden sind
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);		
         scrollPane.setPreferredSize(new Dimension(460, 300));
         
         panelNoten.add(scrollPane);
         
-        GridLayout gl = new GridLayout(0, 1, 0, 10);	//sorgt für vertikale Anordnung der Elemente
+        //sorgt für vertikale Anordnung der Elemente
+        GridLayout gl = new GridLayout(0, 1, 0, 10);	
         panelHaupt.setLayout(gl);
 		
-        
-        panelDialog.validate();		//UI-Aktualisierung
+        //UI-Aktualisierung
+        panelDialog.validate();		
         panelDialog.repaint();
         
+        //Scrollbarer Bereich für einzelne Noten wird hinzugefügt
+        panelDialog.add(panelNoten, BorderLayout.CENTER);	
         
-        panelDialog.add(panelNoten, BorderLayout.CENTER);	//Scrollbarer Bereich für einzelne Noten wird hinzugefügt
-        
-        
-        buttonPlus.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Noten hinzufügen
+        //Code fürs Noten hinzufügen
+        buttonPlus.addActionListener(new java.awt.event.ActionListener() {		
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
 	        	//Note wird mithilfe der Daten aus den Textfeldern erzeugt
@@ -179,9 +182,12 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
     	    }
     	});
         
-        panelDialog.validate();	//UI wird geupdated
+        //UI wird geupdated
+        panelDialog.validate();	
         panelDialog.repaint();
-        fachJDialog.setVisible(true);		//Dialog wird sichtbar gemacht
+        
+        //Dialog wird sichtbar gemacht
+        fachJDialog.setVisible(true);		
 	}
 
 	
