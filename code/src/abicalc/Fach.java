@@ -72,11 +72,11 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		//Label mit Fächernamen
-		fachNameAktualisieren();
+		labelFachName.setText(""+name);
 		panel.add(labelFachName);
 		
 		//Fächerdurchschnitt
-		labelFachSchnitt.setText(""+name);
+		fachSchnittAktualisieren();
 		panel.add(labelFachSchnitt);
 		
 		//Button zum Noten bearbeiten
