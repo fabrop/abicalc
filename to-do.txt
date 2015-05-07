@@ -1,9 +1,6 @@
 - Einstellungen?
-- Schnitt pro Fach JLabel
 - Fächer bearbeiten
 - Noten bearbeiten
-
-
 - Kurse (40+)
 - Haupt/Nebenfächer
 
