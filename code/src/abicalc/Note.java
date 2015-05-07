@@ -16,31 +16,38 @@ public class Note extends Component implements java.io.Serializable {
 	int punkte;
 	double gewichtung;
 	
-	public Note(double g, String n, int p, JPanel jpnl){//Konstruktor
+	public Note(double g, String n, int p, JPanel jpnl){
 		gewichtung = g;
 		name = n;
 		punkte = p;
 		
-		uiLaden(jpnl);		//Erzeugt das UI
+		//Erzeugt das UI der einzelnen Note
+		uiLaden(jpnl);		
 	}
 
 
 	public void uiLaden(JPanel jpnl){
-		JPanel panel = new JPanel();		//Gesamter Container
+		//Gesamter Container
+		JPanel panel = new JPanel();		
 		panel.setBackground(Color.LIGHT_GRAY);
 		
-		JLabel label_n = new JLabel(name+":   ");		//Label mit dem Namen der Note
+		//Label mit dem Namen der Note
+		JLabel label_n = new JLabel(name+":   ");		
 		panel.add(label_n);
 		
-		JLabel label_g = new JLabel("("+gewichtung+"x)");		//Label mit der Gewichtung der Note
+		//Label mit der Gewichtung der Note
+		JLabel label_g = new JLabel("("+gewichtung+"x)");		
 		panel.add(label_g);
 		
-		JLabel label_p = new JLabel(""+punkte+" Punkte");		//Label mit der Punktzahl
+		//Label mit der Punktzahl
+		JLabel label_p = new JLabel(""+punkte+" Punkte");		
 		panel.add(label_p);
 		
-		
-		panel.validate();		//UI-Refresh
+		//UI-Aktualisierung
+		panel.validate();		
 		panel.repaint();
+		
+		//Note wird zum Fach hinzugefügt
 		jpnl.add(panel);
 		
 	}
