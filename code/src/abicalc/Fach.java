@@ -75,14 +75,36 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 		panel.add(lbl_fs);
 		
 		//Button zum Noten bearbeiten
-		JButton btn = new JButton("Noten bearbeiten...");
-		btn.setBounds(641, 10, 113, 23);
-		panel.add(btn);
-		
-		btn.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
+		JButton btnFachname = new JButton("Fachname bearbeiten...");
+		//btnFachname.setBounds(641, 10, 113, 23);
+		panel.add(btnFachname);
+				
+		//Button-Klick
+		btnFachname.addActionListener(new java.awt.event.ActionListener() {		
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
-	        	dialogOeffnen();		//ruft den JDialog zum Bearbeiten der Noten auf
+	        	//ruft den JDialog zum Bearbeiten des Fachnames auf
+	        	dialogFachnameOeffnen();
+	        	
+	        	//Stellt sicher, dass UI aktualisiert wird
+	        	panel.validate();
+	    		panel.repaint();
+	        }
+	    });
+		
+		
+		
+		//Button zum Noten bearbeiten
+		JButton btnNote = new JButton("Noten bearbeiten...");
+		//btnNote.setBounds(641, 10, 113, 23);
+		panel.add(btnNote);
+		
+		//Button-Klick
+		btnNote.addActionListener(new java.awt.event.ActionListener() {		
+	        public void actionPerformed(java.awt.event.ActionEvent e) {
+	          
+	        	//ruft den JDialog zum Bearbeiten der Noten auf
+	        	dialogNoteOeffnen();		
 	        	
 	        	//Stellt sicher, dass UI aktualisiert wird
 	        	panel.validate();
@@ -96,6 +118,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 				
 	}
 	
+
 	public void fachSchnittAktualisieren(){
 		//Fachschnitt wird berechnet und gerundet
 		this.fachSchnitt = Abicalc.runden(this.fachSchnittBerechnen());
@@ -103,13 +126,47 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 		this.lbl_fs.setText("(Schnitt: "+String.valueOf(fachSchnitt)+" Punkte)");
 	}
 	
+
+	public void dialogFachnameOeffnen() {
+		//Pop-up Fenster
+   	 	JDialog fachJDialog = new JDialog();		
+        fachJDialog.setTitle(name+": Name bearbeiten");
+        fachJDialog.setSize(400,200);
+        fachJDialog.setModal(true);
+		
+        //Panel, das den kompletten Inhalt enthält
+        JPanel panelDialog = new JPanel();		
+        
+        //Input für Notenname
+        JTextField txtFachname = new JTextField();			
+        txtFachname.setText("Note");
+        panelDialog.add(txtFachname);
+        txtFachname.setColumns(10);
+        panelDialog.add(txtFachname);
+        
+        
+        //Sorgt für Aktualisierung des Fachschnitts nach Schließen des JDialogs
+        fachJDialog.addWindowListener(new WindowAdapter() {
+        	@Override
+    	    public void windowClosed(WindowEvent e) {
+    	    	//fachSchnittAktualisieren();
+    	    }
+    	});
+        
+        //UI wird geupdated
+        panelDialog.validate();	
+        panelDialog.repaint();
+        
+        //Dialog wird sichtbar gemacht
+        fachJDialog.setVisible(true);	
+        
+	}
 	
-	
-	public void dialogOeffnen() {
+	public void dialogNoteOeffnen() {
 		
 		//Pop-up Fenster
    	 	JDialog fachJDialog = new JDialog();		
-        fachJDialog.setTitle(name+" bearbeiten");
+        fachJDialog.setTitle(name+":Noten bearbeiten");
         fachJDialog.setSize(500,400);
         fachJDialog.setModal(true);
         
@@ -121,7 +178,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         
         //Panel mit Titel-Label
         JPanel panelTitel = new JPanel();		
-        JLabel titel = new JLabel(name+"                  ");
+        JLabel titel = new JLabel(name+"     ");
         panelTitel.add(titel);
         JPanel panelHinzufuegen = new JPanel();
         
@@ -135,16 +192,17 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         txtNote.setText("Punktzahl");
         panelHinzufuegen.add(txtNote);
 		txtNote.setColumns(7);
-		JTextField txtGewichtung = new JTextField();			
 		//Input für Gewichtung
+		JTextField txtGewichtung = new JTextField();			
         txtGewichtung.setText("Gewichtung");
         panelHinzufuegen.add(txtGewichtung);
 		txtGewichtung.setColumns(7);
-		JButton buttonPlus = new JButton("+");		
 		//Note hinzufügen Button
+		JButton buttonPlus = new JButton("+");
 		panelHinzufuegen.add(buttonPlus);
 		JPanel panelOben = new JPanel();
 		panelOben.add(panelTitel);
+		
 		panelOben.add(panelHinzufuegen);
 		
 		//Label, Textfelder und Button werden zum oberen Teil des Dialogs hinzugefügt
