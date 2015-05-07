@@ -67,7 +67,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 		
 		//Label mit Fächernamen
 		
-		fachNameAktualisieren();
+		fachNameAktualisieren(lbl_n, name);
 		panel.add(lbl_n);
 		
 		//Fächerdurchschnitt
@@ -120,10 +120,11 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 	}
 	
 
-	public void fachNameAktualisieren() {
-		String s = this.name;
+	public void fachNameAktualisieren(JLabel lbl_n, String s) {
+		//Name wird in den Daten geupdated
+		name=s;
 		//Label wird geupdated
-		this.lbl_n.setText(""+s);
+		lbl_n.setText(""+s);
 		
 	}
 	
@@ -263,7 +264,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 		 //Code fürs Fachname ändern
 		buttonSpeichern.addActionListener(new java.awt.event.ActionListener() {		
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
-	        	fachNameAktualisieren();
+	        	fachNameAktualisieren(lbl_n, txtFachName.getText());
 	        	
 	        }
 	    });
@@ -272,7 +273,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         nameJDialog.addWindowListener(new WindowAdapter() {
         	@Override
     	    public void windowClosed(WindowEvent e) {
-    	    	fachNameAktualisieren();
+    	    	fachNameAktualisieren(lbl_n, txtFachName.getText());
     	    	Abicalc.contentPane.repaint();
     	    	Abicalc.contentPane.validate();
     	    }
@@ -281,7 +282,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         nameJDialog.addWindowListener(new WindowAdapter() {
         	@Override
     	    public void windowClosing(WindowEvent e) {
-    	    	fachNameAktualisieren();
+    	    	fachNameAktualisieren(lbl_n, txtFachName.getText());
     	    	Abicalc.contentPane.repaint();
     	    	Abicalc.contentPane.validate();
     	    }
