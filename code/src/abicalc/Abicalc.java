@@ -154,7 +154,6 @@ public class Abicalc extends JFrame{
 	}
 	
 	public static void vermerken(){ //Eine Datei wird angelegt, um den ersten Start des Programms zu vermerken
-		String verzeichnis = Halbjahr.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 		File vermerk = new File(halbjahre[1].myTitle + "/data/aufgerufen.txt");
 		try {
 			if(!vermerk.exists()){
@@ -203,7 +202,7 @@ public class Abicalc extends JFrame{
 				try {
 					Abicalc myframe = new Abicalc();
 					myframe.setVisible(true);
-					myframe.setTitle(halbjahre[1].myTitle);
+					myframe.setTitle("" + halbjahre[1].zaehler);
 					vermerken();
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -22,6 +22,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	String verzeichnis = Halbjahr.class.getProtectionDomain().getCodeSource().getLocation().getPath(); //In Ahnlehnung an Internetquelle http://stackoverflow.com/questions/320542/how-to-get-the-path-of-a-running-jar-file
+	int zaehler = verzeichnis.indexOf("/");
 	String myTitle = verzeichnis.substring(0, verzeichnis.length() -11);
 	JTextField txt_Fachname;
 	JPanel panel_Faecher = new JPanel();
