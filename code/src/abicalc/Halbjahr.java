@@ -185,7 +185,6 @@ public class Halbjahr extends Component implements java.io.Serializable {
 		panel.repaint();
 	}
 	
-	
 	public double getHJSchnitt(){ //Der Schnitt des Halbjahres wird berechnet
 		double schnitt=0;
 		for (int i =0; i<faecherliste.size();i++){

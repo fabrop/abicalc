@@ -182,6 +182,7 @@ public class Abicalc extends JFrame{
 		lbl_Punkte.setText(runden(e)+" / "+runden(d)+" Punkte");
 	}
 	
+	
 	//Eine Datei wird angelegt, um den ersten Start des Programms zu vermerken
 	public static void vermerken(){
 		File vermerk = new File(halbjahre[1].myTitle + "/data/aufgerufen.txt");
