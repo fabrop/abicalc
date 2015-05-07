@@ -118,15 +118,9 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 				
 	}
 	
-
-	public void fachSchnittAktualisieren(){
-		//Fachschnitt wird berechnet und gerundet
-		this.fachSchnitt = Abicalc.runden(this.fachSchnittBerechnen());
-		//Label wird geupdated
-		this.lbl_fs.setText("(Schnitt: "+String.valueOf(fachSchnitt)+" Punkte)");
-	}
 	
-
+	
+	//Dialog um den Fachnamen zu ändern
 	public void dialogFachnameOeffnen() {
 		//Pop-up Fenster
    	 	JDialog fachJDialog = new JDialog();		
@@ -135,23 +129,35 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         fachJDialog.setModal(true);
 		
         //Panel, das den kompletten Inhalt enthält
-        JPanel panelDialog = new JPanel();		
+        JPanel panelDialog = new JPanel();	
         
         //Input für Notenname
         JTextField txtFachname = new JTextField();			
-        txtFachname.setText("Note");
-        panelDialog.add(txtFachname);
+        txtFachname.setText("Neuer Fachname...");
         txtFachname.setColumns(10);
         panelDialog.add(txtFachname);
+        //Note hinzufügen Button
+      	JButton buttonSpeichern = new JButton("Speichern");
+      	panelDialog.add(buttonSpeichern);
         
-        
+      	//Speichern des Namen bei Button-Klick
+      	buttonSpeichern.addActionListener(new java.awt.event.ActionListener() {		
+	        public void actionPerformed(java.awt.event.ActionEvent e) {
+	        	fachNameAktualisieren();
+	        }
+	    });
+      	
+      	
         //Sorgt für Aktualisierung des Fachschnitts nach Schließen des JDialogs
         fachJDialog.addWindowListener(new WindowAdapter() {
         	@Override
     	    public void windowClosed(WindowEvent e) {
-    	    	//fachSchnittAktualisieren();
+    	    	fachNameAktualisieren();
     	    }
     	});
+        
+        //Alles wird zum fenster hinzugefügt
+        fachJDialog.add(panelDialog);
         
         //UI wird geupdated
         panelDialog.validate();	
@@ -162,6 +168,13 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         
 	}
 	
+	
+	public void fachNameAktualisieren(){
+		//Label wird geupdated
+		//
+	}
+	
+	//Dialog um Noten zu bearbeiten
 	public void dialogNoteOeffnen() {
 		
 		//Pop-up Fenster
@@ -262,7 +275,13 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         fachJDialog.setVisible(true);		
 	}
 
-	
+	//Updated die UI mit aktuellem Fachschnitt
+		public void fachSchnittAktualisieren(){
+			//Fachschnitt wird berechnet und gerundet
+			this.fachSchnitt = Abicalc.runden(this.fachSchnittBerechnen());
+			//Label wird geupdated
+			this.lbl_fs.setText("(Schnitt: "+String.valueOf(fachSchnitt)+" Punkte)");
+		}
 	
 	
 }
