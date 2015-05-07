@@ -27,8 +27,13 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 	public JPanel panelHaupt = new JPanel();		
 	
 	//Label mit Fachschnitt
-	public JLabel lbl_fs = new JLabel();		
+	public JLabel labelFachSchnitt = new JLabel();		
 	
+	//Label mit Fachname
+	JLabel labelFachName = new JLabel();
+	
+	//Textfeld zum Fachnamen ändern im JDialog
+	JTextField txtFachname = new JTextField();	
 	
 	public Fach(String s, JPanel jpnl){
 		
@@ -61,22 +66,21 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 	}
 	
 	public void uiLaden(JPanel jpnl){
-		//Panel mit Fachname und Button und Layout einer Tabelle mit 1 Zeile
+		//Panel mit Fachname und Buttons und Layout einer Tabelle mit 1 Zeile
 		JPanel panel = new JPanel();	
 		panel.setBackground(Color.LIGHT_GRAY);
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		//Label mit Fächernamen
-		JLabel lbl_n = new JLabel("   "+name);
-		panel.add(lbl_n);
+		fachNameAktualisieren();
+		panel.add(labelFachName);
 		
 		//Fächerdurchschnitt
-		fachSchnittAktualisieren();
-		panel.add(lbl_fs);
+		labelFachSchnitt.setText(""+name);
+		panel.add(labelFachSchnitt);
 		
 		//Button zum Noten bearbeiten
 		JButton btnFachname = new JButton("Fachname bearbeiten...");
-		//btnFachname.setBounds(641, 10, 113, 23);
 		panel.add(btnFachname);
 				
 		//Button-Klick
@@ -96,7 +100,6 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 		
 		//Button zum Noten bearbeiten
 		JButton btnNote = new JButton("Noten bearbeiten...");
-		//btnNote.setBounds(641, 10, 113, 23);
 		panel.add(btnNote);
 		
 		//Button-Klick
@@ -131,8 +134,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         //Panel, das den kompletten Inhalt enthält
         JPanel panelDialog = new JPanel();	
         
-        //Input für Notenname
-        JTextField txtFachname = new JTextField();			
+        //Input für Notenname		
         txtFachname.setText("Neuer Fachname...");
         txtFachname.setColumns(10);
         panelDialog.add(txtFachname);
@@ -170,8 +172,8 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 	
 	
 	public void fachNameAktualisieren(){
-		//Label wird geupdated
-		//
+		name = this.txtFachname.getText();
+		this.labelFachName.setText(name);
 	}
 	
 	//Dialog um Noten zu bearbeiten
@@ -280,7 +282,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 			//Fachschnitt wird berechnet und gerundet
 			this.fachSchnitt = Abicalc.runden(this.fachSchnittBerechnen());
 			//Label wird geupdated
-			this.lbl_fs.setText("(Schnitt: "+String.valueOf(fachSchnitt)+" Punkte)");
+			this.labelFachSchnitt.setText("(Schnitt: "+String.valueOf(fachSchnitt)+" Punkte)");
 		}
 	
 	
