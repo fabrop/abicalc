@@ -73,23 +73,39 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 		//Fächerdurchschnitt
 		fachSchnittAktualisieren();
 		panel.add(lbl_fs);
-		
-		//Button zum Noten bearbeiten
-		JButton btn = new JButton("Noten bearbeiten...");
-		btn.setBounds(641, 10, 113, 23);
-		panel.add(btn);
-		
-		btn.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
+
+		//Button zum Fachname bearbeiten
+		JButton btnName = new JButton("Fachname bearbeiten...");
+		btnName.setBounds(641, 10, 113, 23);
+		panel.add(btnName);
+		//Code zum Fachnamen bearbeiten
+		btnName.addActionListener(new java.awt.event.ActionListener() {		
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
-	          
-	        	dialogOeffnen();		//ruft den JDialog zum Bearbeiten der Noten auf
+	        	//ruft den JDialog zum Bearbeiten des Namens auf
+	        	dialogName();		
 	        	
 	        	//Stellt sicher, dass UI aktualisiert wird
 	        	panel.validate();
 	    		panel.repaint();
 	        }
 	    });
-			
+		
+		//Button zum Noten bearbeiten
+		JButton btn = new JButton("Noten bearbeiten...");
+		btn.setBounds(641, 10, 113, 23);
+		panel.add(btn);
+		//Code fürs Fach hinzufügen
+		btn.addActionListener(new java.awt.event.ActionListener() {		
+	        public void actionPerformed(java.awt.event.ActionEvent e) {
+	        	//ruft den JDialog zum Bearbeiten der Noten auf
+	        	dialogOeffnen();		
+	        	
+	        	//Stellt sicher, dass UI aktualisiert wird
+	        	panel.validate();
+	    		panel.repaint();
+	        }
+	    });
+
 		
 		//Panel wird hinzugefügt
 		jpnl.add(panel);
@@ -109,7 +125,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 		
 		//Pop-up Fenster
    	 	JDialog fachJDialog = new JDialog();		
-        fachJDialog.setTitle(name+" bearbeiten");
+        fachJDialog.setTitle(name+": Noten bearbeiten");
         fachJDialog.setSize(500,400);
         fachJDialog.setModal(true);
         
@@ -215,7 +231,30 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         fachJDialog.setVisible(true);		
 	}
 
-	
+	public void dialogName(){
+		//Pop-up Fenster
+   	 	JDialog nameJDialog = new JDialog();		
+   	 	nameJDialog.setTitle(name+": Name bearbeiten");
+   	 	nameJDialog.setSize(400,200);
+   	 	nameJDialog.setModal(true);
+        
+        //Panel, das den kompletten Inhalt enthält
+        JPanel panelNameDialog = new JPanel();		
+        panelNameDialog.setLayout(new BorderLayout(5, 5));
+        nameJDialog.add(panelNameDialog);
+        
+        
+        
+        
+        
+        //UI wird geupdated
+        nameJDialog.validate();	
+        nameJDialog.repaint();
+        
+        //Dialog wird sichtbar gemacht
+        nameJDialog.setVisible(true);
+        
+	}
 	
 	
 }
