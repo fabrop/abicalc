@@ -24,7 +24,9 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	LinkedList<Note>  notenliste;
 	double fachSchnitt;
 	
-	public JPanel panel_content = new JPanel();
+	public JPanel panel_content = new JPanel();		//Panel mit Noten
+	
+	public JLabel lbl_fs = new JLabel();		//Label mit Fachschnitt
 	
 	public Fach(String s, JPanel jpnl){ //Konstruktor
 		
@@ -49,8 +51,8 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	}
 	
 	public void uiLaden(JPanel jpnl){
-		//Panel mit Label und Button und Layout einer Tabelle mit 1 Zeile
-		JPanel panel = new JPanel();
+		//Panel mit Fachname und Button und Layout einer Tabelle mit 1 Zeile
+		JPanel panel = new JPanel();	
 		panel.setBackground(Color.LIGHT_GRAY);
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 		
@@ -60,8 +62,9 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		panel.add(lbl_n);
 		
 		//Fächerdurchschnitt
-		JLabel lbl_fd = new JLabel(""+fachSchnittAktualisieren());
-		panel.add(lbl_fd);
+		fachSchnitt= Abicalc.runden(fachSchnittBerechnen());
+		lbl_fs.setText(String.valueOf(fachSchnitt));
+		panel.add(lbl_fs);
 		
 		//Button zum Noten bearbeiten
 		JButton btn = new JButton("Noten bearbeiten...");
@@ -85,9 +88,9 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 				
 	}
 	
-	public double fachSchnittAktualisieren(){
+	public void fachSchnittAktualisieren(){
 		this.fachSchnitt = Abicalc.runden(this.fachSchnittBerechnen());
-		return this.fachSchnitt;
+		this.lbl_fs.setText(String.valueOf(fachSchnitt));
 	}
 	
 	
