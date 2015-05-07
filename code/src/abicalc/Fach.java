@@ -192,11 +192,8 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         	@Override
     	    public void windowClosed(WindowEvent e) {
     	    	fachSchnittAktualisieren();
-<<<<<<< HEAD
-=======
     	    	Abicalc.contentPane.repaint();
     	    	Abicalc.contentPane.validate();
->>>>>>> origin/master
     	    }
     	});
         //Sorgt für Aktualisierung des Fachschnitts nach Schließen des JDialogs
