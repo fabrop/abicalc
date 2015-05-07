@@ -5,7 +5,10 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.LinkedList;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -19,6 +22,7 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	
 	String name;
 	LinkedList<Note>  notenliste;
+	double fachSchnitt;
 	
 	public JPanel panel_content = new JPanel();
 	
@@ -32,9 +36,9 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		
 	}
 	
-	public double fachSchnittBerechnen(){		//berechnet den Schnitt eines einzelnen Faches
+	public double fachSchnittBerechnen(){		//Berechnet den Schnitt eines einzelnen Faches
 		double schnitt;
-		double summe = 0;		//summe sind alle Noten mit deren Gewichtungen eingerechnet
+		double summe = 0;		//Summe sind alle Noten mit deren Gewichtungen eingerechnet
 		double sGewichtung = 0;		//Summe der Gewichtungen
 		for(int i = 0; i < notenliste.size(); i++){		//für jede Note wird deren Wert mit ihrer Gewicchtung multipliziert
 			summe = summe + (notenliste.get(i).gewichtung * notenliste.get(i).punkte);
@@ -52,8 +56,12 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		
 		
 		//Label mit Fächernamen
-		JLabel lbl = new JLabel("   "+name);
-		panel.add(lbl);
+		JLabel lbl_n = new JLabel("   "+name);
+		panel.add(lbl_n);
+		
+		//Fächerdurchschnitt
+		JLabel lbl_fd = new JLabel(""+fachSchnittAktualisieren());
+		panel.add(lbl_fd);
 		
 		//Button zum Noten bearbeiten
 		JButton btn = new JButton("Noten bearbeiten...");
@@ -76,6 +84,13 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 		jpnl.add(panel);
 				
 	}
+	
+	public double fachSchnittAktualisieren(){
+		this.fachSchnitt = Abicalc.runden(this.fachSchnittBerechnen());
+		return this.fachSchnitt;
+	}
+	
+	
 	
 	public void openDialog() {
 
@@ -153,11 +168,18 @@ public class Fach extends Component implements java.io.Serializable{//Datenstruk
 	        }
 	    });
         
-        
+        fachJDialog.addWindowListener(new WindowAdapter() {
+    	    public void windowClosed(WindowEvent e) {
+    	    	fachSchnittAktualisieren();
+    	    }
+    	});
         
         main.validate();	//UI wird geupdated
         main.repaint();
         fachJDialog.setVisible(true);		//Dialog wird sichtbar gemacht
 	}
 
+	
+	
+	
 }
