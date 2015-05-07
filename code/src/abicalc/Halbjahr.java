@@ -110,12 +110,12 @@ public class Halbjahr extends Component implements java.io.Serializable {
 
 	public int findeDateiname(int start){
 		int zaehler = start;
-		zaehler = myTitle.indexOf("/" , zaehler + 1);
 		if (myTitle.indexOf("/", zaehler + 1) == -1){
 			return zaehler;
 		}
 		else{
-			zaehler = findeDateiname(zaehler + 1);
+			zaehler = myTitle.indexOf("/" , zaehler);
+			zaehler = findeDateiname(zaehler);
 			return zaehler;
 		}
 		
