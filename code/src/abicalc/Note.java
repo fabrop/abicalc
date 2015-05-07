@@ -32,16 +32,16 @@ public class Note extends Component implements java.io.Serializable {
 		panel.setBackground(Color.LIGHT_GRAY);
 		
 		//Label mit dem Namen der Note
-		JLabel label_n = new JLabel(name+":   ");		
-		panel.add(label_n);
+		JLabel labelName = new JLabel(name+":   ");		
+		panel.add(labelName);
 		
 		//Label mit der Gewichtung der Note
-		JLabel label_g = new JLabel("("+gewichtung+"x)");		
-		panel.add(label_g);
+		JLabel labelGewichtung = new JLabel("("+gewichtung+"x)");		
+		panel.add(labelGewichtung);
 		
 		//Label mit der Punktzahl
-		JLabel label_p = new JLabel(""+punkte+" Punkte");		
-		panel.add(label_p);
+		JLabel labelPunkte = new JLabel(""+punkte+" Punkte");		
+		panel.add(labelPunkte);
 		
 		//UI-Aktualisierung
 		panel.validate();		
