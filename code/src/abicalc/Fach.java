@@ -246,18 +246,18 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         //Input für Notenname
         JTextField txtFachName = new JTextField();			
         txtFachName.setText("Fachname...");
-        txtFachName.setColumns(10);
         panelNameDialog.add(txtFachName);
+        txtFachName.setColumns(10);
         
 		//Note hinzufügen Button
-		JButton buttonPlus = new JButton("Speichern");		
-		panelNameDialog.add(buttonPlus);
+		JButton buttonSpeichern = new JButton("Speichern");		
+		panelNameDialog.add(buttonSpeichern);
         
         
 		 //Code fürs Fachname ändern
-        buttonPlus.addActionListener(new java.awt.event.ActionListener() {		
+		buttonSpeichern.addActionListener(new java.awt.event.ActionListener() {		
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
-	          
+	        	fachNameAktualisieren();
 	        	
 	        }
 	    });
