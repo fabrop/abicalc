@@ -23,28 +23,39 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 	LinkedList<Note>  notenliste;
 	double fachSchnitt;
 	
-	public JPanel panelHaupt = new JPanel();		//Panel mit Noten
+	//Panel mit Noten
+	public JPanel panelHaupt = new JPanel();		
 	
-	public JLabel lbl_fs = new JLabel();		//Label mit Fachschnitt
+	//Label mit Fachschnitt
+	public JLabel lbl_fs = new JLabel();		
 	
-	public Fach(String s, JPanel jpnl){ //Konstruktor
+	
+	public Fach(String s, JPanel jpnl){
 		
 		//Verkette Liste aus Noten und Name des Fachs mithilfe des übergebenen Strings
 		name = s;
 		notenliste = new LinkedList<Note>();		
 		
+		//komplette UI des einzelnen Fachs wird geladen
 		uiLaden(jpnl);
 		
 	}
 	
-	public double fachSchnittBerechnen(){		//Berechnet den Schnitt eines einzelnen Faches
+	public double fachSchnittBerechnen(){		
+		//Berechnet den Schnitt eines einzelnen Faches
+		
 		double schnitt;
-		double summe = 0;		//Summe sind alle Noten mit deren Gewichtungen eingerechnet
-		double sGewichtung = 0;		//Summe der Gewichtungen
-		for(int i = 0; i < notenliste.size(); i++){		//für jede Note wird deren Wert mit ihrer Gewichtung multipliziert
+		//Summe sind alle Noten mit deren Gewichtungen eingerechnet
+		double summe = 0;		
+		//Summe der Gewichtungen
+		double sGewichtung = 0;		
+		
+		//für jede Note wird deren Wert mit ihrer Gewichtung multipliziert
+		for(int i = 0; i < notenliste.size(); i++){		
 			summe = summe + (notenliste.get(i).gewichtung * notenliste.get(i).punkte);
 			sGewichtung = sGewichtung + notenliste.get(i).gewichtung;
 		}
+		//eigentliche Durchschnittsberechnung
 		schnitt = summe / sGewichtung;	
 		return schnitt;
 	}
@@ -54,7 +65,6 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 		JPanel panel = new JPanel();	
 		panel.setBackground(Color.LIGHT_GRAY);
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
-		
 		
 		//Label mit Fächernamen
 		JLabel lbl_n = new JLabel("   "+name);
@@ -87,7 +97,9 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 	}
 	
 	public void fachSchnittAktualisieren(){
+		//Fachschnitt wird berechnet und gerundet
 		this.fachSchnitt = Abicalc.runden(this.fachSchnittBerechnen());
+		//Label wird geupdated
 		this.lbl_fs.setText(String.valueOf(fachSchnitt));
 	}
 	
