@@ -27,13 +27,8 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 	public JPanel panelHaupt = new JPanel();		
 	
 	//Label mit Fachschnitt
-		
+	public JLabel lbl_fs = new JLabel();		
 	
-	//Label mit Fachname
-	
-	
-	//Textfeld zum Fachnamen ändern im JDialog
-	JTextField txtFachname = new JTextField();	
 	
 	public Fach(String s, JPanel jpnl){
 		
@@ -66,50 +61,28 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 	}
 	
 	public void uiLaden(JPanel jpnl){
-		//Panel mit Fachname und Buttons und Layout einer Tabelle mit 1 Zeile
+		//Panel mit Fachname und Button und Layout einer Tabelle mit 1 Zeile
 		JPanel panel = new JPanel();	
 		panel.setBackground(Color.LIGHT_GRAY);
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		//Label mit Fächernamen
-		JLabel labelFachName = new JLabel();
-		labelFachName.setText(""+name);
-		panel.add(labelFachName);
+		JLabel lbl_n = new JLabel("   "+name);
+		panel.add(lbl_n);
 		
 		//Fächerdurchschnitt
-		JLabel labelFachSchnitt = new JLabel();	
 		fachSchnittAktualisieren();
-		panel.add(labelFachSchnitt);
+		panel.add(lbl_fs);
 		
 		//Button zum Noten bearbeiten
-		JButton btnFachname = new JButton("Fachname bearbeiten...");
-		panel.add(btnFachname);
-				
-		//Button-Klick
-		btnFachname.addActionListener(new java.awt.event.ActionListener() {		
+		JButton btn = new JButton("Noten bearbeiten...");
+		btn.setBounds(641, 10, 113, 23);
+		panel.add(btn);
+		
+		btn.addActionListener(new java.awt.event.ActionListener() {		//Code fürs Fach hinzufügen
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
 	          
-	        	//ruft den JDialog zum Bearbeiten des Fachnames auf
-	        	dialogFachnameOeffnen();
-	        	
-	        	//Stellt sicher, dass UI aktualisiert wird
-	        	panel.validate();
-	    		panel.repaint();
-	        }
-	    });
-		
-		
-		
-		//Button zum Noten bearbeiten
-		JButton btnNote = new JButton("Noten bearbeiten...");
-		panel.add(btnNote);
-		
-		//Button-Klick
-		btnNote.addActionListener(new java.awt.event.ActionListener() {		
-	        public void actionPerformed(java.awt.event.ActionEvent e) {
-	          
-	        	//ruft den JDialog zum Bearbeiten der Noten auf
-	        	dialogNoteOeffnen();		
+	        	dialogOeffnen();		//ruft den JDialog zum Bearbeiten der Noten auf
 	        	
 	        	//Stellt sicher, dass UI aktualisiert wird
 	        	panel.validate();
@@ -123,81 +96,33 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 				
 	}
 	
-	
-	
-	//Dialog um den Fachnamen zu ändern
-	public void dialogFachnameOeffnen() {
-		//Pop-up Fenster
-   	 	JDialog fachJDialogName = new JDialog();		
-   	 	fachJDialogName.setTitle(name+": Name bearbeiten");
-   	 	fachJDialogName.setSize(400,200);
-   		fachJDialogName.setModal(true);
-		
-        //Panel, das den kompletten Inhalt enthält
-        JPanel panelDialog = new JPanel();	
-        
-        //Input für Notenname		
-        txtFachname.setText("Neuer Fachname...");
-        txtFachname.setColumns(10);
-        panelDialog.add(txtFachname);
-        //Note hinzufügen Button
-      	JButton buttonSpeichern = new JButton("Speichern");
-      	panelDialog.add(buttonSpeichern);
-        
-      	//Speichern des Namen bei Button-Klick
-      	buttonSpeichern.addActionListener(new java.awt.event.ActionListener() {		
-	        public void actionPerformed(java.awt.event.ActionEvent e) {
-	        	fachNameAktualisieren();
-	        }
-	    });
-      	
-      	
-        //Sorgt für Aktualisierung des Fachschnitts nach Schließen des JDialogs
-      	fachJDialogName.addWindowListener(new WindowAdapter() {
-        	@Override
-    	    public void windowClosed(WindowEvent e) {
-    	    	fachNameAktualisieren();
-    	    }
-    	});
-        
-        //Alles wird zum fenster hinzugefügt
-      	fachJDialogName.add(panelDialog);
-        
-        //UI wird geupdated
-        panelDialog.validate();	
-        panelDialog.repaint();
-        
-        //Dialog wird sichtbar gemacht
-        fachJDialogName.setVisible(true);	
-        
+	public void fachSchnittAktualisieren(){
+		//Fachschnitt wird berechnet und gerundet
+		this.fachSchnitt = Abicalc.runden(this.fachSchnittBerechnen());
+		//Label wird geupdated
+		this.lbl_fs.setText("(Schnitt: "+String.valueOf(fachSchnitt)+" Punkte)");
 	}
 	
 	
-	public void fachNameAktualisieren(){
-		//Fachname wird mit String aus JDialog aktualisiert
-		this.name=txtFachname.getText();
-	}
 	
-	//Dialog um Noten zu bearbeiten
-	public void dialogNoteOeffnen() {
+	public void dialogOeffnen() {
 		
 		//Pop-up Fenster
-   	 	JDialog fachJDialogNote = new JDialog();		
-   	 	fachJDialogNote.setTitle(name+":Noten bearbeiten");
-   	 	fachJDialogNote.setSize(500,400);
-   	 	fachJDialogNote.setModal(true);
+   	 	JDialog fachJDialog = new JDialog();		
+        fachJDialog.setTitle(name+" bearbeiten");
+        fachJDialog.setSize(500,400);
+        fachJDialog.setModal(true);
         
         //Panel, das den kompletten Inhalt enthält
         JPanel panelDialog = new JPanel();		
         panelDialog.setLayout(new BorderLayout(5, 5));
-        fachJDialogNote.add(panelDialog);
+        fachJDialog.add(panelDialog);
         panelDialog.setBackground(Color.LIGHT_GRAY);
         
         //Panel mit Titel-Label
         JPanel panelTitel = new JPanel();		
-        JLabel titel = new JLabel(name+"     ");
+        JLabel titel = new JLabel(name+"                  ");
         panelTitel.add(titel);
-        
         JPanel panelHinzufuegen = new JPanel();
         
         //Input für Notenname
@@ -210,17 +135,16 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         txtNote.setText("Punktzahl");
         panelHinzufuegen.add(txtNote);
 		txtNote.setColumns(7);
-		//Input für Gewichtung
 		JTextField txtGewichtung = new JTextField();			
+		//Input für Gewichtung
         txtGewichtung.setText("Gewichtung");
         panelHinzufuegen.add(txtGewichtung);
 		txtGewichtung.setColumns(7);
+		JButton buttonPlus = new JButton("+");		
 		//Note hinzufügen Button
-		JButton buttonPlus = new JButton("+");
 		panelHinzufuegen.add(buttonPlus);
 		JPanel panelOben = new JPanel();
 		panelOben.add(panelTitel);
-		
 		panelOben.add(panelHinzufuegen);
 		
 		//Label, Textfelder und Button werden zum oberen Teil des Dialogs hinzugefügt
@@ -238,7 +162,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         panelNoten.add(scrollPane);
         
         //sorgt für vertikale Anordnung der Elemente
-        GridLayout gl = new GridLayout(0, 1, 0, 10);
+        GridLayout gl = new GridLayout(0, 1, 0, 10);	
         panelHaupt.setLayout(gl);
 		
         //UI-Aktualisierung
@@ -264,7 +188,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 	    });
         
         //Sorgt für Aktualisierung des Fachschnitts nach Schließen des JDialogs
-        fachJDialogNote.addWindowListener(new WindowAdapter() {
+        fachJDialog.addWindowListener(new WindowAdapter() {
         	@Override
     	    public void windowClosed(WindowEvent e) {
     	    	fachSchnittAktualisieren();
@@ -276,16 +200,10 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         panelDialog.repaint();
         
         //Dialog wird sichtbar gemacht
-        fachJDialogNote.setVisible(true);		
+        fachJDialog.setVisible(true);		
 	}
 
-	//Updated die UI mit aktuellem Fachschnitt
-		public void fachSchnittAktualisieren(){
-			//Fachschnitt wird berechnet und gerundet
-			this.fachSchnitt = Abicalc.runden(this.fachSchnittBerechnen());
-			//Label wird geupdated
-			//this.fachJDialog.labelFachSchnitt.setText("(Schnitt: "+String.valueOf(fachSchnitt)+" Punkte)");
-		}
+	
 	
 	
 }
