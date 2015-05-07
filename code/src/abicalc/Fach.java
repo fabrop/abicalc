@@ -150,14 +150,14 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
 		JTextField txtNote = new JTextField();			
         txtNote.setText("Punktzahl");
         panelHinzufuegen.add(txtNote);
-		txtNote.setColumns(7);
-		JTextField txtGewichtung = new JTextField();			
+		txtNote.setColumns(7);			
 		//Input für Gewichtung
+		JTextField txtGewichtung = new JTextField();
         txtGewichtung.setText("Gewichtung");
         panelHinzufuegen.add(txtGewichtung);
 		txtGewichtung.setColumns(7);
-		JButton buttonPlus = new JButton("+");		
 		//Note hinzufügen Button
+		JButton buttonPlus = new JButton("+");		
 		panelHinzufuegen.add(buttonPlus);
 		JPanel panelOben = new JPanel();
 		panelOben.add(panelTitel);
@@ -243,8 +243,45 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         panelNameDialog.setLayout(new BorderLayout(5, 5));
         nameJDialog.add(panelNameDialog);
         
+        //Input für Notenname
+        JTextField txtFachName = new JTextField();			
+        txtFachName.setText("Fachname...");
+        txtFachName.setColumns(10);
+        panelNameDialog.add(txtFachName);
+        
+		//Note hinzufügen Button
+		JButton buttonPlus = new JButton("Speichern");		
+		panelNameDialog.add(buttonPlus);
         
         
+		 //Code fürs Fachname ändern
+        buttonPlus.addActionListener(new java.awt.event.ActionListener() {		
+	        public void actionPerformed(java.awt.event.ActionEvent e) {
+	          
+	        	
+	        }
+	    });
+        
+        //Sorgt für Aktualisierung des Fachschnitts nach Schließen des JDialogs
+        nameJDialog.addWindowListener(new WindowAdapter() {
+        	@Override
+    	    public void windowClosed(WindowEvent e) {
+    	    	fachNameAktualisieren();
+    	    	Abicalc.contentPane.repaint();
+    	    	Abicalc.contentPane.validate();
+    	    }
+    	});
+        //Sorgt für Aktualisierung des Fachschnitts nach Schließen des JDialogs
+        nameJDialog.addWindowListener(new WindowAdapter() {
+        	@Override
+    	    public void windowClosing(WindowEvent e) {
+    	    	fachNameAktualisieren();
+    	    	Abicalc.contentPane.repaint();
+    	    	Abicalc.contentPane.validate();
+    	    }
+
+			
+    	});
         
         
         //UI wird geupdated
@@ -254,6 +291,11 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         //Dialog wird sichtbar gemacht
         nameJDialog.setVisible(true);
         
+	}
+	
+	public void fachNameAktualisieren() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
