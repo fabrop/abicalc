@@ -22,8 +22,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	String verzeichnis = Halbjahr.class.getProtectionDomain().getCodeSource().getLocation().getPath(); //In Ahnlehnung an Internetquelle http://stackoverflow.com/questions/320542/how-to-get-the-path-of-a-running-jar-file
-	int zaehler = verzeichnis.indexOf("/");
-	String myTitle = verzeichnis.substring(0, verzeichnis.length() -11);
+	String myTitle = "titel"; 
 	JTextField txt_Fachname;
 	JPanel panel_Faecher = new JPanel();
 	
@@ -95,6 +94,9 @@ public class Halbjahr extends Component implements java.io.Serializable {
 		panel.repaint();
 		panel.validate();
 		
+		int zahl = findeDateiname(0);
+		myTitle = verzeichnis.substring(0, verzeichnis.length() - zahl);
+		
 		if(ueberpruefen() == false){ //falls es der erste Aufruf ist, wird die Linked List generiert und eine Datei zum Vermerken des ersten Aufrufs angelegt
 			ordnerAnlegen("data"); //Ein Ordner für die verschiedenen Daten des Programms wird erstellt
 			faecherliste = new LinkedList<Fach>(); // die Liste für die einzelnen Fächer des Halbjahrs
@@ -106,10 +108,23 @@ public class Halbjahr extends Component implements java.io.Serializable {
 		
 	}
 
+	public int findeDateiname(int start){
+		int zaehler = start;
+		zaehler = myTitle.indexOf("/" , zaehler + 1);
+		if (myTitle.indexOf("/", zaehler + 1) == -1){
+			return zaehler;
+		}
+		else{
+			zaehler = findeDateiname(zaehler + 1);
+			return zaehler;
+		}
+		
+	}
+	
 	public void save(){ // Methode, die die Linked List faecherliste in eine Datei abspeichert
 		FileOutputStream speichern;
 		File datei;
-		File ordner  = new File(verzeichnis + "/data/");
+		File ordner  = new File(myTitle + "/data/");
 		try {
 			if(!ordner.exists()) ordnerAnlegen("data");
 			datei = new File(myTitle + "/data/" + halbjahrName + ".ser"); //Datei mit angegen´benem Verzeichnis wird erstellt
