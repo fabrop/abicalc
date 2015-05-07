@@ -95,7 +95,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 		panel.validate();
 		
 		int zahl = findeDateiname(0);
-		myTitle = verzeichnis.substring(0, verzeichnis.length() - zahl);
+		myTitle = verzeichnis.substring(0, zahl);
 		
 		if(ueberpruefen() == false){ //falls es der erste Aufruf ist, wird die Linked List generiert und eine Datei zum Vermerken des ersten Aufrufs angelegt
 			ordnerAnlegen("data"); //Ein Ordner für die verschiedenen Daten des Programms wird erstellt
@@ -110,11 +110,11 @@ public class Halbjahr extends Component implements java.io.Serializable {
 
 	public int findeDateiname(int start){
 		int zaehler = start;
-		if (myTitle.indexOf("/", zaehler + 1) == -1){
+		if (verzeichnis.indexOf("/", zaehler + 1) == -1){
 			return zaehler;
 		}
 		else{
-			zaehler = myTitle.indexOf("/" , zaehler + 1);
+			zaehler = verzeichnis.indexOf("/" , zaehler + 1);
 			zaehler = findeDateiname(zaehler);
 			return zaehler;
 		}
