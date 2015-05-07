@@ -114,7 +114,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 			return zaehler;
 		}
 		else{
-			zaehler = myTitle.indexOf("/" , zaehler);
+			zaehler = myTitle.indexOf("/" , zaehler + 1);
 			zaehler = findeDateiname(zaehler);
 			return zaehler;
 		}

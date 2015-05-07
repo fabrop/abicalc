@@ -202,7 +202,7 @@ public class Abicalc extends JFrame{
 				try {
 					Abicalc myframe = new Abicalc();
 					myframe.setVisible(true);
-					myframe.setTitle("" + halbjahre[1].myTitle);
+					myframe.setTitle("" + halbjahre[1].findeDateiname(0));
 					vermerken();
 				} catch (Exception e) {
 					e.printStackTrace();
