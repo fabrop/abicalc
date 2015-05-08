@@ -1,7 +1,5 @@
-- Einstellungen Button löschen
-- Noten bearbeiten
-
-
+- Einstellungen Button?
+- Speichern Button?
 
 Eventuell:
 - Kurse
