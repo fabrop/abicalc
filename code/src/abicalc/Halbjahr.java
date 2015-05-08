@@ -108,14 +108,19 @@ public class Halbjahr extends Component implements java.io.Serializable {
 		
 	}
 
+	//Methode, die rekursiv den letzten Slash in einem String findet, und die Indexnummer davon ausgibt
 	public int findeDateiname(int start){
+		//Startpunkt, ab dem die Methode den nächsten Slash sucht
 		int zaehler = start;
+		//Verzweigung, in der geprüft wird, ob noch ein Slash folgt, wenn ja wird die Methode nochmals aufgerufen
 		if (verzeichnis.indexOf("/", zaehler + 1) == -1){
+			//Die Indexnummer des letzten slash wird returned
 			return zaehler;
 		}
 		else{
 			zaehler = verzeichnis.indexOf("/" , zaehler + 1);
 			zaehler = findeDateiname(zaehler);
+			//Die Indexnummer des letzten Slash ird übergeben
 			return zaehler;
 		}
 		
