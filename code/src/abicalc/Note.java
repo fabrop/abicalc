@@ -160,7 +160,7 @@ public class Note extends Component implements java.io.Serializable {
 	//Labels werden neue Werte zuegewiesen
 	public void uiAktualiseren(){
 		labelName.setText(""+name);
-		labelPunkte.setText("("+Abicalc.runden(gewichtung)+"x)");
+		labelGewichtung.setText("("+Abicalc.runden(gewichtung)+"x)");
 		labelPunkte.setText(punkte+" Punkte");
 		
 		Note.this.validate();
