@@ -165,5 +165,6 @@ public class Note extends Component implements java.io.Serializable {
 		
 		Note.this.validate();
 		Note.this.repaint();
+		Abicalc.setzeGesamtSchnitt(Abicalc.getGesamtSchnitt(), Abicalc.punkteZuNote(Abicalc.getGesamtSchnitt()));
 	}
 }
