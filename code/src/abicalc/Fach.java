@@ -251,7 +251,7 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         JPanel panelNameDialog = new JPanel();		
         nameJDialog.add(panelNameDialog);
         
-        //Input für Notenname
+        //Input für Fachname
         JTextField txtFachName = new JTextField();			
         txtFachName.setText("Fachname...");
         panelNameDialog.add(txtFachName);
