@@ -2,6 +2,5 @@
 - Speichern Button?
 
 Eventuell:
-- Kurse
-- Haupt/Nebenfächer
-
+- Fach: anrechnen Pflicht
+- Gesamtschnitt neu schreiben 
