@@ -90,17 +90,20 @@ public class Note extends Component implements java.io.Serializable {
         
         //Input für Notenname
         JTextField txtNotenName = new JTextField();			
-        txtNotenName.setText("Notenname...");
+        txtNotenName.setText(""+this.name);
+        txtNotenName.setToolTipText("Notenname...");
         panelNameDialog.add(txtNotenName);
         txtNotenName.setColumns(10);
         //Input für Notenname
         JTextField txtNotenPunkte = new JTextField();			
-        txtNotenPunkte.setText("Notenpunkte...");
+        txtNotenPunkte.setText(""+this.punkte);
+        txtNotenPunkte.setToolTipText("Notenpunkte...");
         panelNameDialog.add(txtNotenPunkte);
         txtNotenPunkte.setColumns(10);
         //Input für Notenname
         JTextField txtNotenGewichtung = new JTextField();			
-        txtNotenGewichtung.setText("Notengewichtung...");
+        txtNotenGewichtung.setText(""+this.gewichtung);
+        txtNotenGewichtung.setToolTipText("Gewichtung...");
         panelNameDialog.add(txtNotenGewichtung);
         txtNotenGewichtung.setColumns(10);
         
