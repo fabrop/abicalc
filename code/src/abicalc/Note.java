@@ -107,9 +107,7 @@ public class Note extends Component implements java.io.Serializable {
         panelNameDialog.add(txtNotenGewichtung);
         txtNotenGewichtung.setColumns(10);
         
-        
-        
-      //Button zum Speichern
+        //Button zum Speichern
       		JButton btnSpeichern = new JButton("Speichern");		
       		panelNameDialog.add(btnSpeichern);
       		
@@ -133,8 +131,6 @@ public class Note extends Component implements java.io.Serializable {
     	    public void windowClosing(WindowEvent e) {
         		noteSpeichern(txtNotenName.getText(), Integer.parseInt(txtNotenPunkte.getText()), Double.parseDouble(txtNotenGewichtung.getText()));
     	    }
-
-			
     	});
         
 		//Inhalt wird zum Dialog hinzugefügt

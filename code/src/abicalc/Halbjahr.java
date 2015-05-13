@@ -97,7 +97,7 @@ public class Halbjahr extends Component implements java.io.Serializable {
 		int zahl = findeDateiname(0);
 		myTitle = verzeichnis.substring(0, zahl);
 		
-		if(ueberpruefen() == false){ //falls es der erste Aufruf ist, wird die Linked List generiert und eine Datei zum Vermerken des ersten Aufrufs angelegt
+		if(!ueberpruefen()){ //falls es der erste Aufruf ist, wird die Linked List generiert und eine Datei zum Vermerken des ersten Aufrufs angelegt
 			ordnerAnlegen("data"); //Ein Ordner für die verschiedenen Daten des Programms wird erstellt
 			faecherliste = new LinkedList<Fach>(); // die Liste für die einzelnen Fächer des Halbjahrs
 			save(); //Die Liste wird gespeichert
