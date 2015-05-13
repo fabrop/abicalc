@@ -115,7 +115,7 @@ public class Note extends Component implements java.io.Serializable {
       		
       		btnSpeichern.addActionListener(new java.awt.event.ActionListener() {		
       	        public void actionPerformed(java.awt.event.ActionEvent e) {
-      	        	Note.this.noteSpeichern(txtNotenName.getText(), Integer.parseInt(txtNotenPunkte.getText()), Double.parseDouble(txtNotenGewichtung.getText()));		
+      	        	noteSpeichern(txtNotenName.getText(), Integer.parseInt(txtNotenPunkte.getText()), Double.parseDouble(txtNotenGewichtung.getText()));		
       	        	
       	        }
       	    });
@@ -124,14 +124,14 @@ public class Note extends Component implements java.io.Serializable {
 		noteJDialog.addWindowListener(new WindowAdapter() {
         	@Override
     	    public void windowClosed(WindowEvent e) {
-        		Note.this.noteSpeichern(txtNotenName.getText(), Integer.parseInt(txtNotenPunkte.getText()), Double.parseDouble(txtNotenGewichtung.getText()));
+        		noteSpeichern(txtNotenName.getText(), Integer.parseInt(txtNotenPunkte.getText()), Double.parseDouble(txtNotenGewichtung.getText()));
     	    }
     	});
         //Sorgt für Aktualisierung des fachnames beim Schließen des JDialogs
 		noteJDialog.addWindowListener(new WindowAdapter() {
         	@Override
     	    public void windowClosing(WindowEvent e) {
-        		Note.this.noteSpeichern(txtNotenName.getText(), Integer.parseInt(txtNotenPunkte.getText()), Double.parseDouble(txtNotenGewichtung.getText()));
+        		noteSpeichern(txtNotenName.getText(), Integer.parseInt(txtNotenPunkte.getText()), Double.parseDouble(txtNotenGewichtung.getText()));
     	    }
 
 			
@@ -156,8 +156,8 @@ public class Note extends Component implements java.io.Serializable {
 
 		uiAktualiseren();
 		
-		Note.this.validate();	
-		Note.this.repaint();
+		validate();	
+		repaint();
 	}
 	
 	//Labels werden neue Werte zuegewiesen
@@ -166,8 +166,8 @@ public class Note extends Component implements java.io.Serializable {
 		labelGewichtung.setText("("+Abicalc.runden(gewichtung)+"x)");
 		labelPunkte.setText(punkte+" Punkte");
 		
-		Note.this.validate();
-		Note.this.repaint();
+		validate();
+		repaint();
 		Abicalc.setzeGesamtSchnitt(Abicalc.getGesamtSchnitt(), Abicalc.punkteZuNote(Abicalc.getGesamtSchnitt()));
 		for(int i = 0; i < 5; i++){
 			for(int o = 0; o < Abicalc.halbjahre[i].faecherliste.size(); i++){
