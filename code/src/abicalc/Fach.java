@@ -199,7 +199,6 @@ public class Fach extends Component implements java.io.Serializable{		//Datenstr
         //Code fürs Noten hinzufügen
         buttonPlus.addActionListener(new java.awt.event.ActionListener() {		
 	        public void actionPerformed(java.awt.event.ActionEvent e) {
-	          
 	        	//Note wird mithilfe der Daten aus den Textfeldern erzeugt
 	        	Note n = new Note(Double.parseDouble(txtGewichtung.getText()), txtName.getText(), Integer.parseInt(txtNote.getText()), panelHaupt);	
 	        	//Note wird zur LinkedList hinzugefügt

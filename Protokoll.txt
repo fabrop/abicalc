@@ -14,3 +14,5 @@
 05.05.2015 - Runden, Anzeige Gesamtschnitt, Fehlerbehebungen, Fachschnittberechnung inklusive Gewichtung
 06.05.2015 - (De-)Serialisierung Fehlerbehebung, allgemeine Verbesserungen und Optimierungen, Laden der gespeicherten Dateien automatisiert
 07.05.2015 - Dateispeichern auch als .jar, Fachname bearbeiten, Fachdurchschnitt in der Übersicht, Noten bearbeiten
+12.05.2015 - Werte im Noten-bearbeiten Dialog laden
+13.05.2015 - Code-Verbesserungen zur Lesbarkeit

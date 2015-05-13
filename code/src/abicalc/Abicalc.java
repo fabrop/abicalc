@@ -133,8 +133,6 @@ public class Abicalc extends JFrame{
 		lbl_Punkte.setFont(new Font("Tahoma", Font.PLAIN, 28));
 		lbl_Punkte.setBounds(198, 11, 350, 22);
 		panel_unten.add(lbl_Punkte);
-			
-		
 	}
 	
 	
@@ -148,7 +146,6 @@ public class Abicalc extends JFrame{
 		//solange das aktuelle Halbjahr nicht leer ist, werden Schnitte addiert und die Halbjahre mitgezählt
 		for(int i = 0; i < halbjahre.length; i++){
 			if(!halbjahre[i].faecherliste.isEmpty()){
-				
 				aktiveHJs++;
 				hjSumme = hjSumme + halbjahre[i].getHJSchnitt();
 			}
